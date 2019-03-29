@@ -13,6 +13,8 @@ import { UsuarioService } from './Usuario.service';
 
 
 
+
+
 @NgModule({
    
     imports: [
@@ -24,7 +26,8 @@ import { UsuarioService } from './Usuario.service';
     ],
     declarations: [UsuarioslistComponent, UsuarioDetailComponent],
     
-providers: [
-    UsuarioslistComponent,UsuarioService],
+
+
+providers: [UsuarioService],
 })
 export class UsuarioModule { }

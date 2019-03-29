@@ -1,11 +1,13 @@
 
+
 import { Injectable } from '@angular/core';
 import {  HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Usuario } from './usuario';
-
-const API_URL = "../../assets/";
-const usuarios = '/usuarios.json';
+import { Usuario } from './Usuario';
+//import { UsuarioDetail } from './UsuarioDetail';
+import { environment } from '../../environments/environment';
+const API_URL = environment.apiURL;
+const usuarios = '/usuarios';
 
 @Injectable()
 export class UsuarioService {

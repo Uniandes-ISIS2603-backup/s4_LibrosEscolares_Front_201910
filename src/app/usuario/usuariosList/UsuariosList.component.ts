@@ -1,7 +1,7 @@
 import { UsuarioService } from './../Usuario.service';
 
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from './../usuario';
+import { Usuario } from '../Usuario';
 
 /**
  * Este es el componente para la lista de los usuarios
@@ -28,7 +28,7 @@ export class UsuarioslistComponent implements OnInit {
      * Le pide al servicio todos los usuarios
      */
     getUsuarios(): void{
-        this.UsuarioService.getUsuarios().subscribe(usuarios => this.usuarios = usuarios);
+        this.UsuarioService.getUsuarios().subscribe(usuarios =>{ this.usuarios = usuarios});
     }
 
     /**

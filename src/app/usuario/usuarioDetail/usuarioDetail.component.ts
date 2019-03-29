@@ -1,4 +1,6 @@
 import { Usuario } from './../usuario';
+//import { UsuarioDetail } from './../UsuarioDetail';
+
 import { UsuarioService } from './../Usuario.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -16,17 +18,18 @@ import { ActivatedRoute } from '@angular/router';
     {
     }
     usuario_id: number;
-    usuarios: Usuario
+    usuario: Usuario;
     ngOnInit(){
         this.usuario_id = + this.route.snapshot.paramMap.get('id');
+        //this.usuario = new Usuario();
         this.getUsuario();
     
-    }
+    }   
     /**
      * Le pide al servicio el usuario
      */
     getUsuario(): void{
-        this.UsuarioService.getUsuarioDetail(this.usuario_id).subscribe(usuarios => this.usuarios = usuarios);
+        this.UsuarioService.getUsuarioDetail(this.usuario_id).subscribe(Usuario => this.usuario = Usuario);
     }
 
     }
