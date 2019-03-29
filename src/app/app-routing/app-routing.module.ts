@@ -1,3 +1,4 @@
+import { UsuarioslistComponent } from './../usuario/usuariosList/UsuariosList.component';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
@@ -36,10 +37,15 @@ const routes: Routes = [
     {
         path: 'home',
         component: AuthLoginComponent
+        //component: UsuarioslistComponent
     },
+  //  {
+   //     path: '**',
+     //   redirectTo: 'home',
+    //},
     {
-        path: '**',
-        redirectTo: 'home',
+        path: 'usuariosList',
+        component: UsuarioslistComponent
     }
 ];
 

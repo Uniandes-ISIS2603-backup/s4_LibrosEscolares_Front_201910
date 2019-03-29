@@ -1,3 +1,4 @@
+import { UsuarioslistComponent } from './usuario/usuariosList/UsuariosList.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
@@ -13,6 +14,7 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
+import { UsuarioModule } from './usuario/Usuario.module';
 
 
 
@@ -25,7 +27,9 @@ import {AuthModule} from './auth/auth.module';
     ],
     imports: [
         BrowserModule,
+        UsuarioModule,
         AppRoutingModule,
+        UsuarioModule,
         HttpClientModule,
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),

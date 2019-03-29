@@ -1,0 +1,17 @@
+
+<div class = "container-fluid">
+    <div class="col">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre del Usuario</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let ususario of usuarios">
+                    <td>{{ususario.name}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
