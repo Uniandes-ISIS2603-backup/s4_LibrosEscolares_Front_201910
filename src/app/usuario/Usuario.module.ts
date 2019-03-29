@@ -1,3 +1,4 @@
+import { UsuarioDetailComponent } from './usuarioDetail/usuarioDetail.component';
 import { FormsModule } from '@angular/forms';
 
 import { NgModule } from '@angular/core';
@@ -21,7 +22,7 @@ import { UsuarioService } from './Usuario.service';
         CommonModule,
         FormsModule
     ],
-    declarations: [UsuarioslistComponent],
+    declarations: [UsuarioslistComponent, UsuarioDetailComponent],
     
 providers: [
     UsuarioslistComponent,UsuarioService],

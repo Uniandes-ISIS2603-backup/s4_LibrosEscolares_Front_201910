@@ -24,4 +24,8 @@ export class UsuarioService {
     {
         return this.http.get<Usuario[]>(API_URL + usuarios);
     }
+
+    getUsuarioDetail(usuarioId): Observable<Usuario> {
+        return this.http.get<Usuario>(API_URL + usuarios + '/' + usuarioId);
+    }
 }

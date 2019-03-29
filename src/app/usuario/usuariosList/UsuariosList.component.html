@@ -9,7 +9,9 @@
             </thead>
             <tbody>
                 <tr *ngFor = "let ususario of usuarios">
-                    <td>{{ususario.name}}</td>
+                    <td style="cursor: pointer;">
+                        <dd class="figure-caption" routerLink="/usuarios/{{ususario.id}}">{{ususario.name}}</dd>
+                    </td>
                 </tr>
             </tbody>
         </table>
