@@ -1,17 +1,19 @@
-<div class="container-fluid">
-    <div class="col-md-2">
+
+<div class = "container-fluid">
+    <div class="col">
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
-                    <th>Editorial Name</th>    
+                    <th>Titulo</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let editorial of editorials">
-                    <td>{{editorial.name}}</td>
-                  
+                <tr *ngFor = "let libro of libros">
+                    <td style="cursor: pointer;">
+                        <dd class="figure-caption" routerLink="/usuarios/{{libro.id}}">{{libro.titulo}}</dd>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
-
+</div>

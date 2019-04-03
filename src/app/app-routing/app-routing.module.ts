@@ -1,5 +1,7 @@
 import { UsuarioDetailComponent } from './../usuario/usuarioDetail/usuarioDetail.component';
 import { UsuarioslistComponent } from './../usuario/usuariosList/UsuariosList.component';
+import { LibroDetailComponent } from './../libros/libroDetail/libroDetail.component';
+import { LibroListComponent } from './../libros/libro-list/libro-list.component';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
@@ -55,7 +57,22 @@ const routes: Routes = [
                 component: UsuarioDetailComponent
             }
         ]
+    },
+   
+    {
+        path: 'libros',
+        children: [
+            {
+                path: '-list',
+                component: LibroListComponent
+            },
+            {
+                path: ':id',
+                component: LibroDetailComponent
+            }
+        ]
     }
+    
 
 ];
 

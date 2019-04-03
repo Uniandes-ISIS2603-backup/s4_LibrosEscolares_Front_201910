@@ -1,4 +1,5 @@
 import { UsuarioslistComponent } from './usuario/usuariosList/UsuariosList.component';
+import { LibroListComponent } from './libros/libro-list/libro-list.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
@@ -15,7 +16,7 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
 import { UsuarioModule } from './usuario/Usuario.module';
-
+import { libroModule } from './libros/libros.module';
 
 
 
@@ -28,6 +29,7 @@ import { UsuarioModule } from './usuario/Usuario.module';
     imports: [
         BrowserModule,
         UsuarioModule,
+        libroModule,
         AppRoutingModule,
         UsuarioModule,
         HttpClientModule,

@@ -23,4 +23,8 @@ export class LibroService {
         return this.http.get<Libro[]>(API_URL + Libros);
     }
     
+     getLibroDetail(libroId): Observable<Libro> {
+        return this.http.get<Libro>(API_URL + Libros + '/' + libroId);
+    }
+    
 }
