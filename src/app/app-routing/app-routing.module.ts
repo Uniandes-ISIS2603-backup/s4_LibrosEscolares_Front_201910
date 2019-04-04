@@ -1,3 +1,4 @@
+import { UsuariocrearComponent } from './../usuario/usuarioCrear/usuarioCrear.component';
 import { UsuarioDetailComponent } from './../usuario/usuarioDetail/usuarioDetail.component';
 import { UsuarioslistComponent } from './../usuario/usuariosList/UsuariosList.component';
 import { LibroDetailComponent } from './../libros/libroDetail/libroDetail.component';
@@ -53,9 +54,15 @@ const routes: Routes = [
                 component: UsuarioslistComponent
             },
             {
+                path: 'add',
+                component: UsuariocrearComponent,
+                runGuardsAndResolvers: 'always'
+            },
+            {
                 path: ':id',
                 component: UsuarioDetailComponent
             }
+           
         ]
     },
    

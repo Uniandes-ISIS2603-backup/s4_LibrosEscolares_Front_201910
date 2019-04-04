@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br>
+        <h2 class="text-center">Crear un usuario</h2>
+        <br>
+        <form name="usuario" (ngSubmit)="f.form.valid && createUsuario()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="Nombre usuario"><b>Nombre</b></label>
+                <input type="text" name="usuarioName" class="form-control" id="usuarioName" [(ngModel)]="usuario.nombreUsuario"
+                    #usuarioName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && usuarioName.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el nombre del usuario</div>
+                </div>
+
+
+                <label for="Correo usuario"><b>Correo</b></label>
+                <input type="text" name="correoUsuario" class="form-control" id="correoUsuario" [(ngModel)]="usuario.correo"
+                    #correoUsuario="ngModel" [ngClass]="{ 'is-invalid': f.submitted && correoUsuario.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el correo del usuario</div>
+                </div>
+            </div>
+
+
+            
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>

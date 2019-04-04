@@ -1,3 +1,4 @@
+import { UsuariocrearComponent } from './usuarioCrear/usuarioCrear.component';
 import { UsuarioDetailComponent } from './usuarioDetail/usuarioDetail.component';
 import { FormsModule } from '@angular/forms';
 
@@ -15,6 +16,9 @@ import { UsuarioService } from './Usuario.service';
 
 
 
+
+
+
 @NgModule({
    
     imports: [
@@ -24,10 +28,13 @@ import { UsuarioService } from './Usuario.service';
         CommonModule,
         FormsModule
     ],
-    declarations: [UsuarioslistComponent, UsuarioDetailComponent],
+    
+ declarations: [UsuariocrearComponent,UsuarioslistComponent, UsuarioDetailComponent],
     
 
 
-providers: [UsuarioService],
+
+providers: [
+    UsuariocrearComponent,UsuarioService],
 })
 export class UsuarioModule { }

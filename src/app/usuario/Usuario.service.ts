@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import {  HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Usuario } from './Usuario';
-//import { UsuarioDetail } from './UsuarioDetail';
+import { UsuarioDetail } from './UsuarioDetail';
 import { environment } from '../../environments/environment';
 const API_URL = environment.apiURL;
 const usuarios = '/usuarios';
@@ -27,7 +27,16 @@ export class UsuarioService {
         return this.http.get<Usuario[]>(API_URL + usuarios);
     }
 
-    getUsuarioDetail(usuarioId): Observable<Usuario> {
+    getUsuarioDetail(usuarioId): Observable<UsuarioDetail> {
         return this.http.get<Usuario>(API_URL + usuarios + '/' + usuarioId);
     }
+
+     /**
+    * Crea un usuario
+    * @param editorial El usuario que sera crado
+    * @returns La confirmacion de la creacion
+    */
+   createUsuario(usuario): Observable<UsuarioDetail> {
+    return this.http.post<UsuarioDetail>(API_URL + usuarios, usuario);
+}
 }

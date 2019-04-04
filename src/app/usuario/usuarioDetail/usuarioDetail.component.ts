@@ -1,9 +1,10 @@
-import { Usuario } from './../usuario';
-//import { UsuarioDetail } from './../UsuarioDetail';
+
+
 
 import { UsuarioService } from './../Usuario.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { UsuarioDetail } from '../UsuarioDetail';
 
     @Component({
     selector: 'usuarioDetail-component',
@@ -18,7 +19,7 @@ import { ActivatedRoute } from '@angular/router';
     {
     }
     usuario_id: number;
-    usuario: Usuario;
+    usuario: UsuarioDetail;
     ngOnInit(){
         this.usuario_id = + this.route.snapshot.paramMap.get('id');
         //this.usuario = new Usuario();
