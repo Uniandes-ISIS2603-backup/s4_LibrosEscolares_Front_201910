@@ -1,3 +1,4 @@
+import { LibroDetailComponent } from './libroDetail/libroDetail.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LibroListComponent } from './libro-list/libro-list.component';
@@ -9,7 +10,7 @@ import { FormsModule } from '@angular/forms';
         CommonModule,
         FormsModule
     ],
-    declarations: [ LibroListComponent],
+    declarations: [ LibroListComponent,LibroDetailComponent],
     providers: [LibroService],
     exports:[LibroListComponent]
 })

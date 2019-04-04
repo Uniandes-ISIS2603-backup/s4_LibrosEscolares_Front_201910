@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Libro } from '../Libro';
-import { LibroService } from '../Libro.service';
+import { LibroService } from '../libro.service';
 
 /**
  * The component for the list of Libros in the BookStore
  */
 @Component({
     selector: 'list-Libro',
-    templateUrl: './Libro-list.component.html', 
+    templateUrl: './libro-list.component.html', 
 })
 export class LibroListComponent implements OnInit {
 
