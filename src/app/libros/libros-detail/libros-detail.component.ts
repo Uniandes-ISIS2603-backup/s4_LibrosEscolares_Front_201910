@@ -1,17 +1,18 @@
-import { Libro } from './../Libro';
+import { Libro } from './../libro';
 
-import { LibroService } from './../libro.service';
+import { LibrosService } from './../libros.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
     @Component({
-    selector: 'libroDetail-component',
-    templateUrl: './libroDetail.component.html'
-    })
-    export class LibroDetailComponent implements OnInit {
+  selector: 'app-libros-detail',
+  templateUrl: './libros-detail.component.html',
+  styleUrls: ['./libros-detail.component.css']
+})
+    export class LibrosDetailComponent implements OnInit {
     
     constructor(
-        private libroService: LibroService,
+        private librosService: LibrosService,
         private route: ActivatedRoute
     )
     {
@@ -27,7 +28,7 @@ import { ActivatedRoute } from '@angular/router';
      * Le pide al servicio el libro
      */
     getLibro(): void{
-        //this.libroService.getLibroDetail(this.libro_id).subscribe(Libro => this.libro = Libro);
+        this.librosService.getLibrosDetail(this.libro_id).subscribe(Libro => this.libro = Libro);
     }
 
     }

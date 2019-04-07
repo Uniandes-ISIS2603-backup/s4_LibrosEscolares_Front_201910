@@ -1,17 +1,22 @@
-import { LibroDetailComponent } from './libroDetail/libroDetail.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LibroListComponent } from './libro-list/libro-list.component';
-import { LibroService } from './libro.service';
+import { LibrosListComponent } from './libros-list/libros-list.component';
+import { LibrosDetailComponent } from './libros-detail/libros-detail.component';
+import { LibrosService } from './libros.service';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-    imports: [       
-        CommonModule,
-        FormsModule
-    ],
-    declarations: [ LibroListComponent,LibroDetailComponent],
-    providers: [LibroService],
-    exports:[LibroListComponent]
+  imports: [
+    CommonModule,
+     FormsModule
+  ],
+  declarations: [LibrosListComponent, LibrosDetailComponent],
+  providers: [LibrosService],
+ exports:[LibrosListComponent]
 })
-export class libroModule {}
+export class LibrosModule { }
+
+
+
+
+

@@ -10,7 +10,7 @@ const Libros = '/libros';
 * The service provider for everything related to Libros
 */
 @Injectable()
-export class LibroService {
+export class LibrosService {
     
     /**
     * Constructor of the service
@@ -23,8 +23,10 @@ export class LibroService {
         return this.http.get<Libro[]>(API_URL + Libros);
     }
     
-     getLibroDetail(libroId): Observable<Libro> {
+     getLibrosDetail(libroId): Observable<Libro> {
         return this.http.get<Libro>(API_URL + Libros + '/' + libroId);
     }
     
 }
+
+

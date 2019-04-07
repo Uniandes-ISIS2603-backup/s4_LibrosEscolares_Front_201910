@@ -1,21 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { Libro } from '../Libro';
-import { LibroService } from '../libro.service';
+import { Libro } from '../libro';
+import { LibrosService } from '../libros.service';
 
 /**
  * The component for the list of Libros in the BookStore
  */
 @Component({
-    selector: 'list-Libro',
-    templateUrl: './libro-list.component.html', 
+  selector: 'app-libros-list',
+  templateUrl: './libros-list.component.html',
+  styleUrls: ['./libros-list.component.css']
 })
-export class LibroListComponent implements OnInit {
+export class LibrosListComponent implements OnInit {
 
     /**
      * Constructor for the component
      * @param LibroService The author's services provider
      */
-    constructor(private LibroService: LibroService) { }
+    constructor(private LibrosService: LibrosService) { }
     
     /**
      * The list of Libros which belong to the BookStore
@@ -26,7 +27,7 @@ export class LibroListComponent implements OnInit {
      * Asks the service to update the list of Libros
      */
     getLibros(): void {
-        this.LibroService.getLibros().subscribe(Libros => this.Libros = Libros);
+        this.LibrosService.getLibros().subscribe(Libros => this.Libros = Libros);
     }
 
     /**
