@@ -1,5 +1,5 @@
 /**
- * Clase para el UsuLibroario
+ * Clase para el Libro
  */
 
 export class Libro {
