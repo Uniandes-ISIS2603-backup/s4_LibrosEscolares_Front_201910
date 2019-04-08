@@ -1,4 +1,4 @@
-import { Libro } from './../libro';
+import { Libro } from './libro';
 
 import { LibrosService } from './../libros.service';
 import { Component, OnInit } from '@angular/core';
