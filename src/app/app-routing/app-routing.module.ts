@@ -1,8 +1,9 @@
 import { UsuariocrearComponent } from './../usuario/usuarioCrear/usuarioCrear.component';
 import { UsuarioDetailComponent } from './../usuario/usuarioDetail/usuarioDetail.component';
 import { UsuarioslistComponent } from './../usuario/usuariosList/UsuariosList.component';
-import { LibrosDetailComponent } from './../libros/libros-detail/libros-detail.component';
-import { LibrosListComponent } from './../libros/libros-list/libros-list.component';
+import { LibroDetailComponent } from './../libros/libroDetail/libroDetail.component';
+import { LibroListComponent } from './../libros/libro-list/libro-list.component';
+import {CarroComponent} from './../carro/carro/carro.component';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
@@ -70,14 +71,17 @@ const routes: Routes = [
         path: 'libros',
         children: [
             {
-                path: 'list',
-                component: LibrosListComponent
+                path: '-list',
+                component: LibroListComponent
             },
             {
                 path: ':id',
-                component: LibrosDetailComponent
+                component: LibroDetailComponent
             }
         ]
+    },{
+        path: 'carro',
+        component: CarroComponent
     }
     
 
