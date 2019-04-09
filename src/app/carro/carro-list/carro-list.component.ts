@@ -19,6 +19,11 @@ export class CarroListComponent implements OnInit {
     this.carroService.getCarros().subscribe(carros =>{this.carros = carros});
   }
 
+  getNombreUsuario(index: number): String
+  {
+    return this.carros[index].comprador.nombreUsuario;
+  }
+
   ngOnInit() 
   {
     this.getCarros();

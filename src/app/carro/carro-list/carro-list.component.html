@@ -1,3 +1,15 @@
-<div><p>
-  carro-list works!
-</p>></div>
+<div>
+    <mat-expansion-panel *ngFor="let carro of carros; let i = index;" (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title id="i">
+            <h2 class="badge badge-primary">{{carro.id}}</h2>
+          </mat-panel-title>
+          <mat-panel-description>
+            {{carro.valorAPagar}}
+            {{panelOpenState ? 'Detalles' : 'Presione para obtener detalles' }}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <app-carro></app-carro>
+      </mat-expansion-panel>
+</div>
