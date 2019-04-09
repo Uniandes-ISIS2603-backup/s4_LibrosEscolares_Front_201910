@@ -3,7 +3,7 @@ import { UsuarioDetailComponent } from './../usuario/usuarioDetail/usuarioDetail
 import { UsuarioslistComponent } from './../usuario/usuariosList/UsuariosList.component';
 import { LibrosDetailComponent } from './../libros/libros-detail/libros-detail.component';
 import { LibrosListComponent } from './../libros/libros-list/libros-list.component';
-import {CarroComponent} from './../carro/carro/carro.component';
+import {CarroComponent} from './../carro/carro-detail/carro.component';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';

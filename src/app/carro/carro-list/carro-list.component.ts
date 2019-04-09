@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carro-list.component.css']
 })
 export class CarroListComponent implements OnInit {
+  
 
   constructor() { }
 

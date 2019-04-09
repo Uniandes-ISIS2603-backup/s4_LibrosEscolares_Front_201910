@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CarroComponent } from './carro/carro.component';
-import { CarroDetailComponent } from './carro/carro-detail/carro-detail.component';
+import { CarroComponent } from './carro-detail/carro.component';
 import { CarroListComponent } from './carro-list/carro-list.component';
 import { CarroCreateComponent } from './carro-create/carro-create.component';
 
@@ -9,6 +8,6 @@ import { CarroCreateComponent } from './carro-create/carro-create.component';
   imports: [
     CommonModule
   ],
-  declarations: [CarroComponent, CarroDetailComponent, CarroListComponent, CarroCreateComponent]
+  declarations: [CarroComponent, CarroListComponent, CarroCreateComponent]
 })
 export class CarroModule { }
