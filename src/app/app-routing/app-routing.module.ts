@@ -11,6 +11,7 @@ import {NgxPermissionsGuard} from 'ngx-permissions';
 
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
+import { CarroListComponent } from '../carro/carro-list/carro-list.component';
 
 const routes: Routes = [
 
@@ -81,7 +82,12 @@ const routes: Routes = [
         ]
     },{
         path: 'carro',
-        component: CarroComponent
+        children: [
+            {
+                path: 'list',
+                component: CarroListComponent
+            }
+        ]
     }
     
 
