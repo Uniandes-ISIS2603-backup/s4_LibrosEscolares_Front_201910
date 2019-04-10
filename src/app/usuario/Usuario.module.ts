@@ -19,6 +19,8 @@ import { UsuarioService } from './Usuario.service';
 
 
 
+import { UsuarioeditarComponent } from './usuarioEditar/usuarioEditar.component';
+
 @NgModule({
    
     imports: [
@@ -29,7 +31,9 @@ import { UsuarioService } from './Usuario.service';
         FormsModule
     ],
     
- declarations: [UsuariocrearComponent,UsuarioslistComponent, UsuarioDetailComponent],
+ 
+ declarations: [
+    UsuarioeditarComponent,UsuariocrearComponent,UsuarioslistComponent, UsuarioDetailComponent],
     
 
 
