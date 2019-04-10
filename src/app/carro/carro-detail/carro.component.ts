@@ -19,7 +19,8 @@ export class CarroComponent implements OnInit {
   libros: Libro[];
   comprador: string;
 
-  displayedColumns: string[] = ['titulo', 'ISBN'];
+  displayedColumns: string[] = ['ISBN','titulo', 'autor', 'Crear'];
+  mouseOverIndex = -1;
 
   constructor(public carroService: CarroService, public route: ActivatedRoute) { 
     this.libros = [];
@@ -47,6 +48,30 @@ export class CarroComponent implements OnInit {
         } 
     );
     
+  }
+
+  public onMouseOver(index) {
+    // console.log(index)
+    this.mouseOverIndex = index;
+  }
+
+  public doubleClick(){
+    this.mouseOverIndex = -1;
+  }
+
+  public deselect(): boolean
+  {
+    return this.mouseOverIndex==-1;
+  }
+
+  public crearCanje(){
+
+  }
+
+  public eliminarLibro(){
+    this.libros.splice(this.mouseOverIndex-1, 1);
+    this.carro.libros = this.libros;
+    this.carroService.updateCarro(this.id, this.carro);
   }
 
   ngOnInit() {
