@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
-
+import { LibrosCreateComponent } from './../libros/libros-create/libros-create.component';
 
 @NgModule({
   imports: [
@@ -17,9 +17,9 @@ import {HttpClientModule} from '@angular/common/http';
      AppRoutingModule,
      HttpClientModule
   ],
-  declarations: [LibrosListComponent, LibrosDetailComponent],
-  providers: [LibrosService],
- exports:[LibrosListComponent]
+  declarations: [LibrosListComponent, LibrosDetailComponent,LibrosCreateComponent],
+  providers: [LibrosService,LibrosCreateComponent],
+ exports:[LibrosListComponent,LibrosCreateComponent]
 })
 export class LibrosModule { }
 

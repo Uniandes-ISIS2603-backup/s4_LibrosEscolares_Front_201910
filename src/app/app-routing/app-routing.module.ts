@@ -2,6 +2,7 @@ import { UsuariocrearComponent } from './../usuario/usuarioCrear/usuarioCrear.co
 import { UsuarioDetailComponent } from './../usuario/usuarioDetail/usuarioDetail.component';
 import { UsuarioslistComponent } from './../usuario/usuariosList/UsuariosList.component';
 import { LibrosDetailComponent } from './../libros/libros-detail/libros-detail.component';
+import { LibrosCreateComponent } from './../libros/libros-create/libros-create.component';
 import { LibrosListComponent } from './../libros/libros-list/libros-list.component';
 import {CarroComponent} from './../carro/carro-detail/carro.component';
 import {NgModule} from '@angular/core';
@@ -78,7 +79,13 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: LibrosDetailComponent
+            },
+             {
+                path: 'add',
+                component: LibrosCreateComponent,
+                runGuardsAndResolvers: 'always'
             }
+            
         ]
     },{
         path: 'carro',
