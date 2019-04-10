@@ -1,0 +1,14 @@
+<div>
+    <mat-expansion-panel *ngFor="let carro of carros; let i = index;" (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title id="i">
+            <h6 class="badge badge-primary">{{carro.id}}</h6>
+          </mat-panel-title>
+          <mat-panel-description>
+          <a>Detalles</a>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <app-carro [id]="getIndex(i)"></app-carro>
+      </mat-expansion-panel>
+</div>
