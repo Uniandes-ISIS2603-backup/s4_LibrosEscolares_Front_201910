@@ -1,23 +1,13 @@
-<table class="table table-striped table-dark">
-    <thead>
-        <tr>
-
-            <th scope="col">titulo:</th>
-            <th scope="col">ISBN:</th>
-            <th scope="col">autor:</th>
-            <th scope="col">editorial:</th>
-            <th scope="col">edicion:</th>
-            <th scope="col">estado:</th>
-            <th scope="col">precio:</th>
-            <th scope="col">portada:</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor = "let libro of Libros">
-
-            <td style="cursor: pointer;">
-    <dd class="figure-caption" routerLink="/libros/{{libro.id}}">{{libro.ISBN}}</dd>
-</td>
-</tr>
-</tbody>
-</table>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2" *ngFor = "let libro of Libros">
+            <figure class="figure" routerLink="/libros/{{libro.id}}" style="cursor: pointer;"> 
+                <div class="img-thumbnail border-0">                        
+                    <img class="img-responsive" src='{{libro.portada}}' alt="{{libro.id}}" />                                     
+                </div>
+                <figcaption class="title-caption text-center">{{libro.titulo}}</figcaption>
+                  <figcaption class="title-caption text-center">{{libro.precio}}</figcaption>
+            </figure>
+        </div>
+    </div>
+</div>
