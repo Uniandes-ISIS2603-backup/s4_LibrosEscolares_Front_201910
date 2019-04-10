@@ -10,6 +10,7 @@ import { CarroDetail } from '../carro-detail';
 export class CarroListComponent implements OnInit {
   
 
+  public ruta = "";
   carros: CarroDetail[]
 
   constructor(public carroService: CarroService) { }
@@ -22,6 +23,17 @@ export class CarroListComponent implements OnInit {
   getNombreUsuario(index: number): String
   {
     return this.carros[index].comprador.nombreUsuario;
+  }
+
+  updateRuta(index): string
+  {
+    this.ruta = "/carro/"+index;
+    return this.ruta;
+  }
+
+  getIndex(index:number): string {
+    return Number(index + 1).toString();
+    
   }
 
   ngOnInit() 

@@ -7,8 +7,10 @@ export class Carro {
 
     id: number;
 
-    valorAPagar: number;
+    valorPagar: number;
 
     comprador: Usuario;
+
+    nombreU: string;
 
 }

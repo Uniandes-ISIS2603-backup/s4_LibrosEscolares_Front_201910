@@ -3,13 +3,12 @@
     (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
           <mat-panel-title id="i">
-            <h2 class="badge badge-primary">{{carro.id}}</h2>
+            <h6 class="badge badge-primary">{{carro.id}}</h6>
           </mat-panel-title>
           <mat-panel-description>
-            {{carro.valorAPagar}}
-            {{panelOpenState ? 'Detalles' : 'Presione para obtener detalles' }}
+          <a>Detalles</a>
           </mat-panel-description>
         </mat-expansion-panel-header>
-        <app-carro></app-carro>
+        <app-carro [id]="getIndex(i)"></app-carro>
       </mat-expansion-panel>
 </div>
