@@ -19,6 +19,8 @@ export class CarroComponent implements OnInit {
   libros: Libro[];
   comprador: string;
 
+  displayedColumns: string[] = ['titulo', 'ISBN'];
+
   constructor(public carroService: CarroService, public route: ActivatedRoute) { 
     this.libros = [];
     this.comprador = "";

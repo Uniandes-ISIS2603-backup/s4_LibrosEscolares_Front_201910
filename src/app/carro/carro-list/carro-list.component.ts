@@ -2,13 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { CarroService } from '../carro.service';
 import { CarroDetail } from '../carro-detail';
 
+export interface PeriodicElement {
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
+}
+
+
+
 @Component({
   selector: 'app-carro-list',
   templateUrl: './carro-list.component.html',
   styleUrls: ['./carro-list.component.css']
 })
-export class CarroListComponent implements OnInit {
-  
+export class CarroListComponent implements OnInit { 
 
   public ruta = "";
   carros: CarroDetail[]
