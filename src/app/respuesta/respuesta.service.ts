@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Respuesta } from './respuesta';
 import { environment } from '../../environments/environment';
+import { Canje } from '../canje/canje';
 
 const API_URL = environment.apiURL;
 const respuestas = "/respuestas";
@@ -33,6 +34,21 @@ export class RespuestaService {
     updateRespuesta(idRespuesta: number, respuesta: Respuesta): Observable<Respuesta>
     {
       return this.http.put<Respuesta>(API_URL+respuestas+'/'+idRespuesta, respuesta);
+    }
+
+    getCanje(id: number): Observable<Canje>
+    {
+      return this.http.get<Canje>(API_URL+'/canjes/'+id);
+    }
+
+    getCanjesOfrecidos(id: number): Observable<Canje[]>
+    {
+      return this.http.get<Canje[]>(API_URL+'canjes/ofrecidos/'+id);
+    }
+
+    getCanjesRecibidos(id: number): Observable<Canje[]>
+    {
+      return this.http.get<Canje[]>(API_URL+'canjes/recibidos/'+id);
     }
   
 }

@@ -8,7 +8,7 @@
               </mat-chip-list>
           </mat-panel-title>
           <mat-panel-description>
-          <a>Detalles</a>
+          <a *ngIf="!panelOpenState">Ver Respuesta</a>
           </mat-panel-description>
         </mat-expansion-panel-header>
         <app-respuesta-detail [id]="1"></app-respuesta-detail>
