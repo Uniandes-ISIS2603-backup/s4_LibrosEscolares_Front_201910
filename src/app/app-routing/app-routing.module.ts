@@ -118,7 +118,6 @@ const routes: Routes = [
                 component: CarroDetail
             }
         ]
-<<<<<<< HEAD
     },
     {
         path: 'canjes',
@@ -153,8 +152,6 @@ const routes: Routes = [
                 component: RespuestaDetailComponent
             }
         ]
-=======
->>>>>>> 932e38dc69842b566a9d879b30ae9321785ae5c4
     }
     
 
