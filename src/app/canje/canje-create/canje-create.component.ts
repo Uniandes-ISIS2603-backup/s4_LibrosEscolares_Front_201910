@@ -41,6 +41,7 @@ canje: Canje;
 */
 createUsuario(): void {
     this.canje.fechaDeCreacion=new Date();
+    this.canje.estado='Enviado';
     this.canjeService.createCanje(this.canje)
         .subscribe(() => {
             this.create.emit();
