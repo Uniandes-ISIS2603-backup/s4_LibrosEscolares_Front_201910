@@ -74,7 +74,8 @@ const routes: Routes = [
             },
             {
                 path: ':id/edit',
-                component: UsuarioeditarComponent
+                component: UsuarioeditarComponent,
+                runGuardsAndResolvers: 'always'
             }
         ]
     },

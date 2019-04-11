@@ -42,7 +42,7 @@ export class UsuarioService {
 
      /**
     * Crea un usuario
-    * @param editorial El usuario que sera crado
+    * @param usuario El usuario que sera crado
     * @returns La confirmacion de la creacion
     */
    createUsuario(usuario): Observable<UsuarioDetail> {

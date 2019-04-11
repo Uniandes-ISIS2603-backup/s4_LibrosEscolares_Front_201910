@@ -35,12 +35,15 @@ constructor(private authorService: UsuarioService,
    * Actualiza la informacion del usuario
    */
    editUser(): void {
-
+        
        this.authorService.updateUsuario(this.usuario)
            .subscribe(() => {
+            this.update.emit();
                this.toastrService.success("La informacion del usuario ha sido actualizada", "Author edition");
-           });
-       this.update.emit();
+            }, err => {
+                this.toastrService.error(err, "Error");
+            });
+    
    }
 
    /**
