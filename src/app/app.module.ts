@@ -47,6 +47,7 @@ import { CanjeModule } from './canje/canje.module';
         ModalDialogModule.forRoot(),
         AuthModule,
         FormsModule,
+        CanjeModule,
         ToastrModule.forRoot({
             timeOut: 10000,
             positionClass: 'toast-bottom-right',
