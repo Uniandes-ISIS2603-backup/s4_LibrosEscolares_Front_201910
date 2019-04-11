@@ -7,7 +7,8 @@ import { CanjeCreateComponent } from './canje-create/canje-create.component';
 import { CanjeGetComponent } from './canje-get/canje-get.component';
 import { CanjeGetListComponent } from './canje-get-list/canje-get-list.component';
 import { CanjeUpdateComponent } from './canje-update/canje-update.component';
-import { CanjeDeleteComponent } from './canje-delete/canje-delete.component';
+
+import { CanjeService } from './canje.service';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { CanjeDeleteComponent } from './canje-delete/canje-delete.component';
     CommonModule,
     FormsModule
   ],
-  declarations: [CanjeCreateComponent, CanjeGetComponent, CanjeGetListComponent, CanjeUpdateComponent, CanjeDeleteComponent],
-  exports: [CanjeCreateComponent, CanjeGetComponent, CanjeGetListComponent, CanjeUpdateComponent, CanjeDeleteComponent]
+  declarations: [CanjeCreateComponent, CanjeGetComponent, CanjeGetListComponent, CanjeUpdateComponent],
+  exports: [CanjeCreateComponent, CanjeGetComponent, CanjeGetListComponent, CanjeUpdateComponent],
+  providers: [CanjeService]
 })
 export class CanjeModule { }
