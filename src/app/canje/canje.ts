@@ -11,7 +11,7 @@ export class Canje {
     /**
      * La fecha de creacion del canje
      */
-    fecha: Date;
+    fechaDeCreacion: Date;
 
     /**
      * El estado del canje
