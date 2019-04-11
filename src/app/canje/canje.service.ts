@@ -26,4 +26,13 @@ export class CanjeService {
    getCanjeDetail(canjeId): Observable<CanjeDetail> {
       return this.http.get<Canje>(API_URL + canjes + '/' + canjeId);
   }
+
+       /**
+    * Crea un usuario
+    * @param usuario El usuario que sera crado
+    * @returns La confirmacion de la creacion
+    */
+   createCanje(canje): Observable<CanjeDetail> {
+    return this.http.post<CanjeDetail>(API_URL + canjes, canje);
+}
 }

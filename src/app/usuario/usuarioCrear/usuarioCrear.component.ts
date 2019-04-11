@@ -8,7 +8,7 @@ selector: 'usuarioCrear-component',
 templateUrl: './usuarioCrear.component.html',
 styleUrls: ['./usuarioCrear.component.css']
 })
-export class UsuariocrearComponent implements OnInit {
+export class UsuariocrearComponent implements OnInit {  
 
 /**
     * Constructor del componente

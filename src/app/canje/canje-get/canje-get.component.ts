@@ -15,7 +15,7 @@ export class CanjeGetComponent implements OnInit {
     canjeId: number;
     canje: CanjeDetail;   
     /**
-     * Le pide al servicio el canje
+     * Le pide al servicio el canjes
      */
     getCanje(): void{
         this.canjeService.getCanjeDetail(this.canjeId).subscribe(c => this.canje = c);
