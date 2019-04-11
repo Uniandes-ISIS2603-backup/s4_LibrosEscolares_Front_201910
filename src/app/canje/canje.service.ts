@@ -23,4 +23,7 @@ export class CanjeService {
    {
        return this.http.get<Canje[]>(API_URL + canjes);
    }
+   getCanjeDetail(canjeId): Observable<CanjeDetail> {
+      return this.http.get<Canje>(API_URL + canjes + '/' + canjeId);
+  }
 }

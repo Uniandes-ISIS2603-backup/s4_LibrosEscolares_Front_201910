@@ -1,2 +1,4 @@
-export class CanjeDetail {
+import { Canje } from "./canje";
+
+export class CanjeDetail extends Canje {
 }
