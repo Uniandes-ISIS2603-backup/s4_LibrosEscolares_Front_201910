@@ -17,13 +17,13 @@
         </mat-toolbar>
         <mat-toolbar color="primary" >
                 <span class="example-fill-remaining-space"></span>
-                <button mat-button [matMenuTriggerFor]="menu">Demo crear</button>
-                <mat-menu #menu="matMenu">
+                <button mat-button [matMenuTriggerFor]="menu2">Demo crear</button>
+                <mat-menu #menu2="matMenu">
                   <button mat-menu-item [routerLink]="[ '/carro/add']" (click)="selected()">Crear carros de compra</button>
                   <button mat-menu-item [routerLink]="[ '/usuarios/add']" (click)="selected()">Crear Usuarios</button>
                   <button mat-menu-item [routerLink]="[ '/libros/add']" (click)="selected()">Crear Libros</button>
                   <button mat-menu-item [routerLink]="[ '/respuesta/add']" (click)="selected()">Crear Respuestas</button>
-                  <button mat-menu-item [routerLink]="[ '/canje/add']" (click)="selected()">Listar Respuestas</button>
+                  <button mat-menu-item [routerLink]="[ '/canje/add']" (click)="selected()">Crear Respuestas</button>
                   
                 </mat-menu>
         </mat-toolbar>
