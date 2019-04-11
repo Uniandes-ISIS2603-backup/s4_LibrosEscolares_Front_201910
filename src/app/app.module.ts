@@ -20,6 +20,7 @@ import {LibrosModule } from './libros/libros.module';
 import { DemoMaterialModule } from '../material-module';
 import { RespuestaModule } from './respuesta/respuesta.module';
 import { CarroComponent } from './carro/carro-detail/carro.component';
+import { CanjeModule } from './canje/canje.module';
 
   
 
@@ -35,6 +36,7 @@ import { CarroComponent } from './carro/carro-detail/carro.component';
         BrowserModule,
         UsuarioModule,
         LibrosModule,
+        CanjeModule,
         AppRoutingModule,
         UsuarioModule,
         CarroModule,

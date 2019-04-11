@@ -16,6 +16,8 @@ export class RespuestaDetailComponent implements OnInit {
 
   canje: Canje;
 
+  route: ActivatedRoute;
+
   @Input() 
   id: number;
 
@@ -36,8 +38,12 @@ export class RespuestaDetailComponent implements OnInit {
         })
    }
 
-  ngOnInit() {
-    this.actualizar();
+   ngOnInit() {
+    console.log("heeelp");
+    if(this.id == undefined){
+      this.id = + this.route.snapshot.paramMap.get('id');
+      console.log(this.id);
+    }
   }
 
 }

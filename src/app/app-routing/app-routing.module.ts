@@ -15,14 +15,11 @@ import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import { CarroListComponent } from '../carro/carro-list/carro-list.component';
 import { CarroDetail } from '../carro/carro-detail';
-<<<<<<< HEAD
 import { RespuestaDetailComponent } from '../respuesta/respuesta-detail/respuesta-detail.component';
 import { RespuestaListComponent } from '../respuesta/respuesta-list/respuesta-list.component';
 import { CanjeGetListComponent } from '../canje/canje-get-list/canje-get-list.component';
 import { CanjeCreateComponent } from '../canje/canje-create/canje-create.component';
 import { CanjeGetComponent } from '../canje/canje-get/canje-get.component';
-=======
->>>>>>> 932e38dc69842b566a9d879b30ae9321785ae5c4
 
 const routes: Routes = [
 
