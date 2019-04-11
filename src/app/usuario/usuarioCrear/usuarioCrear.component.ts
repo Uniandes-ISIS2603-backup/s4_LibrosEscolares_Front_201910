@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UsuarioService } from '../Usuario.service';
 import { ToastrService } from 'ngx-toastr';
-import { Usuario } from '../Usuario';
+import { Usuario } from '../usuario';
 
 @Component({
 selector: 'usuarioCrear-component',

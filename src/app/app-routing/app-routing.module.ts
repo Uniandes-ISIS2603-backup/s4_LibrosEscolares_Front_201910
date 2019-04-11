@@ -1,3 +1,4 @@
+import { UsuarioeditarComponent } from './../usuario/usuarioEditar/usuarioEditar.component';
 import { UsuariocrearComponent } from './../usuario/usuarioCrear/usuarioCrear.component';
 import { UsuarioDetailComponent } from './../usuario/usuarioDetail/usuarioDetail.component';
 import { UsuarioslistComponent } from './../usuario/usuariosList/UsuariosList.component';
@@ -14,8 +15,14 @@ import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import { CarroListComponent } from '../carro/carro-list/carro-list.component';
 import { CarroDetail } from '../carro/carro-detail';
+<<<<<<< HEAD
 import { RespuestaDetailComponent } from '../respuesta/respuesta-detail/respuesta-detail.component';
 import { RespuestaListComponent } from '../respuesta/respuesta-list/respuesta-list.component';
+import { CanjeGetListComponent } from '../canje/canje-get-list/canje-get-list.component';
+import { CanjeCreateComponent } from '../canje/canje-create/canje-create.component';
+import { CanjeGetComponent } from '../canje/canje-get/canje-get.component';
+=======
+>>>>>>> 932e38dc69842b566a9d879b30ae9321785ae5c4
 
 const routes: Routes = [
 
@@ -67,8 +74,11 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: UsuarioDetailComponent
+            },
+            {
+                path: ':id/edit',
+                component: UsuarioeditarComponent
             }
-           
         ]
     },
    
@@ -79,21 +89,18 @@ const routes: Routes = [
                 path: 'list',
                 component: LibrosListComponent
             },
+            {
+                path: ':id',
+                component: LibrosDetailComponent
+            },
              {
                 path: 'add',
                 component: LibrosCreateComponent,
                 runGuardsAndResolvers: 'always'
-            },
-            
-            {
-                path: ':id',
-                component: LibrosDetailComponent
             }
             
-           
         ]
-    },
-    {
+    },{
         path: 'carro',
         children: [
             {
@@ -110,6 +117,27 @@ const routes: Routes = [
                 path: ':id',
                 component: CarroComponent
             }
+        ]
+    },
+    {
+        path: 'canjes',
+        children: [
+            {
+                path: 'list',
+                component: CanjeGetListComponent
+            },
+             {
+                path: 'add',
+                component: CanjeCreateComponent,
+                runGuardsAndResolvers: 'always'
+            },
+            
+            {
+                path: ':id',
+                component: CanjeGetComponent
+            }
+            
+           
         ]
     },
     {

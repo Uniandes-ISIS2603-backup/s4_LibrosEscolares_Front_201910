@@ -32,6 +32,15 @@ export class UsuarioService {
     }
 
      /**
+    * Actualiza un usuario
+    * @param author El autor con la informacion actualizada
+    * @returns La confirmacion de que el autor a sido actualizado 
+    */
+   updateUsuario(usuario): Observable<UsuarioDetail> {
+    return this.http.put<UsuarioDetail>(API_URL + usuarios + '/' + usuario.id, usuario);
+}
+
+     /**
     * Crea un usuario
     * @param editorial El usuario que sera crado
     * @returns La confirmacion de la creacion

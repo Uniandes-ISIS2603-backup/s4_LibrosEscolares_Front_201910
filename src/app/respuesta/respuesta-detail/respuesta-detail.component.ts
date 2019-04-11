@@ -1,8 +1,9 @@
+import { Canje } from './../../canje/canje';
 import { Component, OnInit, Input } from '@angular/core';
 import { Respuesta } from '../respuesta';
 import { RespuestaService } from '../respuesta.service';
 import { ActivatedRoute } from '@angular/router';
-import { Canje } from 'src/app/canje/canje';
+
 
 @Component({
   selector: 'app-respuesta-detail',
