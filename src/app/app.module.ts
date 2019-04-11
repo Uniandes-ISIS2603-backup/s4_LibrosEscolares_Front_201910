@@ -19,7 +19,8 @@ import { UsuarioModule } from './usuario/Usuario.module';
 import {LibrosModule } from './libros/libros.module';
 import { DemoMaterialModule } from '../material-module';
 import { RespuestaModule } from './respuesta/respuesta.module';
-import{CanjeModule} from './canje/canje.module';
+import { CarroComponent } from './carro/carro-detail/carro.component';
+import { CanjeModule } from './canje/canje.module';
 
   
 
@@ -35,6 +36,7 @@ import{CanjeModule} from './canje/canje.module';
         BrowserModule,
         UsuarioModule,
         LibrosModule,
+        CanjeModule,
         AppRoutingModule,
         UsuarioModule,
         CarroModule,
@@ -56,6 +58,7 @@ import{CanjeModule} from './canje/canje.module';
         NgbModule
     ],
     bootstrap: [AppComponent],
+    entryComponents:[CarroComponent],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,
