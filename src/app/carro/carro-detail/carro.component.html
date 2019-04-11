@@ -40,7 +40,7 @@
             </ng-container>
            
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row class="remove-background" (click)="onMouseOver(e)" *matRowDef="let row let e = index; columns: displayedColumns;" 
+            <tr mat-row class="remove-background" style="cursor: pointer;" (click)="onMouseOver(e)" *matRowDef="let row let e = index; columns: displayedColumns;" 
             [ngClass] = "{'mat-elevation-z8' : e == mouseOverIndex}" (dblclick)="doubleClick()"></tr>
         </table>
         <table class="table table-hover">

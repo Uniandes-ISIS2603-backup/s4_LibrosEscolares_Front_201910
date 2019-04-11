@@ -52,7 +52,12 @@ export class CarroComponent implements OnInit {
 
   public onMouseOver(index) {
     // console.log(index)
-    this.mouseOverIndex = index;
+    if(this.mouseOverIndex!= index){
+      this.mouseOverIndex = index;
+    }
+    else{
+      this.mouseOverIndex =-1;
+    }
   }
 
   public doubleClick(){
