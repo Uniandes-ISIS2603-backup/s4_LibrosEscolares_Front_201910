@@ -3,7 +3,9 @@
     (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
           <mat-panel-title id="i">
-            <h6 class="badge badge-primary">{{carro.id}}</h6>
+              <mat-chip-list>
+                  <mat-chip color="accent" selected>{{carro.id}}</mat-chip>
+                  </mat-chip-list>
           </mat-panel-title>
           <mat-panel-description>
           <a>Detalles</a>

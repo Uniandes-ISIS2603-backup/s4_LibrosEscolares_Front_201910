@@ -1,6 +1,6 @@
 <div class="container-fluid">
         <mat-toolbar><img src="../assets/notebook.svg" width="50" height="50" routerLink="" (click)="diselected()" style="cursor: pointer;">  
-            <a routerLink="" style="cursor: pointer;">Booklet</a></mat-toolbar>
+            <a routerLink="" style="cursor: pointer;" (click)="diselected()">Booklet</a></mat-toolbar>
         <mat-toolbar color="primary" >
                 <span class="example-fill-remaining-space"></span>
                 <button mat-button [matMenuTriggerFor]="menu">Demo listar</button>
@@ -8,10 +8,11 @@
                   <button mat-menu-item [routerLink]="[ '/carro/list']" (click)="selected()">Listar carros de compra</button>
                   <button mat-menu-item [routerLink]="[ '/usuarios/list']" (click)="selected()">Listar Usuarios</button>
                   <button mat-menu-item [routerLink]="[ '/libros/list']" (click)="selected()">Listar Libros</button>
+                  <button mat-menu-item [routerLink]="[ '/respuesta/list']" (click)="selected()">Listar Respuestas</button>
                 </mat-menu>
         </mat-toolbar>
         <router-outlet></router-outlet> 
-        <button mat-flat-button color="warn" routerLink="" *ngIf="getSelect()" (click)="diselected()" >regresar</button>
+        <button mat-flat-button color="primary" routerLink="" *ngIf="getSelect()" (click)="diselected()" >regresar</button>
     <footer class="footer bg-light" id="footer">
         <div class="container">
             <p class="navbar-text text-center">

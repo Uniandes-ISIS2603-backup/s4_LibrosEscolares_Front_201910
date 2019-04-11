@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Respuesta } from './respuesta';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 
 const API_URL = environment.apiURL;
 const respuestas = "/respuestas";
@@ -21,6 +21,7 @@ export class RespuestaService {
 
     getRespuesta(id: number): Observable<Respuesta>
     {
+      console.log(API_URL+respuestas+'/'+id);
       return this.http.get<Respuesta>(API_URL+respuestas+'/'+id);
     }
 

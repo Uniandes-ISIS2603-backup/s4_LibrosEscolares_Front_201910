@@ -15,7 +15,15 @@ export class RespuestaListComponent implements OnInit {
   constructor(public respuestaService: RespuestaService) { }
 
   getRespuestas(){
-    this.respuestaService.getRespuestas().subscribe(Respuesta =>{this.respuestas = Respuesta});
+    console.log("Entro al loggerS")
+    this.respuestaService.getRespuestas().subscribe(Respuesta =>{this.respuestas = Respuesta;
+    console.log(this.respuestas);
+    });
+  }
+
+  getId(index): number
+  {
+    return this.respuestas[index].id;
   }
 
   ngOnInit() {

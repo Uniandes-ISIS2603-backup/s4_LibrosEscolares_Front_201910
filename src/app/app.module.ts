@@ -18,6 +18,7 @@ import {AuthModule} from './auth/auth.module';
 import { UsuarioModule } from './usuario/Usuario.module';
 import {LibrosModule } from './libros/libros.module';
 import { DemoMaterialModule } from '../material-module';
+import { RespuestaModule } from './respuesta/respuesta.module';
 
   
 
@@ -36,6 +37,7 @@ import { DemoMaterialModule } from '../material-module';
         AppRoutingModule,
         UsuarioModule,
         CarroModule,
+        RespuestaModule,
         DemoMaterialModule,
         HttpClientModule,
         BrowserAnimationsModule,

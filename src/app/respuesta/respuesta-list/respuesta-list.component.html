@@ -1,3 +1,16 @@
-<p>
-  respuesta-list works!
-</p>
+<div>
+    <mat-expansion-panel *ngFor="let resp of respuestas; let i = index;" (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title id="i">
+              <mat-chip-list>
+              <mat-chip color="accent" selected>{{resp.id}}</mat-chip>
+              </mat-chip-list>
+          </mat-panel-title>
+          <mat-panel-description>
+          <a>Detalles</a>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <app-respuesta-detail [id]="1"></app-respuesta-detail>
+      </mat-expansion-panel>
+</div>

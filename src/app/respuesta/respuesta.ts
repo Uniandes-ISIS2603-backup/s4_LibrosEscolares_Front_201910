@@ -1,5 +1,5 @@
 export class Respuesta {
-    i: number;
+    id: number;
 
     razon: string;
 

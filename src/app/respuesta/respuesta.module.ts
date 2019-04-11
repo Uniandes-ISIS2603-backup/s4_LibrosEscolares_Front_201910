@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RespuestaDetailComponent } from './respuesta-detail/respuesta-detail.component';
 import { RespuestaListComponent } from './respuesta-list/respuesta-list.component';
+import { DemoMaterialModule } from '../../material-module';
+import { RouterModule } from '@angular/router';
+import { RespuestaDetailModule } from './respuesta-detail/respuesta-detail.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    DemoMaterialModule,
+    RouterModule,
+    RespuestaDetailModule
   ],
-  declarations: [RespuestaDetailComponent, RespuestaListComponent]
+  declarations: [ RespuestaListComponent]
 })
 export class RespuestaModule { }
