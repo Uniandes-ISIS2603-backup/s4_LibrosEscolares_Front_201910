@@ -14,9 +14,6 @@
                   <button mat-menu-item [routerLink]="[ '/canje/list']" (click)="selected()">Listar Respuestas</button>
                   
                 </mat-menu>
-        </mat-toolbar>
-        <mat-toolbar color="primary" >
-                <span class="example-fill-remaining-space"></span>
                 <button mat-button [matMenuTriggerFor]="menu2">Demo crear</button>
                 <mat-menu #menu2="matMenu">
                   <button mat-menu-item [routerLink]="[ '/carro/add']" (click)="selected()">Crear carro de compra</button>
