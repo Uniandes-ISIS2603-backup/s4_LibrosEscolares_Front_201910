@@ -1,1 +1,37 @@
-<h1> usuarioEditar.component component generated </h1>
+<div class="row">
+    <div class="col-12">
+        <br>
+        <h2 class="text-center">Editar un usuario</h2>
+        <br>
+        <form name="usuario" (ngSubmit)="f.form.valid && editUser()" #f="ngForm" novalidate>
+              <div class="form-group">
+                <label for="correoUsuario"><b>Name</b></label>
+                <input type="text" name="correoUsuario" class="form-control" id="correoUsuario" [(ngModel)]="usuario.correo "
+                       #authorName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && correoUsuario.invalid }" required>
+                       <div class="invalid-feedback">
+                    <div>The author's name is missing</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="y"><b>Description</b></label>
+                <textarea name="calificacionUsuario" class="form-control" id="calificacionUsuario" [(ngModel)]="usuario.calificacion"
+                          #authorDescription="ngModel" [ngClass]="{ 'is-invalid': f.submitted && calificacionUsuario.invalid }"
+                          required></textarea>
+                <div class="invalid-feedback">
+                    <div>The author's description is missing</div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="row form-inline justify-content-center align-self-center">
+            <i  style="padding-right: 1em;"class="fa fa-save " (click)="editUser()"></i>
+          
+            <i class="fa fa-ban" (click)="cancelEdition()"></i>
+        </div>
+    </div>
+</div>
+<br>
+<br>
