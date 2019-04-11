@@ -16,6 +16,21 @@
                     <td mat-cell *matCellDef="let libro"> {{libro.autor}} </td>
             </ng-container>
 
+            <ng-container matColumnDef="editorial">
+                    <th mat-header-cell *matHeaderCellDef> Editorial </th>
+                    <td mat-cell *matCellDef="let libro"> {{libro.editorial}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="estado">
+                    <th mat-header-cell *matHeaderCellDef> Estado </th>
+                    <td mat-cell *matCellDef="let libro"> {{libro.estado}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="precio">
+                    <th mat-header-cell *matHeaderCellDef> Precio </th>
+                    <td mat-cell *matCellDef="let libro"> {{libro.precio}} </td>
+            </ng-container>
+
             <ng-container matColumnDef="Crear">
                     <th mat-header-cell *matHeaderCellDef> </th>
                     <td mat-cell *matCellDef="let element, let i = index"> 
@@ -31,5 +46,5 @@
         <table class="table table-hover">
 
         </table>
-        <button mat-flat-button color="accent" (click)="doubleClick()" *ngIf="!deselect()" >deseleccionar</button>
+        <button mat-flat-button color="accent" (click)="doubleClick()" *ngIf="!deselect()" >Deseleccionar</button>
     </div>  

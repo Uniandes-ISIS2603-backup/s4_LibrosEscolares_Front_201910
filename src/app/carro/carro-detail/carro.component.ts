@@ -19,7 +19,7 @@ export class CarroComponent implements OnInit {
   libros: Libro[];
   comprador: string;
 
-  displayedColumns: string[] = ['ISBN','titulo', 'autor', 'Crear'];
+  displayedColumns: string[] = ['ISBN','titulo', 'autor', 'editorial', 'estado', 'precio', 'Crear'];
   mouseOverIndex = -1;
 
   constructor(public carroService: CarroService, public route: ActivatedRoute) { 

@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
      * The title that appears on the NavBar and the web browser
      */
     title: String;
+    select: boolean = false;
 
     /**
      * Assigns a title to the web page
@@ -28,6 +29,21 @@ export class AppComponent implements OnInit {
      * @ignore
      */
     constructor(private authService: AuthService) { }
+
+    selected(): void
+    {
+        this.select = true;
+    }
+
+    diselected(): void
+    {
+         this.select = false;
+    }
+
+    getSelect(): boolean
+    {
+        return this.select;
+    }
 
     logout(): void {
         this.authService.logout()

@@ -17,6 +17,7 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
 import { UsuarioModule } from './usuario/Usuario.module';
 import {LibrosModule } from './libros/libros.module';
+import { DemoMaterialModule } from '../material-module';
 
   
 
@@ -35,6 +36,7 @@ import {LibrosModule } from './libros/libros.module';
         AppRoutingModule,
         UsuarioModule,
         CarroModule,
+        DemoMaterialModule,
         HttpClientModule,
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
