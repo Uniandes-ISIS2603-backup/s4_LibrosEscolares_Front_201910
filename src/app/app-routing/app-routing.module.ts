@@ -1,3 +1,7 @@
+import { RespuestaListComponent } from './../respuesta/respuesta-list/respuesta-list.component';
+import { CanjeGetComponent } from './../canje/canje-get/canje-get.component';
+import { CanjeCreateComponent } from './../canje/canje-create/canje-create.component';
+import { CanjeGetListComponent } from './../canje/canje-get-list/canje-get-list.component';
 import { UsuarioeditarComponent } from './../usuario/usuarioEditar/usuarioEditar.component';
 import { UsuariocrearComponent } from './../usuario/usuarioCrear/usuarioCrear.component';
 import { UsuarioDetailComponent } from './../usuario/usuarioDetail/usuarioDetail.component';
@@ -16,10 +20,6 @@ import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component
 import { CarroListComponent } from '../carro/carro-list/carro-list.component';
 import { CarroDetail } from '../carro/carro-detail';
 import { RespuestaDetailComponent } from '../respuesta/respuesta-detail/respuesta-detail.component';
-import { RespuestaListComponent } from '../respuesta/respuesta-list/respuesta-list.component';
-import { CanjeGetListComponent } from '../canje/canje-get-list/canje-get-list.component';
-import { CanjeCreateComponent } from '../canje/canje-create/canje-create.component';
-import { CanjeGetComponent } from '../canje/canje-get/canje-get.component';
 
 const routes: Routes = [
 
