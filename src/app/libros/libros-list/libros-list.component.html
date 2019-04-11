@@ -2,8 +2,10 @@
     <div class="row">
         <div class="col-md-2" *ngFor = "let libro of Libros">
             <figure class="figure" routerLink="/libros/{{libro.id}}" style="cursor: pointer;"> 
-                <div class="img-thumbnail border-0">                        
-                    <img class="img-responsive" src='{{libro.portada}}' alt="{{libro.id}}" />                                     
+                <div class="img-thumbnail border-0">    
+               
+                    <img class="img-thumbnail" src='{{libro.portada}}' alt="{{libro.id}}" /> 
+                    
                 </div>
                 <figcaption class="title-caption text-center">{{libro.titulo}}</figcaption>
                   <figcaption class="title-caption text-center">{{libro.precio}}</figcaption>
