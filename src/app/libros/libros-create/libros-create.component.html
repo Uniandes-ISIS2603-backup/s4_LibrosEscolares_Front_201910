@@ -1,3 +1,87 @@
-<p>
-libros-create works!
-</p>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+            <br>
+            <h2 class="text-center">Añadir un libro nuevo</h2>
+            <br>
+            <form name="libro" (ngSubmit)="f.form.valid && createLibro()" #f="ngForm" novalidate>
+                  
+                  <div class="form-group">
+                    <label for="libroTitulo"><b>Titulo</b></label>
+                    <input type="text" name="libroTitulo" class="form-control" id="libroTitulo" [(ngModel)]="libro.titulo"
+                           #libroName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroTitulo.invalid }" required>
+                           <div class="invalid-feedback">
+                        <div>The libro's name is missing</div>
+                    </div>
+               
+                    <label for="libroAutor"><b>Autor</b></label>
+                    <input type="text" name="libroAutor" class="form-control" id="libroAutor" [(ngModel)]="libro.autor"
+                           #libroName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroAutor.invalid }" required>
+                           <div class="invalid-feedback">
+                        <div>The libro's autor is missing</div>
+                    </div>
+               
+                    <label for="libroEdicion"><b>Edicion</b></label>
+                    <input type="number" name="libroEdicion" class="form-control" id="libroEdicion" [(ngModel)]="libro.edicion"
+                           #libroEdicion="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroEdicion.invalid }" required>
+                           <div class="invalid-feedback">
+                        <div>The libro's edicion is missing</div>
+                    </div>
+               
+                    <label for="libroEditorial"><b>Editorial</b></label>
+                    <input type="text" name="libroEditorial" class="form-control" id="libroEditorial" [(ngModel)]="libro.editorial"
+                           #libroName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroEditorial.invalid }" required>
+                           <div class="invalid-feedback">
+                        <div>The libro's editorial is missing</div>
+                    </div>
+               
+                    <label for="libroEstado"><b>Estado (Si lo deseas puedes dar una breve descripcion del libro)</b></label>
+                    <textarea name="libroEstado" class="form-control" id="libroEstado" [(ngModel)]="libro.estado"
+                              #libroEstado="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroEstado.invalid }"
+                              required></textarea>
+                    <div class="invalid-feedback">
+                        <div>The libro's estado is missing</div>
+                    </div>
+               
+                    <label for="libroISBN"><b>ISBN</b></label>
+                    <input type="text" name="libroISBN" class="form-control" id="libroISBN" [(ngModel)]="libro.ISBN"
+                           #libroISBN="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroISBN.invalid }" required>
+                           <div class="invalid-feedback">
+                        <div>The libro's ISBN is missing</div>
+                    </div>
+               
+                    <label for="libroPrecio"><b>Precio (En pesos)</b></label>
+                    <input type="number" name="libroPrecio" class="form-control" id="libroPrecio" [(ngModel)]="libro.precio"
+                           #libroISBN="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroPrecio.invalid }" required>
+                           <div class="invalid-feedback">
+                        <div>The libro's precio is missing</div>
+                    </div>
+                           
+              </div>
+                
+                    <label for="libroImage"><b>Image</b></label>
+                     <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="libroPortada"[(ngModel)]="libro.portada"
+                           #libroPortada="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroPortada.invalid }" required>
+                        <label class="custom-file-label" for="libroPortada">libroPortada</label>
+                    </div>
+                    
+                </div>
+
+                
+
+               
+                <br>
+                <div class="row form-inline justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    <div class="divider"></div>
+                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+                </div>
+            </form>
+            <br>
+        </div>
+       <div class="col-3"></div>
+    </div>
+<br>
+<br>

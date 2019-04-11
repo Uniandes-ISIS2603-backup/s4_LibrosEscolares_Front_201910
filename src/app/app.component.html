@@ -1,40 +1,18 @@
 <div class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-            <div class="form-inline">
-                <h2 class="mainTitle">s4_libros-Front</h2>
-            </div>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="navbar-nav mr-auto mt-0">
-                
-            </div>
-            <div class="navbar-nav ml-auto flex-column">
-                <div class="flex-row" *ngxPermissionsOnly="['GUEST']">
-                    <div class="form-inline">
-                        <li class="right-space"><a id="signup-navbar-item" routerLink="/auth/sign-up"><span class="fa fa-user"></span>
-                                Sign Up</a></li>
-                        <li><a id="login-navbar-item" routerLink="/auth/login"><span class="fa fa-sign-in"></span>Login</a></li>
-                    </div>
-                </div>
-                <div class="flex-row" *ngxPermissionsOnly="['CLIENT', 'ADMIN']">
-                    <div class="form-inline">
-                        <li><a id="logout-navbar-item" (click)="logout()" href="#"><span class="fa fa-sign-out"></span>Logout</a></li>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <div>
-        <router-outlet></router-outlet>
-        <br>
-        <br>
-    </div>
+        <mat-toolbar><img src="../assets/notebook.svg" width="50" height="50" routerLink="" (click)="diselected()" style="cursor: pointer;">  
+            <a routerLink="" style="cursor: pointer;" (click)="diselected()">Booklet</a></mat-toolbar>
+        <mat-toolbar color="primary" >
+                <span class="example-fill-remaining-space"></span>
+                <button mat-button [matMenuTriggerFor]="menu">Demo listar</button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item [routerLink]="[ '/carro/list']" (click)="selected()">Listar carros de compra</button>
+                  <button mat-menu-item [routerLink]="[ '/usuarios/list']" (click)="selected()">Listar Usuarios</button>
+                  <button mat-menu-item [routerLink]="[ '/libros/list']" (click)="selected()">Listar Libros</button>
+                  <button mat-menu-item [routerLink]="[ '/respuesta/list']" (click)="selected()">Listar Respuestas</button>
+                </mat-menu>
+        </mat-toolbar>
+        <router-outlet></router-outlet> 
+        <button mat-flat-button color="primary" routerLink="" *ngIf="getSelect()" (click)="diselected()" >regresar</button>
     <footer class="footer bg-light" id="footer">
         <div class="container">
             <p class="navbar-text text-center">

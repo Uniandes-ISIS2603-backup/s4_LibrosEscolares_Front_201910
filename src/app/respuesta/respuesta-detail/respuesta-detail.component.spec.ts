@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CanjeDeleteComponent } from './canje-delete.component';
+import { RespuestaDetailComponent } from './respuesta-detail.component';
 
-describe('CanjeDeleteComponent', () => {
-  let component: CanjeDeleteComponent;
-  let fixture: ComponentFixture<CanjeDeleteComponent>;
+describe('RespuestaDetailComponent', () => {
+  let component: RespuestaDetailComponent;
+  let fixture: ComponentFixture<RespuestaDetailComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CanjeDeleteComponent ]
+      declarations: [ RespuestaDetailComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CanjeDeleteComponent);
+    fixture = TestBed.createComponent(RespuestaDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

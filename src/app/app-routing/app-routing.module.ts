@@ -14,6 +14,8 @@ import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import { CarroListComponent } from '../carro/carro-list/carro-list.component';
 import { CarroDetail } from '../carro/carro-detail';
+import { RespuestaDetailComponent } from '../respuesta/respuesta-detail/respuesta-detail.component';
+import { RespuestaListComponent } from '../respuesta/respuesta-list/respuesta-list.component';
 
 const routes: Routes = [
 
@@ -77,18 +79,21 @@ const routes: Routes = [
                 path: 'list',
                 component: LibrosListComponent
             },
-            {
-                path: ':id',
-                component: LibrosDetailComponent
-            },
              {
                 path: 'add',
                 component: LibrosCreateComponent,
                 runGuardsAndResolvers: 'always'
+            },
+            
+            {
+                path: ':id',
+                component: LibrosDetailComponent
             }
             
+           
         ]
-    },{
+    },
+    {
         path: 'carro',
         children: [
             {
@@ -104,6 +109,19 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: CarroDetail
+            }
+        ]
+    },
+    {
+        path: 'respuesta',
+        children:[
+            {
+                path:'list',
+                component: RespuestaListComponent
+            },
+            {
+                path: ':id',
+                component: RespuestaDetailComponent
             }
         ]
     }
