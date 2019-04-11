@@ -1,23 +1,28 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { UsuarioDetail } from './../UsuarioDetail';
 import { ToastrService } from 'ngx-toastr';
 import { UsuarioService } from './../Usuario.service';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 
 @Component({
 selector: 'usuarioEditar-component',
 templateUrl: './usuarioEditar.component.html',
 styleUrls: ['./usuarioEditar.component.css']
 })
-export class UsuarioeditarComponent implements OnInit {
+export class UsuarioeditarComponent implements OnInit, OnChanges {
 
 constructor(private authorService: UsuarioService,
-    private toastrService: ToastrService,) {
+    private toastrService: ToastrService,
+    private router: Router,
+    private route: ActivatedRoute) {
 }
+
+id:number;
 
 /**
     * El usuario recibe el id del componente padre
     */
-   @Input() usuario: UsuarioDetail;
+   usuario: UsuarioDetail;
 
    /**
    * El output que habla con el componente padre
@@ -59,7 +64,8 @@ constructor(private authorService: UsuarioService,
    * Estra funcion inicializa el componente
    */
    ngOnInit() {
-       
+    this.id = +this.route.snapshot.paramMap.get('id');
+    this.authorService.getUsuarioDetail(this.id).subscribe(Usuario => this.usuario = Usuario);
    }
 
    /**

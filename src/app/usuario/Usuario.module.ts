@@ -1,3 +1,4 @@
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UsuariocrearComponent } from './usuarioCrear/usuarioCrear.component';
 import { UsuarioDetailComponent } from './usuarioDetail/usuarioDetail.component';
 import { FormsModule } from '@angular/forms';
@@ -28,7 +29,8 @@ import { UsuarioeditarComponent } from './usuarioEditar/usuarioEditar.component'
         AppRoutingModule,
         HttpClientModule,
         CommonModule,
-        FormsModule
+        FormsModule,
+        NgbModule
     ],
     
  
@@ -39,6 +41,6 @@ import { UsuarioeditarComponent } from './usuarioEditar/usuarioEditar.component'
 
 
 providers: [
-    UsuariocrearComponent,UsuarioService],
+    UsuarioService],
 })
 export class UsuarioModule { }
