@@ -19,6 +19,7 @@ import { UsuarioModule } from './usuario/Usuario.module';
 import {LibrosModule } from './libros/libros.module';
 import { DemoMaterialModule } from '../material-module';
 import { RespuestaModule } from './respuesta/respuesta.module';
+import{CanjeModule} from './canje/canje.module';
 
   
 
@@ -44,6 +45,7 @@ import { RespuestaModule } from './respuesta/respuesta.module';
         ModalDialogModule.forRoot(),
         AuthModule,
         FormsModule,
+        CanjeModule,
         ToastrModule.forRoot({
             timeOut: 10000,
             positionClass: 'toast-bottom-right',
