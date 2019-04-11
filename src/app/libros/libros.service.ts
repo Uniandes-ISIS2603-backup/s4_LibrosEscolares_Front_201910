@@ -19,15 +19,24 @@ export class LibrosService {
     */
     constructor(private http: HttpClient) { }
     
-  
+   /**
+    * Returns the Observable object containing the list of editorials retrieved from the API
+    * @returns The list of libros in real time
+    */
     getLibros() : Observable<Libro[]> {
         return this.http.get<Libro[]>(API_URL + Libros);
     }
-    
+     /**
+    * Returns the Observable object containing the list of editorials retrieved from the API
+    * @returns The list of librosdetail in real time
+    */
      getLibrosDetail(libroId): Observable<Libro> {
         return this.http.get<Libro>(API_URL + Libros + '/' + libroId);
     }
-    
+     /**
+    * Creates and returns the Observable object containing the list of editorials retrieved from the API
+    * @returns The list of librosdetail in real time
+    */
     createLibro(libro): Observable<LibrosDetail> {
         return this.http.post<LibrosDetail>(API_URL + Libros, libro);
     
