@@ -77,16 +77,18 @@ const routes: Routes = [
                 path: 'list',
                 component: LibrosListComponent
             },
-            {
-                path: ':id',
-                component: LibrosDetailComponent
-            },
              {
                 path: 'add',
                 component: LibrosCreateComponent,
                 runGuardsAndResolvers: 'always'
+            },
+            
+            {
+                path: ':id',
+                component: LibrosDetailComponent
             }
             
+           
         ]
     },{
         path: 'carro',
