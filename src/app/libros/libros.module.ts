@@ -19,7 +19,7 @@ import { LibrosCreateComponent } from './../libros/libros-create/libros-create.c
   ],
   declarations: [LibrosListComponent, LibrosDetailComponent,LibrosCreateComponent],
   providers: [LibrosService,LibrosCreateComponent],
- exports:[LibrosListComponent,LibrosCreateComponent]
+ exports:[LibrosListComponent]
 })
 export class LibrosModule { }
 
