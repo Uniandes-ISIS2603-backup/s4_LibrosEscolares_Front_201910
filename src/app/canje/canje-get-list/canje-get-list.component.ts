@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Canje } from '../canje';
-import { CanjeService } from './../Canje.service';
+import { CanjeService } from './../canje.service';
 
 
 /**
