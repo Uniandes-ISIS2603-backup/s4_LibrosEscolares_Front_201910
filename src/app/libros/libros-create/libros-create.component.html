@@ -9,14 +9,14 @@
                   <div class="form-group">
                     <label for="libroTitulo"><b>Titulo</b></label>
                     <input type="text" name="libroTitulo" class="form-control" id="libroTitulo" [(ngModel)]="libro.titulo"
-                           #libroName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroTitulo.invalid }" required>
+                           #libroTitulo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroTitulo.invalid }" required>
                            <div class="invalid-feedback">
                         <div>The libro's name is missing</div>
                     </div>
                
                     <label for="libroAutor"><b>Autor</b></label>
                     <input type="text" name="libroAutor" class="form-control" id="libroAutor" [(ngModel)]="libro.autor"
-                           #libroName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroAutor.invalid }" required>
+                           #libroAutor="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroAutor.invalid }" required>
                            <div class="invalid-feedback">
                         <div>The libro's autor is missing</div>
                     </div>
@@ -30,7 +30,7 @@
                
                     <label for="libroEditorial"><b>Editorial</b></label>
                     <input type="text" name="libroEditorial" class="form-control" id="libroEditorial" [(ngModel)]="libro.editorial"
-                           #libroName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroEditorial.invalid }" required>
+                           #libroEditorial="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroEditorial.invalid }" required>
                            <div class="invalid-feedback">
                         <div>The libro's editorial is missing</div>
                     </div>
@@ -52,7 +52,7 @@
                
                     <label for="libroPrecio"><b>Precio (En pesos)</b></label>
                     <input type="number" name="libroPrecio" class="form-control" id="libroPrecio" [(ngModel)]="libro.precio"
-                           #libroISBN="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroPrecio.invalid }" required>
+                           #libroPrecio="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroPrecio.invalid }" required>
                            <div class="invalid-feedback">
                         <div>The libro's precio is missing</div>
                     </div>
@@ -61,10 +61,10 @@
                 
                     <label for="libroImage"><b>Image</b></label>
                      <div class="input-group">
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="libroPortada"[(ngModel)]="libro.portada"
+                    <div class="image-file">
+                        <input type="file" class="image-file-input" id="libroPortada"[(ngModel)]="libro.portada"
                            #libroPortada="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroPortada.invalid }" required>
-                        <label class="custom-file-label" for="libroPortada">libroPortada</label>
+                    
                     </div>
                     
                 </div>
