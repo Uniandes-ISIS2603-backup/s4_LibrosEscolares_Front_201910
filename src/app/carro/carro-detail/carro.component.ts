@@ -39,6 +39,7 @@ export class CarroComponent implements OnInit {
   }
 
   actualizar(){
+    console.log(this.id);
     this.carroService.getCarro(this.id).subscribe(Carro =>
         {
          this.carro = Carro;
@@ -80,7 +81,8 @@ export class CarroComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(this.id == 0){
+    console.log(this.id);
+    if(this.id == undefined){
       this.id = + this.route.snapshot.paramMap.get('id');
     }
     this.carro = new CarroDetail();

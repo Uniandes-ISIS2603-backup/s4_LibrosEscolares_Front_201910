@@ -15,6 +15,8 @@ import { CarroDetailModule } from './carro-detail/carro-detail.module';
     RouterModule,
     CarroDetailModule
   ],
-  declarations: [ CarroListComponent, CarroCreateComponent]
+  declarations: [ CarroListComponent, CarroCreateComponent],
+  exports: [CarroDetailModule],
+  entryComponents:[CarroComponent]
 })
 export class CarroModule { }

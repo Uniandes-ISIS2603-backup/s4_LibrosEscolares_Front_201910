@@ -19,6 +19,7 @@ import { UsuarioModule } from './usuario/Usuario.module';
 import {LibrosModule } from './libros/libros.module';
 import { DemoMaterialModule } from '../material-module';
 import { RespuestaModule } from './respuesta/respuesta.module';
+import { CarroComponent } from './carro/carro-detail/carro.component';
 
   
 
@@ -54,6 +55,7 @@ import { RespuestaModule } from './respuesta/respuesta.module';
         NgbModule
     ],
     bootstrap: [AppComponent],
+    entryComponents:[CarroComponent],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,

@@ -1,6 +1,8 @@
 <div class="container-fluid">
         <mat-toolbar><img src="../assets/notebook.svg" width="50" height="50" routerLink="" (click)="diselected()" style="cursor: pointer;">  
-            <a routerLink="" style="cursor: pointer;" (click)="diselected()">Booklet</a></mat-toolbar>
+            <a routerLink="" style="cursor: pointer;" (click)="diselected()">Booklet</a>
+            <span class="example-fill-remaining-space"></span>
+            <img src="../assets/shopping-cart.png" width="25" height="25" routerLink="/carro/4" (click)="diselected()" style="cursor: pointer;"> </mat-toolbar>
         <mat-toolbar color="primary" >
                 <span class="example-fill-remaining-space"></span>
                 <button mat-button [matMenuTriggerFor]="menu">Demo listar</button>
