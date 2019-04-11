@@ -1,3 +1,43 @@
-<p>
-  canje-get-list works!
-</p>
+
+<div class = "container-fluid">
+  <div class="col">
+      <table class="table table-striped">
+          <thead class="thead-dark">
+              <tr>
+                  <th>ID</th>
+                  <th>Fecha de Creación</th>
+                  <th>Libro Pedido</th>
+                  <th>Dueño</th>
+                  <th>Libro Ofrecido</th>
+                  <th>Dueño</th>
+                  <th>Estado</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor = "let canje of canjes">
+                  <td style="cursor: pointer;">
+                      <dd class="figure-caption" routerLink="/canjes/{{canje.id}}">{{canje.id}}</dd>
+                  </td>
+                  <td>
+                   {{canje.fecha}} 
+                  </td>
+                  <td>
+                    {{canje.libroPedido.titulo}}
+                  </td>
+                  <td>
+                    {{canje.usuarioQueRecibe.nombreUsuario}}
+                  </td>
+                  <td>
+                    {{canje.libroOfrecido.titulo}}
+                  </td>
+                  <td>
+                    {{canje.usuarioQueOfrece.nombreUsuario}}
+                  </td>
+                  <td>
+                    {{canje.estado}}
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
