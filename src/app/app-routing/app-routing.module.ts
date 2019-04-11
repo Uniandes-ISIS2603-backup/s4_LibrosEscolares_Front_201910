@@ -68,7 +68,7 @@ const routes: Routes = [
                 component: UsuarioDetailComponent
             },
             {
-                path: ':edit',
+                path: ':id/edit',
                 component: UsuarioeditarComponent
             }
         ]
