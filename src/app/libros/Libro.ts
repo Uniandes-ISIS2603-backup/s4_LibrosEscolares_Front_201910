@@ -37,6 +37,7 @@ export class Libro {
      * La portada del libro
      */
     portada: String;
+    
     /**
      * El precio del libro
      */

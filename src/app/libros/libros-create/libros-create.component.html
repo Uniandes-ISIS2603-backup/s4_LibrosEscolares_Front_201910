@@ -59,16 +59,14 @@
                            
               </div>
                 
-                    <label for="libroImage"><b>Image</b></label>
-                     <div class="input-group">
-                    <div class="image-file">
-                        <input type="file" class="image-file-input" id="libroPortada"[(ngModel)]="libro.portada"
+                    <label for="libroPortada"><b>Image</b></label>
+                  <input type="text" name="libroPortada" class="form-control" id="libroPortada" [(ngModel)]="libro.portada"
                            #libroPortada="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroPortada.invalid }" required>
-                    
+                           <div class="invalid-feedback">
+                        <div>The libro's portada is missing</div>
                     </div>
-                    
-                </div>
-
+                             
+  
                 
 
                

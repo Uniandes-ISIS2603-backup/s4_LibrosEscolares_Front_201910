@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Libro } from '../libro';
 import {ToastrService} from 'ngx-toastr';
 import {Router} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
 
 import { LibrosService } from '../libros.service';
 
@@ -15,7 +16,8 @@ export class LibrosCreateComponent implements OnInit {
   constructor(
         private librosService: LibrosService,
         private toastrService: ToastrService,
-        private router: Router) { }
+        private router: Router,
+        private http: HttpClient) { }
    /**
     * Atributo que representa el nuevo libro
     */
@@ -54,11 +56,11 @@ export class LibrosCreateComponent implements OnInit {
             this.create.emit();
             this.toastrService.success("El libro fue creado", "Creacion libro");
         }, err => {
-            this.toastrService.error(err, "Error");
+                   this.toastrService.error(err, "Error");
         });
     }
-
     
+
   ngOnInit() {
      this.libro = new Libro();
      
