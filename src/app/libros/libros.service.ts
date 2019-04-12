@@ -38,6 +38,7 @@ export class LibrosService {
     * @returns The list of librosdetail in real time
     */
     createLibro(libro): Observable<LibrosDetail> {
+        console.log(libro);
         return this.http.post<LibrosDetail>(API_URL + Libros, libro);
     
 }
