@@ -30,7 +30,7 @@ export class CarroListComponent implements OnInit {
 
   getNombreUsuario(index: number): String
   {
-    return this.carros[index].comprador.nombreUsuario;
+    return this.carros[index].dueno.nombreUsuario;
   }
 
   updateRuta(index): string

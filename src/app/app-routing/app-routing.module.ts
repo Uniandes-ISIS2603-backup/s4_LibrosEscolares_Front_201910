@@ -9,21 +9,23 @@ import { UsuarioslistComponent } from './../usuario/usuariosList/UsuariosList.co
 import { LibrosDetailComponent } from './../libros/libros-detail/libros-detail.component';
 import { LibrosCreateComponent } from './../libros/libros-create/libros-create.component';
 import { LibrosListComponent } from './../libros/libros-list/libros-list.component';
-import {CarroComponent} from './../carro/carro-detail/carro.component';
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {RouterModule, Routes} from '@angular/router';
-import {NgxPermissionsGuard} from 'ngx-permissions';
+import { CarroComponent } from './../carro/carro-detail/carro.component';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+import { NgxPermissionsGuard } from 'ngx-permissions';
 
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import { CarroListComponent } from '../carro/carro-list/carro-list.component';
 import { CarroDetail } from '../carro/carro-detail';
 import { RespuestaDetailComponent } from '../respuesta/respuesta-detail/respuesta-detail.component';
+import { CarroCreateComponent } from '../carro/carro-create/carro-create.component';
+import { CarroUpdateComponent } from '../carro/carro-update/carro-update.component';
 
 const routes: Routes = [
 
-     {
+    {
         path: 'auth',
         children: [
             {
@@ -52,10 +54,10 @@ const routes: Routes = [
         path: 'home',
         component: AuthLoginComponent
     },
-   /*  {
-        path: '**',
-        redirectTo: 'home',
-    }, */
+    /*  {
+         path: '**',
+         redirectTo: 'home',
+     }, */
     {
         path: 'usuarios',
         children: [
@@ -79,7 +81,7 @@ const routes: Routes = [
             }
         ]
     },
-   
+
     {
         path: 'libros',
         children: [
@@ -98,18 +100,25 @@ const routes: Routes = [
                 component: LibrosDetailComponent
             }
         ]
-    },{
+    }, {
         path: 'carro',
-        children: [
+        children: 
+        [
+            
+            {
+                path: 'create',
+                component: CarroCreateComponent
+            },
             {
                 path: 'list',
                 component: CarroListComponent,
-                children: [
-                {
-                    path: ':id',
-                    component: CarroComponent
-                }
-            ]
+                children:
+                    [
+                        {
+                            path: ':id',
+                            component: CarroComponent
+                        }
+                    ]
             },
             {
                 path: ':id',
@@ -124,41 +133,50 @@ const routes: Routes = [
                 path: 'list',
                 component: CanjeGetListComponent
             },
-             {
+            {
                 path: 'add',
                 component: CanjeCreateComponent,
                 runGuardsAndResolvers: 'always'
             },
-            
+
             {
                 path: ':id',
                 component: CanjeGetComponent
             }
-            
-           
+
+
         ]
     },
     {
         path: 'respuesta',
-        children:[
+        children: [
             {
-                path:'list',
+                path: 'list',
                 component: RespuestaListComponent
             },
             {
                 path: ':id',
                 component: RespuestaDetailComponent
+            },
+            {
+                path: 'create',
+                component: CarroCreateComponent
+            }
+            ,
+            {
+                path: 'update',
+                component: CarroUpdateComponent
             }
         ]
     }
-    
+
 
 ];
 
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})
+        RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })
     ],
     exports: [RouterModule],
     declarations: []

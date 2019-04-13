@@ -27,6 +27,8 @@ export class CarroService {
 
   createCarro(carro: CarroDetail): Observable<CarroDetail>
   {
+    console.log(API_URL+carros);
+    console.log(carro);
     return this.http.post<CarroDetail>(API_URL+carros, carro);
   }
 

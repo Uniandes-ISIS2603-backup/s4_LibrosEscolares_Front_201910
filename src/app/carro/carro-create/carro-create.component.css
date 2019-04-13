@@ -1,0 +1,16 @@
+.example-container > * {
+    width: 100%;
+  }
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .mat-row:hover {
+    cursor: pointer;
+  }
+  
+  [mat-row].remove-background {
+    background: none ;
+  }

@@ -7,9 +7,9 @@ export class Carro {
 
     id: number;
 
-    valorPagar: number;
+    valorAPagar: number;
 
-    comprador: Usuario;
+    dueno: Usuario;
 
     nombreU: string;
 

@@ -81,6 +81,7 @@ export class CarroComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("entro al carro")
     console.log(this.id);
     if(this.id == undefined){
       this.id = + this.route.snapshot.paramMap.get('id');
