@@ -41,7 +41,7 @@ canje: Canje;
 */
 createUsuario(): void {
     this.canje.fechaDeCreacion=new Date();
-    this.canje.estado='Enviado';
+    this.canje.estado='Enviado';  
     this.canjeService.createCanje(this.canje)
         .subscribe(() => {
             this.create.emit();
@@ -52,7 +52,7 @@ createUsuario(): void {
 }
 
 /**
-* Informa al componente padre que el usuario ya no quiere crear un usuario
+* Informa al componente padre que el usuario ya no quiere crear un canje
 */
 cancelCreation(): void {
     this.cancel.emit();
