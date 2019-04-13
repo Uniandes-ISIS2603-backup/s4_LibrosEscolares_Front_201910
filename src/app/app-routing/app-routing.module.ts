@@ -157,6 +157,11 @@ const routes: Routes = [
         path: 'respuesta',
         children: [
             {
+                path: 'update',
+                component: RespuestaUpdateComponent
+            }
+            ,
+            {
                 path: 'create',
                 component: RespuestaCreateComponent
             }
@@ -168,10 +173,6 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: RespuestaDetailComponent
-            },
-            {
-                path: 'update',
-                component: RespuestaUpdateComponent
             }
         ]
     }

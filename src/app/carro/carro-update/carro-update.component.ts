@@ -12,7 +12,7 @@ import { CarroDetail } from '../carro-detail';
 })
 export class CarroUpdateComponent implements OnInit {
 
-  carro: CarroDetail;
+  carro: CarroDetail = new CarroDetail();
   libros: Libro[];
   librosAux: Libro[] =[];
 
