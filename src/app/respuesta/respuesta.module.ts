@@ -4,6 +4,7 @@ import { RespuestaListComponent } from './respuesta-list/respuesta-list.componen
 import { DemoMaterialModule } from '../../material-module';
 import { RouterModule } from '@angular/router';
 import { RespuestaDetailModule } from './respuesta-detail/respuesta-detail.module';
+import { RespuestaUpdateComponent } from './respuesta-update/respuesta-update.component';
 
 @NgModule({
   imports: [
@@ -12,6 +13,6 @@ import { RespuestaDetailModule } from './respuesta-detail/respuesta-detail.modul
     RouterModule,
     RespuestaDetailModule
   ],
-  declarations: [ RespuestaListComponent]
+  declarations: [ RespuestaListComponent, RespuestaUpdateComponent]
 })
 export class RespuestaModule { }

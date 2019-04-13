@@ -110,6 +110,10 @@ const routes: Routes = [
                 component: CarroCreateComponent
             },
             {
+                path: 'update',
+                component: CarroUpdateComponent
+            },
+            {
                 path: 'list',
                 component: CarroListComponent,
                 children:

@@ -1,8 +1,9 @@
-import { Component, OnInit, Inject   } from '@angular/core';
+import { Component, OnInit, Inject, Output, EventEmitter   } from '@angular/core';
 import { CarroService } from '../carro.service';
 import { LibrosService } from '../../libros/libros.service';
 import { Libro } from '../../libros/Libro';
 import { CarroDetail } from '../carro-detail';
+import { ToastrService } from 'ngx-toastr';
 import { Usuario } from '../../../app/usuario/Usuario';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material';
 
@@ -22,9 +23,21 @@ export class CarroCreateComponent implements OnInit {
   displayedColumns: string[] = ['ISBN','titulo', 'autor', 'editorial', 'estado', 'precio', 'Crear'];
   mouseOverIndex = -1;
 
-  constructor(public carroService: CarroService, public librosService: LibrosService) {
+  constructor(public carroService: CarroService, public librosService: LibrosService, private toastrService: ToastrService) {
     this.carro = new CarroDetail();
    }
+
+   /**
+* La salida que dice el componente padre
+* que el usuario ya no quiere crear un Carrro
+*/
+@Output() cancel = new EventEmitter();
+
+/**
+* La salida que dice el componente padre
+* el usario creo el carro
+*/
+@Output() create = new EventEmitter();
 
   getLibros()
   {
