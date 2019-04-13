@@ -28,11 +28,21 @@ export class CanjeService {
   }
 
        /**
-    * Crea un usuario
-    * @param usuario El usuario que sera crado
+    * Crea un canje
+    * @param canje El canje que sera crado
     * @returns La confirmacion de la creacion
     */
    createCanje(canje): Observable<CanjeDetail> {
     return this.http.post<CanjeDetail>(API_URL + canjes, canje);
 }
+
+/**
+    * Actualiza un canje
+    * @param canje El canje con la informacion actualizada
+    * @returns La confirmacion de que el autor a sido actualizado 
+    */
+   updateCanje(canje): Observable<CanjeDetail> {
+    return this.http.put<CanjeDetail>(API_URL + canjes + '/' + canje.id, canje);
+}
+
 }
