@@ -22,6 +22,8 @@ import { CarroDetail } from '../carro/carro-detail';
 import { RespuestaDetailComponent } from '../respuesta/respuesta-detail/respuesta-detail.component';
 import { CarroCreateComponent } from '../carro/carro-create/carro-create.component';
 import { CarroUpdateComponent } from '../carro/carro-update/carro-update.component';
+import { RespuestaCreateComponent } from '../respuesta/respuesta-create/respuesta-create.component';
+import { RespuestaUpdateComponent } from '../respuesta/respuesta-update/respuesta-update.component';
 
 const routes: Routes = [
 
@@ -155,6 +157,11 @@ const routes: Routes = [
         path: 'respuesta',
         children: [
             {
+                path: 'create',
+                component: RespuestaCreateComponent
+            }
+            ,
+            {
                 path: 'list',
                 component: RespuestaListComponent
             },
@@ -163,13 +170,8 @@ const routes: Routes = [
                 component: RespuestaDetailComponent
             },
             {
-                path: 'create',
-                component: CarroCreateComponent
-            }
-            ,
-            {
                 path: 'update',
-                component: CarroUpdateComponent
+                component: RespuestaUpdateComponent
             }
         ]
     }

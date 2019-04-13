@@ -43,7 +43,7 @@ export class LibrosService {
         {
         return this.http.post<LibrosDetail>(API_URL + Libros, libro);
         }
-        catch(Exception e)
+        catch(e)
         {
             
         }

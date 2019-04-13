@@ -19,12 +19,12 @@
                   <button mat-menu-item [routerLink]="[ '/carro/create']" (click)="selected()">Crear carro de compra</button>
                   <button mat-menu-item [routerLink]="[ '/usuarios/add']" (click)="selected()">Crear usuario</button>
                   <button mat-menu-item [routerLink]="[ '/libros/add']" (click)="selected()">Crear libro</button>
-                  <button mat-menu-item [routerLink]="[ '/respuesta/add']" (click)="selected()">Crear respuesta</button>
+                  <button mat-menu-item [routerLink]="[ '/respuesta/create']" (click)="selected()">Crear respuesta</button>
                   <button mat-menu-item [routerLink]="[ '/canje/add']" (click)="selected()">Crear canje</button>
                   
                 </mat-menu>
         </mat-toolbar>
         <router-outlet></router-outlet> 
         <button mat-flat-button color="primary" routerLink="" *ngIf="getSelect()" (click)="diselected()" >regresar</button>
-        <a routerLink="/carro/update" style="cursor: pointer;">Actualizar carro</a>    
+        <a routerLink="/respuesta/create" style="cursor: pointer;">Crear respuesta</a>    
 </div>

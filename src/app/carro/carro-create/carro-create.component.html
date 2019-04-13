@@ -1,84 +1,90 @@
 <div class="example-container">
-  <mat-form-field>
-    <input matInput  [(ngModel)]="carro.id" placeholder="Ingrese el id del carro" >
-  </mat-form-field>
+        <mat-form-field>
+                <input matInput [(ngModel)]="carro.id" placeholder="Ingrese el id del carro">
+        </mat-form-field>
 
-  <mat-form-field>
-    <textarea [(ngModel)]="carro.valorAPagar" matInput placeholder="Ingrese valor a pagar"></textarea>
-  </mat-form-field>
+        <mat-form-field>
+                <textarea [(ngModel)]="carro.valorAPagar" matInput placeholder="Ingrese valor a pagar"></textarea>
+        </mat-form-field>
 
-  <mat-form-field>
-    <textarea [(ngModel)]="carro.nombreU" matInput placeholder="Ingrese nombre del usuario dueño del carro"></textarea>
-  </mat-form-field>
+        <mat-form-field>
+                <textarea [(ngModel)]="carro.nombreU" matInput
+                        placeholder="Ingrese nombre del usuario dueño del carro"></textarea>
+        </mat-form-field>
 
-  <div>
-    <mat-expansion-panel *ngFor="let libro of libros; let i = index;" (opened)="panelOpenState = true"
-    (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
-          <mat-panel-title id="i">
-              <mat-chip-list>
-                  <mat-chip color="accent" selected>Libros</mat-chip>
-                  </mat-chip-list>
-          </mat-panel-title>
-          <mat-panel-description>
-          <a>Seleccione los libros a agregar</a>
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        
-        <div class="mat-elevation-z8">   
-          <table mat-table #table [dataSource]="libros">
-   
-               <ng-container matColumnDef="ISBN">
-                       <th mat-header-cell *matHeaderCellDef> ISBN </th>
-                       <td mat-cell *matCellDef="let libro"> {{libro.ISBN}} </td>
-               </ng-container>
-   
-               <ng-container matColumnDef="titulo">
-                       <th mat-header-cell *matHeaderCellDef> Título </th>
-                       <td mat-cell *matCellDef="let libro"> {{libro.titulo}} </td>
-               </ng-container>
-   
-               <ng-container matColumnDef="autor">
-                       <th mat-header-cell *matHeaderCellDef> Autor </th>
-                       <td mat-cell *matCellDef="let libro"> {{libro.autor}} </td>
-               </ng-container>
-   
-               <ng-container matColumnDef="editorial">
-                       <th mat-header-cell *matHeaderCellDef> Editorial </th>
-                       <td mat-cell *matCellDef="let libro"> {{libro.editorial}} </td>
-               </ng-container>
-   
-               <ng-container matColumnDef="estado">
-                       <th mat-header-cell *matHeaderCellDef> Estado </th>
-                       <td mat-cell *matCellDef="let libro"> {{libro.estado}} </td>
-               </ng-container>
-   
-               <ng-container matColumnDef="precio">
-                       <th mat-header-cell *matHeaderCellDef> Precio </th>
-                       <td mat-cell *matCellDef="let libro"> {{libro.precio}} </td>
-               </ng-container>
-   
-               <ng-container matColumnDef="Crear">
-                       <th mat-header-cell *matHeaderCellDef> </th>
-                       <td mat-cell *matCellDef="let element, let i = index"> 
-                           <button mat-button color="primary" *ngIf="i == mouseOverIndex" (click)="addLibro(i)">Agregar Libro</button> 
-                       </td>
-               </ng-container>
-              
-               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-               <tr mat-row class="remove-background" style="cursor: pointer;" (click)="onMouseOver(e)" *matRowDef="let row let e = index; columns: displayedColumns;" 
-               [ngClass] = "{'mat-elevation-z8' : e == mouseOverIndex}" (dblclick)="doubleClick()"></tr>
-           </table>
-           <table class="table table-hover">
-   
-           </table>
-           <button mat-flat-button color="accent" (click)="doubleClick()" *ngIf="!deselect()" >Deseleccionar</button>
-       </div>  
+        <div>
+                <mat-expansion-panel *ngFor="let libro of libros; let i = index;" (opened)="panelOpenState = true"
+                        (closed)="panelOpenState = false">
+                        <mat-expansion-panel-header>
+                                <mat-panel-title id="i">
+                                        <mat-chip-list>
+                                                <mat-chip color="accent" selected>Libros</mat-chip>
+                                        </mat-chip-list>
+                                </mat-panel-title>
+                                <mat-panel-description>
+                                        <a>Seleccione los libros a agregar</a>
+                                </mat-panel-description>
+                        </mat-expansion-panel-header>
 
-      </mat-expansion-panel>
-</div>
+                        <div class="mat-elevation-z8">
+                                <table mat-table #table [dataSource]="libros">
 
-  <button mat-button (click)="crear()">Crear</button>
+                                        <ng-container matColumnDef="ISBN">
+                                                <th mat-header-cell *matHeaderCellDef> ISBN </th>
+                                                <td mat-cell *matCellDef="let libro"> {{libro.ISBN}} </td>
+                                        </ng-container>
+
+                                        <ng-container matColumnDef="titulo">
+                                                <th mat-header-cell *matHeaderCellDef> Título </th>
+                                                <td mat-cell *matCellDef="let libro"> {{libro.titulo}} </td>
+                                        </ng-container>
+
+                                        <ng-container matColumnDef="autor">
+                                                <th mat-header-cell *matHeaderCellDef> Autor </th>
+                                                <td mat-cell *matCellDef="let libro"> {{libro.autor}} </td>
+                                        </ng-container>
+
+                                        <ng-container matColumnDef="editorial">
+                                                <th mat-header-cell *matHeaderCellDef> Editorial </th>
+                                                <td mat-cell *matCellDef="let libro"> {{libro.editorial}} </td>
+                                        </ng-container>
+
+                                        <ng-container matColumnDef="estado">
+                                                <th mat-header-cell *matHeaderCellDef> Estado </th>
+                                                <td mat-cell *matCellDef="let libro"> {{libro.estado}} </td>
+                                        </ng-container>
+
+                                        <ng-container matColumnDef="precio">
+                                                <th mat-header-cell *matHeaderCellDef> Precio </th>
+                                                <td mat-cell *matCellDef="let libro"> {{libro.precio}} </td>
+                                        </ng-container>
+
+                                        <ng-container matColumnDef="Crear">
+                                                <th mat-header-cell *matHeaderCellDef> </th>
+                                                <td mat-cell *matCellDef="let element, let i = index">
+                                                        <button mat-button color="primary" *ngIf="i == mouseOverIndex"
+                                                                (click)="addLibro(i)">Agregar Libro</button>
+                                                </td>
+                                        </ng-container>
+
+                                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                        <tr mat-row class="remove-background" style="cursor: pointer;"
+                                                (click)="onMouseOver(e)"
+                                                *matRowDef="let row let e = index; columns: displayedColumns;"
+                                                [ngClass]="{'mat-elevation-z8' : e == mouseOverIndex}"
+                                                (dblclick)="doubleClick()"></tr>
+                                </table>
+                                <table class="table table-hover">
+
+                                </table>
+                                <button mat-flat-button color="accent" (click)="doubleClick()"
+                                        *ngIf="!deselect()">Deseleccionar</button>
+                        </div>
+
+                </mat-expansion-panel>
+        </div>
+
+        <button mat-button (click)="crear()">Crear</button>
 
 
 </div>
