@@ -17,6 +17,11 @@
   <mat-form-field>
     <textarea [(ngModel)]="respuesta.calificacion" matInput placeholder="Ingrese calificacion"></textarea>
   </mat-form-field>
+  <mat-form-field class="date" >
+      <input matInput [matDatepicker]="picker" placeholder="Escoge fecha de entrega" [(ngModel)]="respuesta.fechaEnvio">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
 
   <button mat-button (click)="crear()">Crear</button>
 </div>

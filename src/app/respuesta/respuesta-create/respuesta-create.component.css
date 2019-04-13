@@ -7,6 +7,10 @@ table {
   table-layout: fixed;
 }
 
+.date {
+  max-width: 6cm;
+}
+
 .mat-row:hover {
   cursor: pointer;
 }
