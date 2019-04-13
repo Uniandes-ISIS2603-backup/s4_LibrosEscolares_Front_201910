@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CarroService } from '../carro.service';
 import { LibrosService } from '../../../app/libros/libros.service';
-import { Usuario } from '../../../app/usuario/Usuario';
+import { Usuario } from '../../../app/usuario/usuario';
 import { Libro } from '../../../app/libros/Libro';
 import { CarroDetail } from '../carro-detail';
 

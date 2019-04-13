@@ -4,7 +4,7 @@ import { LibrosService } from '../../libros/libros.service';
 import { Libro } from '../../libros/Libro';
 import { CarroDetail } from '../carro-detail';
 import { ToastrService } from 'ngx-toastr';
-import { Usuario } from '../../../app/usuario/Usuario';
+import { Usuario } from '../../../app/usuario/usuario';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material';
 
 
