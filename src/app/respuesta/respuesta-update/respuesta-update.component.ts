@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Respuesta } from '../respuesta';
+import { RespuestaService } from '../respuesta.service';
 
 @Component({
   selector: 'app-respuesta-update',
@@ -7,7 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RespuestaUpdateComponent implements OnInit {
 
-  constructor() { }
+  respuesta: Respuesta = new Respuesta();
+
+  constructor(public respuestaService: RespuestaService) { }
+
+  actualizar()
+  {
+    this.respuestaService.updateRespuesta(this.respuesta.id,this.respuesta)
+  }
 
   ngOnInit() {
   }
