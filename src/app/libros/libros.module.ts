@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { LibrosListComponent } from './libros-list/libros-list.component';
 import { LibrosDetailComponent } from './libros-detail/libros-detail.component';
 import { LibrosService } from './libros.service';
@@ -18,7 +18,7 @@ import { LibrosCreateComponent } from './../libros/libros-create/libros-create.c
      HttpClientModule
   ],
   declarations: [LibrosListComponent, LibrosDetailComponent,LibrosCreateComponent],
-  providers: [LibrosService,LibrosCreateComponent],
+  providers: [LibrosService,LibrosCreateComponent, {provide: LocationStrategy, useClass: PathLocationStrategy }],
  exports:[LibrosListComponent]
 })
 export class LibrosModule { }
