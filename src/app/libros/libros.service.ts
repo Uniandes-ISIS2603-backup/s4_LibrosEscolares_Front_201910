@@ -50,5 +50,14 @@ export class LibrosService {
     
 }
 
+    /**
+    * Edita un libro
+    * @param libro El libro con la informacion editada
+    * @returns La confirmacion de que el libro ha sido editado 
+    */
+   editarLibro(libro): Observable<LibrosDetail> {
+    return this.http.put<LibrosDetail>(API_URL + Libros + '/' + libro.id, libro);
+}
+
 
 }
