@@ -24,12 +24,16 @@ export class LibrosListComponent implements OnInit {
     Libros: Libro[];
 
 
+    
     /**
      * Asks the service to update the list of Libros
      */
     getLibros(): void {
         this.LibrosService.getLibros().subscribe(Libros => this.Libros = Libros);
+       
     }
+    
+    
     
  
     /**
