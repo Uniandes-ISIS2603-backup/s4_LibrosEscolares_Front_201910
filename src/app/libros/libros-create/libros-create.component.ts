@@ -43,6 +43,7 @@ export class LibrosCreateComponent implements OnInit {
     */
    cancelCreation(): void {
     this.cancel.emit();
+    this.router.navigate(['/libros/list']);
 }
 
 

@@ -45,6 +45,7 @@ id:number;
            .subscribe(() => {
             this.editar.emit();
                this.toastrService.success("La informacion del libro ha sido actualizada", "editar libro");
+               this.router.navigate(['/libros/list']);
             }, err => {
                 this.toastrService.error(err, "Error");
             });
@@ -55,8 +56,9 @@ id:number;
    * Emite una señal al componente padre que dice 
    * el libro ya no quiere crear un libro
    */
-   cancelarEdition(): void {
+   cancelarEdicion(): void {
        this.cancelar.emit();
+       this.router.navigate(['/libros/list']);
    }
 
 
