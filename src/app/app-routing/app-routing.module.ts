@@ -6,9 +6,12 @@ import { UsuarioeditarComponent } from './../usuario/usuarioEditar/usuarioEditar
 import { UsuariocrearComponent } from './../usuario/usuarioCrear/usuarioCrear.component';
 import { UsuarioDetailComponent } from './../usuario/usuarioDetail/usuarioDetail.component';
 import { UsuarioslistComponent } from './../usuario/usuariosList/UsuariosList.component';
+import { LibrosEditComponent } from './../libros/libros-edit/libros-edit.component';
 import { LibrosDetailComponent } from './../libros/libros-detail/libros-detail.component';
 import { LibrosCreateComponent } from './../libros/libros-create/libros-create.component';
 import { LibrosListComponent } from './../libros/libros-list/libros-list.component';
+
+
 import { CarroComponent } from './../carro/carro-detail/carro.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -100,7 +103,13 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: LibrosDetailComponent
+            },
+            {
+                path: ':id/edit',
+                component: LibrosEditComponent,
+                runGuardsAndResolvers: 'always'
             }
+            
         ]
     }, {
         path: 'carro',

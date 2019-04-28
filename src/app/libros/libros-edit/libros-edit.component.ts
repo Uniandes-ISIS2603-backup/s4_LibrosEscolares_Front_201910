@@ -9,7 +9,7 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angu
   templateUrl: './libros-edit.component.html',
   styleUrls: ['./libros-edit.component.css']
 })
-export class LibrosEditComponent implements OnInit {
+export class LibrosEditComponent implements OnInit, OnChanges {
 constructor(
     private libroService: LibrosService,
     private toastrService: ToastrService,
