@@ -9,6 +9,8 @@ import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import { LibrosCreateComponent } from './../libros/libros-create/libros-create.component';
 import { LibrosEditComponent } from './../libros/libros-edit/libros-edit.component';
+import { LibrosDeleteComponent } from './../libros/libros-delete/libros-delete.component';
+
 
 @NgModule({
   imports: [
@@ -18,8 +20,8 @@ import { LibrosEditComponent } from './../libros/libros-edit/libros-edit.compone
      AppRoutingModule,
      HttpClientModule
   ],
-  declarations: [LibrosListComponent, LibrosDetailComponent,LibrosCreateComponent,LibrosEditComponent],
-  providers: [LibrosService,LibrosCreateComponent, {provide: LocationStrategy, useClass: PathLocationStrategy },LibrosEditComponent],
+  declarations: [LibrosListComponent, LibrosDetailComponent,LibrosCreateComponent,LibrosEditComponent,LibrosDeleteComponent],
+  providers: [LibrosService,LibrosCreateComponent, {provide: LocationStrategy, useClass: PathLocationStrategy },LibrosEditComponent,LibrosDeleteComponent],
  exports:[LibrosListComponent]
 })
 export class LibrosModule { }

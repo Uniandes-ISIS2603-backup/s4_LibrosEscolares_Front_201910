@@ -9,6 +9,7 @@ import { UsuarioslistComponent } from './../usuario/usuariosList/UsuariosList.co
 import { LibrosEditComponent } from './../libros/libros-edit/libros-edit.component';
 import { LibrosDetailComponent } from './../libros/libros-detail/libros-detail.component';
 import { LibrosCreateComponent } from './../libros/libros-create/libros-create.component';
+import { LibrosDeleteComponent } from './../libros/libros-delete/libros-delete.component';
 import { LibrosListComponent } from './../libros/libros-list/libros-list.component';
 
 
@@ -107,6 +108,11 @@ const routes: Routes = [
             {
                 path: ':id/edit',
                 component: LibrosEditComponent,
+                runGuardsAndResolvers: 'always'
+            },
+            {
+                path: ':id/delete',
+                component: LibrosDeleteComponent,
                 runGuardsAndResolvers: 'always'
             }
             

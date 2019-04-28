@@ -59,5 +59,13 @@ export class LibrosService {
     return this.http.put<LibrosDetail>(API_URL + Libros + '/' + libro.id, libro);
 }
 
+  /**
+    * elimina el libro con el id indicado y lo retorna
+    * @returns El libro eliminado
+    */
+     deleteLibro(libroId): Observable<Libro> {
+        return this.http.delete<Libro>(API_URL + Libros + '/' + libroId);
+    }
+
 
 }

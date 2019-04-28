@@ -3,7 +3,6 @@ import { Libro } from '../libro';
 import {ToastrService} from 'ngx-toastr';
 import {Router, RouterModule, Routes} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
-
 import { LibrosService } from '../libros.service';
 
 @Component({
