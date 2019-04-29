@@ -3,6 +3,7 @@ import { LibrosDetail } from '../libros-detail';
 import { LibrosService } from './../libros.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {Router, RouterModule, Routes} from '@angular/router';
 @Component({
   selector: 'app-libros-delete',
   templateUrl: './libros-delete.component.html',
@@ -12,7 +13,8 @@ export class LibrosDeleteComponent implements OnInit {
 
  constructor(
         private librosService: LibrosService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+         private router: Router
     )
     {
     }
@@ -36,5 +38,7 @@ export class LibrosDeleteComponent implements OnInit {
      */
     deleteLibro(): void{
         this.librosService.deleteLibro(this.libro_id).subscribe(Libro => this.libro = Libro);
+        this.router.navigate(['/libros/list']);
+        
     }
     }
