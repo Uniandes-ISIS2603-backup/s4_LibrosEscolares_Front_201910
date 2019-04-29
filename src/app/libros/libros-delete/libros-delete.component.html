@@ -2,15 +2,17 @@
     <div class="col-3"></div>
     <div class="col-6">
         <br>
+         <br>
+          <br>
+          
         <h2 class="text-center">Eliminar libro</h2>
         <br>
-
-        <p class="h3 p-3">Esta eliminando el libro {{libro.titulo}}, con ISBN {{libro.ISBN}}, edicion {{libro.edicion}} y precio {{libro.precio}}. ¿Seguro que desea continuar? </p>
-        <br>
-
-
-
-        <br>
+        <p style="margin-left: 40px;margin-right: 40px" class="h3 p-3">Esta eliminando el libro {{libro.titulo}}, edicion {{libro.edicion}} . ¿Seguro que desea continuar? </p>
+       
+        <div class="row form-inline justify-content-center align-self-center">
+                     <button type="button"   class="btn btn-primary"  style="width: 150px;height: 70px;" >Si</button>
+                    <button type="button" class="btn btn-danger" style="width: 150px;height: 70px" routerLink="/libros/list">No</button>
+                    </div>
     </div>
     <div class="col-3"></div>
 </div>
