@@ -4,10 +4,17 @@
             <figure class="figure" routerLink="/libros/{{libro.id}}" style="cursor: pointer;"> 
                 <div class="img-thumbnail border-0">    
                
-                    <img class="img-thumbnail" src='{{libro.portada}}' alt="{{libro.id}}" /> 
+                    <img class="img-thumbnail"
+                         style="  width:  200px;
+                                  height: 300px;"
+                         src='{{libro.portada}}' alt="{{libro.id}}" /> 
                     
                 </div>
-                <figcaption class="title-caption text-center">{{libro.titulo}}</figcaption>
+                <figcaption class="title-caption text-center" 
+                            style="width: 200px;
+                                   overflow: hidden;
+                                   white-space: nowrap;
+                                   text-overflow: ellipsis;">{{libro.titulo}}</figcaption>
                   <figcaption class="title-caption text-center">{{libro.precio}}</figcaption>                
             </figure>
               <div class="row form-inline justify-content-center align-self-center">
