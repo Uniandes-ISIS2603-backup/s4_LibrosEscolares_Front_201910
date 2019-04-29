@@ -1,9 +1,11 @@
 import { Libro } from '../Libro';
 import { LibrosDetail } from '../libros-detail';
 import { LibrosService } from './../libros.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {Router, RouterModule, Routes} from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
+
 @Component({
   selector: 'app-libros-delete',
   templateUrl: './libros-delete.component.html',
@@ -14,6 +16,7 @@ export class LibrosDeleteComponent implements OnInit {
  constructor(
         private librosService: LibrosService,
         private route: ActivatedRoute,
+         private toastrService: ToastrService,
          private router: Router
     )
     {
@@ -25,6 +28,9 @@ export class LibrosDeleteComponent implements OnInit {
         this.getLibro();
     
     }   
+    
+    @Output() create = new EventEmitter();
+    
    
     /**
      * Le pide al servicio el libro
@@ -37,8 +43,36 @@ export class LibrosDeleteComponent implements OnInit {
      * Le pide al servicio que elimine el libro
      */
     deleteLibro(): void{
-        this.librosService.deleteLibro(this.libro_id).subscribe(Libro => this.libro = Libro);
-        this.router.navigate(['/libros/list']);
-        
+        this.librosService.deleteLibro(this.libro_id)
+            .subscribe(() => {
+            Libro => this.libro = Libro;
+            this.create.emit();
+            this.toastrService.success("El libro fue eliminado", "Eliminar libro");
+            window.location.assign('/libros/list');
+        }, err => {
+                   this.toastrService.error(err, "Error");
+        });
     }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

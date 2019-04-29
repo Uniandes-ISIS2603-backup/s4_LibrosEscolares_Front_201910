@@ -38,7 +38,6 @@ export class LibrosService {
     * @returns The list of librosdetail in real time
     */
     createLibro(libro): Observable<LibrosDetail> {
-        // libro.portada=libro.portada.toString().substr(12);
         try
         {
         return this.http.post<LibrosDetail>(API_URL + Libros, libro);
