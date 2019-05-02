@@ -11,7 +11,7 @@ import { LibrosDetailComponent } from './../libros/libros-detail/libros-detail.c
 import { LibrosCreateComponent } from './../libros/libros-create/libros-create.component';
 import { LibrosDeleteComponent } from './../libros/libros-delete/libros-delete.component';
 import { LibrosListComponent } from './../libros/libros-list/libros-list.component';
-
+import { AppComponent } from '../app.component';
 
 import { CarroComponent } from './../carro/carro-detail/carro.component';
 import { NgModule } from '@angular/core';
@@ -30,7 +30,11 @@ import { RespuestaCreateComponent } from '../respuesta/respuesta-create/respuest
 import { RespuestaUpdateComponent } from '../respuesta/respuesta-update/respuesta-update.component';
 
 const routes: Routes = [
-
+ 
+    {
+        path: 'home',
+        component: AuthLoginComponent
+    },
     {
         path: 'auth',
         children: [
@@ -56,10 +60,7 @@ const routes: Routes = [
             }
         ]
     },
-    {
-        path: 'home',
-        component: AuthLoginComponent
-    },
+   
     /*  {
          path: '**',
          redirectTo: 'home',
