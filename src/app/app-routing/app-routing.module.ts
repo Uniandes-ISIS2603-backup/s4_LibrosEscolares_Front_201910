@@ -12,6 +12,7 @@ import { LibrosCreateComponent } from './../libros/libros-create/libros-create.c
 import { LibrosDeleteComponent } from './../libros/libros-delete/libros-delete.component';
 import { LibrosListComponent } from './../libros/libros-list/libros-list.component';
 import { AppComponent } from '../app.component';
+import { AppInicio } from '../app.inicio';
 
 import { CarroComponent } from './../carro/carro-detail/carro.component';
 import { NgModule } from '@angular/core';
@@ -33,7 +34,7 @@ const routes: Routes = [
  
     {
         path: 'home',
-        component: AuthLoginComponent
+        component: AppInicio
     },
     {
         path: 'auth',

@@ -21,7 +21,7 @@ import { DemoMaterialModule } from '../material-module';
 import { RespuestaModule } from './respuesta/respuesta.module';
 import { CarroComponent } from './carro/carro-detail/carro.component';
 import { CanjeModule } from './canje/canje.module';
-
+import { AppInicio } from './app.inicio';
   
 
 
@@ -30,7 +30,8 @@ import { CanjeModule } from './canje/canje.module';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        AppInicio
     ],
     imports: [
         BrowserModule,
