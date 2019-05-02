@@ -1,9 +1,13 @@
-<div class="container-fluid">
-        <mat-toolbar><img src="../assets/notebook.svg" width="50" height="50" routerLink="" (click)="diselected()" style="cursor: pointer;">  
-            <a routerLink="" style="cursor: pointer;" (click)="diselected()">Booklet</a>
-            <span class="example-fill-remaining-space"></span>
-            <img src="../assets/shopping-cart.png" width="25" height="25" routerLink="/carro/2" (click)="diselected()" style="cursor: pointer;"> </mat-toolbar>
-        <mat-toolbar color="primary" >
+<div class="container-fluid" >
+        <mat-toolbar><img src="../assets/notebook.svg" width="50" height="50" routerLink="/home" (click)="diselected()" style="cursor: pointer;">  
+            <a routerLink="/home" style="cursor: pointer;" (click)="diselected()">Booklet</a>
+           
+            <img src="../assets/shopping-cart.png" width="25" height="25" routerLink="/carro/2" (click)="diselected()" style="cursor: pointer;"> 
+            <button routerLink="login" style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold 17px TimesNewRoman;"(click)="diselected()">Login</button>              
+          
+            <button routerLink=":sign-up" style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold 17px TimesNewRoman;"(click)="diselected()">Sign-Up</button></mat-toolbar>
+
+            <mat-toolbar color="primary" >
                 <span class="example-fill-remaining-space"></span>
                 <button mat-button [matMenuTriggerFor]="menu">Demo listar</button>
                 <mat-menu #menu="matMenu">
