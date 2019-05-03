@@ -2,11 +2,12 @@
         <mat-toolbar><img src="../assets/notebook.svg" width="50" height="50" routerLink="/home" (click)="diselected()" style="cursor: pointer;">  
             <a routerLink="/home" style="cursor: pointer;" (click)="diselected()">Booklet</a>
              <span class="example-fill-remaining-space"></span>           
-            <img src="../assets/shopping-cart.png" width="25" height="25" routerLink="/carro/2" (click)="diselected()" style="cursor: pointer;"> 
-            <button routerLink="/auth/login" style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold 17px TimesNewRoman;"(click)="diselected()">Login</button>              
+            <img src="../assets/shopping-cart.png" width="25" height="25" routerLink="/carro/2" (click)="diselected()" *ngIf="isLoggedIn$ | async" style="cursor: pointer;"> 
+            <button mat-button routerLink="/auth/login" style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold 18px TimesNewRoman;"(click)="diselected()"*ngIf="isLoggedOut$ | async">Login</button>              
           
-            <button routerLink="/auth/:sign-up" style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold 17px TimesNewRoman;"(click)="diselected()">Sign-Up</button></mat-toolbar>
+            <button mat-button style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold 18px TimesNewRoman;"(click)="diselected()"*ngIf="isLoggedOut$ | async">Sign-Up</button>
 
+             <button mat-button routerLink="/home" style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold 18px TimesNewRoman;"(click)="logout()" *ngIf="isLoggedIn$ | async">Logout</button></mat-toolbar>
             <mat-toolbar color="primary" >
                 <span class="example-fill-remaining-space"></span>
                 <button mat-button [matMenuTriggerFor]="menu">Demo listar</button>

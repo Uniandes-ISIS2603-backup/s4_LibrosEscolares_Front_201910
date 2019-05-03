@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgxRolesService, NgxPermissionsService} from 'ngx-permissions'
 import 'rxjs/add/operator/catch';
+import { BehaviorSubject } from 'rxjs';
 
 /**
  * The service provider for everything related to authentication
@@ -16,6 +17,16 @@ export class AuthService {
      * @param permissionsService NgxPermissionsService to manage authentication permissions
      */
     constructor (private router: Router, private roleService: NgxRolesService, private permissionsService: NgxPermissionsService) { }
+
+  private loggedIn = new BehaviorSubject<boolean>(false);
+    private loggedOut = new BehaviorSubject<boolean>(true);
+
+  get isLoggedIn() {
+    return this.loggedIn.asObservable(); 
+  }
+  get isLoggedOut() {
+    return this.loggedOut.asObservable(); 
+  }
 
     start (): void {
         this.permissionsService.flushPermissions();
@@ -62,6 +73,8 @@ export class AuthService {
         } else {
             this.setClientRole()
         }
+         this.loggedIn.next(true);
+         this.loggedOut.next(false);
         this.router.navigateByUrl('/');
     }
 
@@ -72,6 +85,8 @@ export class AuthService {
         this.roleService.flushRoles();
         this.setGuestRole();
         localStorage.removeItem('role');
+         this.loggedIn.next(false);
+         this.loggedOut.next(true);
         this.router.navigateByUrl('/');
     }
 }

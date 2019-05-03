@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { AuthService } from './auth/auth.service';
+import { Observable } from 'rxjs/Observable';
 
 /**
  * The app component. This component is the base of s4_libros-Front
@@ -16,15 +17,17 @@ export class AppComponent implements OnInit {
      */
     title: String;
     select: boolean = false;
-
+    isLoggedIn$: Observable<boolean>;
+    isLoggedOut$: Observable<boolean>;
     /**
      * Assigns a title to the web page
      */
     ngOnInit(): void {
         this.title = "s4_libros-Front";
         this.authService.start();
+        this.isLoggedIn$ = this.authService.isLoggedIn;
+        this.isLoggedOut$ = this.authService.isLoggedOut;
     }
-
        /**
      * @ignore
      */
