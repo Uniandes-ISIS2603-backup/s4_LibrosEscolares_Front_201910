@@ -9,8 +9,12 @@ import { environment } from '../../environments/environment';
 const API_URL = environment.apiURL;
 const usuarios = '/usuarios';
 
+
+
 @Injectable()
 export class UsuarioService {
+
+    usuarioActual: UsuarioDetail
 
     /**
      * Contructor del servicio
@@ -48,4 +52,13 @@ export class UsuarioService {
    createUsuario(usuario): Observable<UsuarioDetail> {
     return this.http.post<UsuarioDetail>(API_URL + usuarios, usuario);
 }
+
+    getUsuarioByMail(usuarioMail):  Observable<UsuarioDetail> {
+    return this.http.get<UsuarioDetail>(API_URL + usuarios+'/mail/'+usuarioMail);
+    }
+
+    getUsuarioUsuarioActual() 
+    {
+        return this.usuarioActual;
+    }
 }

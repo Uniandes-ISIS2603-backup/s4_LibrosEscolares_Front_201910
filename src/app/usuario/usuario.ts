@@ -14,9 +14,13 @@
      */
     nombreUsuario: String;
 
-    correo: String 
+    correo: String; 
 
-    calificacion: number
+    calificacion: number;
+
+    password: String;
+     
+    role:number;
 
 
 
