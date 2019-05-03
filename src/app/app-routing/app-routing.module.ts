@@ -50,8 +50,9 @@ const routes: Routes = [
                 }
             },
             {
-                path: ':sign-up',
-                component: AuthSignUpComponent,
+                path: 'sign-up',
+                component: UsuariocrearComponent,
+                runGuardsAndResolvers: 'always',
                 canActivate: [NgxPermissionsGuard],
                 data: {
                     permissions: {
@@ -206,5 +207,5 @@ const routes: Routes = [
     declarations: []
 })
 export class AppRoutingModule {
-
+text
 }
