@@ -7,7 +7,11 @@
           
             <button mat-button routerLink="/auth/sign-up" style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold 18px TimesNewRoman;"(click)="diselected()"*ngIf="isLoggedOut$ | async">Sign-Up</button>
 
-             <button mat-button routerLink="/home" style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold 18px TimesNewRoman;"(click)="logout()" *ngIf="isLoggedIn$ | async">Logout</button></mat-toolbar>
+             <button mat-button routerLink="/home" style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold 18px TimesNewRoman;"(click)="logout()" *ngIf="isLoggedIn$ | async">Logout</button>
+
+             <button mat-button routerLink="/usuarios/{{us.getUsuarioUsuarioActual().id}}" style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold 18px TimesNewRoman;" *ngIf="isLoggedIn$ | async">Mi perfil</button></mat-toolbar>
+            
+        
             <mat-toolbar color="primary" >
                 <span class="example-fill-remaining-space"></span>
                 <button mat-button [matMenuTriggerFor]="menu">Demo listar</button>
@@ -39,4 +43,4 @@
     
         <router-outlet></router-outlet> 
         <button mat-flat-button color="primary" routerLink="" *ngIf="getSelect()" (click)="diselected()" >regresar</button>
-</div>
+    </div>

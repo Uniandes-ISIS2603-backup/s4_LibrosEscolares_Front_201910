@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { AuthService } from './auth/auth.service';
 import { Observable } from 'rxjs/Observable';
+import { UsuarioService } from './usuario/Usuario.service';
 
 /**
  * The app component. This component is the base of s4_libros-Front
@@ -31,7 +32,7 @@ export class AppComponent implements OnInit {
        /**
      * @ignore
      */
-    constructor(private authService: AuthService) { }
+    constructor(private authService: AuthService, public us: UsuarioService) { }
 
     selected(): void
     {
@@ -49,6 +50,7 @@ export class AppComponent implements OnInit {
     }
 
     logout(): void {
+        this.us.usuarioActual = null;
         this.authService.logout()
     }
 
