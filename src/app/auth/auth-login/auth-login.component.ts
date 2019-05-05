@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { UsuarioService } from './../../usuario/Usuario.service';
 import { Usuario } from './../../usuario/usuario';
 import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
@@ -6,7 +7,7 @@ import { AuthService } from '../auth.service';
 
 import { User } from '../user';
 
-import { ToastrService } from 'ngx-toastr';
+
 import { UsuarioDetail } from '../../usuario/UsuarioDetail';
 
 @Component({
