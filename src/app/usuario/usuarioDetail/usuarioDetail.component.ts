@@ -33,4 +33,9 @@ import { UsuarioDetail } from '../UsuarioDetail';
         this.UsuarioService.getUsuarioDetail(this.usuario_id).subscribe(Usuario => this.usuario = Usuario);
     }
 
+    agregarLibro(): void
+    {
+        
+    }
+
     }
