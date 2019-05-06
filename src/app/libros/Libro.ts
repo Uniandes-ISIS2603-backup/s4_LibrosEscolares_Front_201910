@@ -1,3 +1,4 @@
+import { Usuario } from './../usuario/usuario';
 /**
  * Clase para el Libro
  */
@@ -43,7 +44,9 @@ export class Libro {
      */
     precio: number;
 
+    /**
+     * El dueño del libro
+     */
+    duenio: Usuario;
 
-
-
- }
+}
