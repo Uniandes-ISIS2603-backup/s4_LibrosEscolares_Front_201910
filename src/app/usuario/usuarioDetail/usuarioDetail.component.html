@@ -14,6 +14,29 @@
             
             
             <p class="h3 p-3">Libros disponibles: </p>
+
+            <div class="col-md-2" *ngFor = "let libro of Libros">
+                <figure class="figure" routerLink="/libros/{{libro.id}}" style="cursor: pointer;"> 
+                    <div class="img-thumbnail border-0">    
+                   
+                        <img class="img-thumbnail"
+                             style="  width:  200px;
+                                      height: 300px;"
+                             src='{{libro.portada}}' alt="{{libro.id}}" /> 
+                        
+                    </div>
+                    <figcaption class="title-caption text-center" 
+                                style="width: 200px;
+                                       overflow: hidden;
+                                       white-space: nowrap;
+                                       text-overflow: ellipsis;">{{libro.titulo}}</figcaption>
+                      <figcaption class="title-caption text-center">{{libro.precio}}</figcaption>                
+                </figure>
+                  <div class="row form-inline justify-content-center align-self-center">
+                         <button type="button"   class="btn btn-primary" routerLink="/libros/{{libro.id}}/edit">Editar</button>
+                        <button type="button" class="btn btn-danger" routerLink="/libros/{{libro.id}}/delete">Eliminar</button>
+                        </div>
+            </div>
           
         </div>
     </div>
