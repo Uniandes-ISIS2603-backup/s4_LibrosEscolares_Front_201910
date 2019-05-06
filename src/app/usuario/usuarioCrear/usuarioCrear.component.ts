@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UsuarioService } from '../Usuario.service';
 import { ToastrService } from 'ngx-toastr';
@@ -17,7 +18,8 @@ export class UsuariocrearComponent implements OnInit {
     */
    constructor(
     private usuarioService: UsuarioService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private router: Router
 ) { }
 
 /**
@@ -45,7 +47,8 @@ createUsuario(): void {
     this.usuarioService.createUsuario(this.usuario)
         .subscribe(() => {
             this.create.emit();
-            this.toastrService.success("El usuario fue creado", "Creacion usuario");
+            this.toastrService.success("El usuario fue creado, por favor, inicie sesion", "Creacion usuario");
+            this.router.navigate(['/auth/login']);
         }, err => {
             this.toastrService.error(err, "Error");
         });
@@ -56,6 +59,7 @@ createUsuario(): void {
 */
 cancelCreation(): void {
     this.cancel.emit();
+    this.router.navigate(['/home']);
 }
 
 /**
