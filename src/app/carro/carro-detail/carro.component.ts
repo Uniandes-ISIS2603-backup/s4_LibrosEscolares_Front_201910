@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CarroDetail } from '../carro-detail';
 import { Usuario } from '../../usuario/usuario';
 import { Carro } from '../carro';
+import { CanjeService } from '../../../app/canje/canje.service';
 @Component({
   selector: 'app-carro',
   templateUrl: './carro.component.html',
@@ -22,12 +23,13 @@ export class CarroComponent implements OnInit {
   displayedColumns: string[] = ['ISBN','titulo', 'autor', 'editorial', 'estado', 'precio', 'Crear'];
   mouseOverIndex = -1;
 
-  constructor(public carroService: CarroService, public route: ActivatedRoute) { 
+  constructor(public carroService: CarroService, public route: ActivatedRoute, canjeService: CanjeService) { 
     this.libros = [];
     this.comprador = "";
   }
 
   addLibro(): void{
+    
 
   }
 

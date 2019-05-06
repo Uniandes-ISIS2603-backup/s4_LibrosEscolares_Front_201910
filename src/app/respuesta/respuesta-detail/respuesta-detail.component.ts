@@ -26,24 +26,30 @@ export class RespuestaDetailComponent implements OnInit {
    }
 
    actualizar(){
+     console.log("Entró actualizar");
      this.respuestaService.getRespuesta(this.id).subscribe(Respuesta=>
       {
         this.respuesta = Respuesta;
         console.log(this.respuesta);
       });
-      this.respuestaService.getCanje(this.id).subscribe(Canje=>
+      /*       this.respuestaService.getCanje(this.id).subscribe(Canje=>
         {
           this.canje=Canje;
           console.log(this.canje);
-        })
+        })*/
    }
 
    ngOnInit() {
     console.log("heeelp");
     if(this.id == undefined){
       this.id = + this.route.snapshot.paramMap.get('id');
-      console.log(this.id);
+      console.log("Es indefinido, ruta: "+this.id);
     }
+    else{
+      console.log("No es indefinido " + this.id);
+    }
+    this.actualizar();
+    console.log("heeelp2");
   }
 
 }
