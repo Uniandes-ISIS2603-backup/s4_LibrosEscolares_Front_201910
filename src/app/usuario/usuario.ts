@@ -20,7 +20,7 @@
 
     password: String;
      
-    role:number;
+    role:String;
 
 
 

@@ -42,9 +42,10 @@ export class AuthLoginComponent implements OnInit {
     login(): void {
         
         this.us.getUsuarioByMail(this.user.correo).subscribe(usuarios =>{ this.user2 = usuarios});
-        this.user2.role=this.user.role;
-        this.authService.login(this.user2.role);
-        this.us.usuarioActual = this.user2; 
+        this.user2.role = this.user.role;
+         this.us.usuarioActual = this.user2; 
+        this.authService.login(this.user.role);
+       
         this.toastrService.success('Sesion iniciada');
        
 
