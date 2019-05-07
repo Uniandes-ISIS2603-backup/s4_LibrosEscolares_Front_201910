@@ -54,6 +54,7 @@ export class UsuarioService {
 }
 
     getUsuarioByMail(usuarioMail):  Observable<UsuarioDetail> {
+       
     return this.http.get<UsuarioDetail>(API_URL + usuarios+'/mail/'+usuarioMail);
     }
 

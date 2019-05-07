@@ -52,12 +52,13 @@ import { ToastrService } from 'ngx-toastr';
      */
     getLibros(): void {
         this.LibrosService.getLibros().subscribe(Libros => this.Libros = Libros);
+        /*
         for(var i =0; i <this.Libros.length; i++){
             if(this.Libros[i].duenio.id==this.usuario.id)
             {
                 this.Libros[i] = null;
             }
-        }
+        }*/
     }
 
     }

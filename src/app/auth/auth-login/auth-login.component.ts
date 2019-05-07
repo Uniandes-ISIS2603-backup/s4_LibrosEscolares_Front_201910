@@ -40,12 +40,13 @@ export class AuthLoginComponent implements OnInit {
     * Logs the user in with the selected role
     */
     login(): void {
-        this.us.getUsuarioByMail(this.user.correo).subscribe(usuarios =>{ this.user2= usuarios});
-        this.user2.role=this.user.role;
+        
+        this.us.getUsuarioByMail(this.user.correo).subscribe(usuarios =>{ this.user2 = usuarios});
+   
         this.authService.login(this.user2.role);
-        this.toastrService.success('Sesion iniciada')
-        this.us.usuarioActual = this.user2;
-        this.us.getUsuarioUsuarioActual();
+        this.us.usuarioActual = this.user2; 
+        this.toastrService.success('Sesion iniciada');
+       
 
     }
 

@@ -1,5 +1,5 @@
 <div class="col-md-12">
-    <div class="container-fluid">   
+    <div class="container-fluid">
         <p class="h3 p-3">Usuario: {{usuario.nombreUsuario}}</p>
         <br>
         <p class="h3 p-3">Id: {{usuario.id}} </p>
@@ -8,36 +8,47 @@
         <br>
         <p class="h3 p-3">Calificacion: {{usuario.calificacion}} </p>
         <br>
-        <button   style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold 18px TimesNewRoman;" [routerLink]="[ '/libros/add']"  >Agregar un libro</button>
+        <button style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold 18px TimesNewRoman;"
+            [routerLink]="[ '/libros/add']">Agregar un libro</button>
         <br>
         <div class="row border margin">
-            
-            
+
+
             <p class="h3 p-3">Libros disponibles: </p>
 
-            <div class="col-md-2" *ngFor = "let libro of Libros">
-                <figure class="figure" routerLink="/libros/{{libro.id}}" style="cursor: pointer;"> 
-                    <div class="img-thumbnail border-0">    
+            <div  *ngFor="let libro of Libros">
+
                    
-                        <img class="img-thumbnail"
-                             style="  width:  200px;
-                                      height: 300px;"
-                             src='{{libro.portada}}' alt="{{libro.id}}" /> 
-                        
-                    </div>
-                    <figcaption class="title-caption text-center" 
-                                style="width: 200px;
+                    
+                <div *ngIf="libro.duenio!=null&&libro.duenio.id==usuario.id ">
+
+                      
+                    <div class="col-md-2">
+
+                    <figure class="figure" routerLink="/libros/{{libro.id}}" style="cursor: pointer;">
+                        <div class="img-thumbnail border-0">
+
+                            <img class="img-thumbnail" style="  width:  200px;
+                                      height: 300px;" src='{{libro.portada}}' alt="{{libro.id}}" />
+
+                        </div>
+                        <figcaption class="title-caption text-center" style="width: 200px;
                                        overflow: hidden;
                                        white-space: nowrap;
                                        text-overflow: ellipsis;">{{libro.titulo}}</figcaption>
-                      <figcaption class="title-caption text-center">{{libro.precio}}</figcaption>                
-                </figure>
-                  <div class="row form-inline justify-content-center align-self-center">
-                         <button type="button"   class="btn btn-primary" routerLink="/libros/{{libro.id}}/edit">Editar</button>
-                        <button type="button" class="btn btn-danger" routerLink="/libros/{{libro.id}}/delete">Eliminar</button>
+                        <figcaption class="title-caption text-center">{{libro.precio}}</figcaption>
+                    </figure>
+                    <div class="row form-inline justify-content-center align-self-center">
+                        <button type="button" class="btn btn-primary"
+                            routerLink="/libros/{{libro.id}}/edit">Editar</button>
+                        <button type="button" class="btn btn-danger"
+                            routerLink="/libros/{{libro.id}}/delete">Eliminar</button>
                         </div>
+                        
+                    </div>
+                </div>
             </div>
-          
+
         </div>
     </div>
 </div>
