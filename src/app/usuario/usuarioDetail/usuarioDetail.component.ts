@@ -13,7 +13,8 @@ import { ToastrService } from 'ngx-toastr';
 
     @Component({
     selector: 'usuarioDetail-component',
-    templateUrl: './usuarioDetail.component.html'
+    templateUrl: './usuarioDetail.component.html',
+    styleUrls: ['./usuarioDetail.component.css']
     })
     export class UsuarioDetailComponent implements OnInit {
     
