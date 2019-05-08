@@ -29,6 +29,8 @@ import { ToastrService } from 'ngx-toastr';
     usuario_id: number;
     usuario: UsuarioDetail;
 
+    er: String;
+
     /**
      * The list of Libros which belong to this usuario
      */
@@ -45,6 +47,8 @@ import { ToastrService } from 'ngx-toastr';
         this.getLibros();
 
         this.getCanjes();
+
+        this.er = "EN_REVISION";
  
     }   
     /**
