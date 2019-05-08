@@ -1,3 +1,5 @@
+import { CanjeService } from './../../canje/canje.service';
+import { Canje } from './../../canje/canje';
 import { LibrosService } from './../../libros/libros.service';
 import { Libro } from './../../libros/Libro';
 
@@ -19,7 +21,8 @@ import { ToastrService } from 'ngx-toastr';
         private UsuarioService: UsuarioService,
         private route: ActivatedRoute,
         private LibrosService: LibrosService,
-        private toastrService: ToastrService
+        private toastrService: ToastrService,
+        private canjeService: CanjeService
     )
     {
     }
@@ -31,6 +34,8 @@ import { ToastrService } from 'ngx-toastr';
      */
     Libros: Libro[];
 
+    canjes: Canje[];
+
     ngOnInit(){
         this.usuario_id = + this.route.snapshot.paramMap.get('id');
         //this.usuario = new Usuario();
@@ -38,6 +43,8 @@ import { ToastrService } from 'ngx-toastr';
         this.getUsuario();
         
         this.getLibros();
+
+        this.getCanjes();
  
     }   
     /**
@@ -59,6 +66,13 @@ import { ToastrService } from 'ngx-toastr';
                 this.Libros[i] = null;
             }
         }*/
+    }
+
+    /**
+     * Le pide al servicio todos los canjes
+     */
+    getCanjes(): void{
+        this.canjeService.getCanjes().subscribe(c =>{ this.canjes = c});
     }
 
     }
