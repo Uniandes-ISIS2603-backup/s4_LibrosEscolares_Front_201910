@@ -45,6 +45,7 @@ id:number;
            .subscribe(() => {
             this.update.emit();
                this.toastrService.success("La informacion del usuario ha sido actualizada", "Author edition");
+               this.router.navigate(['/usuarios/'+this.usuario.id]);
             }, err => {
                 this.toastrService.error(err, "Error");
             });

@@ -64,13 +64,7 @@ import { ToastrService } from 'ngx-toastr';
      */
     getLibros(): void {
         this.LibrosService.getLibros().subscribe(Libros => this.Libros = Libros);
-        /*
-        for(var i =0; i <this.Libros.length; i++){
-            if(this.Libros[i].duenio.id==this.usuario.id)
-            {
-                this.Libros[i] = null;
-            }
-        }*/
+       
     }
 
     /**
@@ -79,5 +73,18 @@ import { ToastrService } from 'ngx-toastr';
     getCanjes(): void{
         this.canjeService.getCanjes().subscribe(c =>{ this.canjes = c});
     }
-
+    deleteUsuario(): void{
+        try
+        {
+            this.UsuarioService.deleteUsuario(this.usuario.id).subscribe(Usuario => this.usuario = Usuario);
+            this.toastrService.success("El usuario ha sido eliminado");
+        }
+        catch(e)
+        {
+            this.toastrService.success(e);
+        }
     }
+    
+    }
+
+    

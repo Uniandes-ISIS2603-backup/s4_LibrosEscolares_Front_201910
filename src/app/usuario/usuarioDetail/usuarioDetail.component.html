@@ -1,146 +1,217 @@
-<div class="col-md-12">
-    <div class="container-fluid">
-        <p class="h3 p-3">Usuario: {{usuario.nombreUsuario}}</p>
-        <br>
-        <p class="h3 p-3">Id: {{usuario.id}} </p>
-        <br>
-        <p class="h3 p-3">Correo: {{usuario.correo}} </p>
-        <br>
-        <p class="h3 p-3">Calificacion: {{usuario.calificacion}} </p>
-        <br>
-        <button style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold 18px TimesNewRoman;"
-            [routerLink]="[ '/libros/add']">Agregar un libro</button>
-        <br>
-        <div class="row border margin">
-
-
-            <p class="h3 p-3">Libros disponibles: </p>
-
-            <div *ngFor="let libro of Libros">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 
 
-                <div *ngIf="libro.duenio!=null&&libro.duenio.id==usuario.id ">
+
+<div class="container">
+    <div class="row profile">
+        <div class="col-md-3">
+            <div class="profile-sidebar">
+                <!-- DESCRIPCION USUARIO -->
+
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name">
+                        Nombre: {{usuario.nombreUsuario}}
+                    </div>
+                    <div class="profile-usertitle-job">
+                        Id: {{usuario.id}}
+                    </div>
+                    <div class="profile-usertitle-job">
+                        Correo: {{usuario.correo}}
+                    </div>
+                    <div class="profile-usertitle-job">
+                        Calificacion: {{usuario.calificacion}}
+                    </div>
+                </div>
+                <!-- FIN DESCRIPCION USUARIO -->
+                <!-- EDITAR Y BORRAR USUARIO -->
+                <div class="profile-userbuttons">
+                    <button type="button" routerLink="/usuarios/{{usuario.id}}/edit"
+                        class="btn btn-success btn-sm">Editar perfil</button>
+                    <button type="button" routerLink="/home" (click)="deleteUsuario()"
+                        class="btn btn-danger btn-sm">Eliminar perfil</button>
+                </div>
+                <!-- END EDITAR Y BORRAR USUARIO -->
+                <!--  MENU -->
+                <div class="profile-usermenu">
+                    <ul class="nav">
+                        <li>
+                            <a href="usuarios/{{usuario.id}}#libros">
+                                <i class="glyphicon glyphicon-book"></i>
+                                Libros </a>
+                        </li>
+                        <li>
+                            <a href="usuarios/{{usuario.id}}#crealizados">
+                                <i class="glyphicon glyphicon-retweet" style="color:orange"></i>
+                                Canjes realizados </a>
+                        </li>
+                        <li>
+                            <a href="usuarios/{{usuario.id}}#crecibidos">
+                                <i class="glyphicon glyphicon-retweet" style="color:pink"></i>
+                                Canjes recibidos </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- FIN MENU -->
+                <!-- LIBROS -->
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="profile-content">
 
 
-                    <div class="col-md-2">
+                <div id="libros" class="row border margin">
 
-                        <figure class="figure" routerLink="/libros/{{libro.id}}" style="cursor: pointer;">
-                            <div class="img-thumbnail border-0">
 
-                                <img class="img-thumbnail" style="  width:  200px;
+                    <p class="h3 p-3" id="libros">Libros disponibles:
+                        <br>
+
+                        <u class="nav">
+
+                            <li>
+                                <a href="/libros/add">
+                                    <i class="glyphicon glyphicon-book"></i>
+                                    Agregar un libro </a>
+                            </li>
+                        </u>
+                    </p>
+
+
+
+                    <div *ngFor="let libro of Libros">
+
+
+
+                        <div *ngIf="libro.duenio!=null&&libro.duenio.id==usuario.id ">
+
+
+                            <div class="col-md-2">
+
+                                <figure class="figure" routerLink="/libros/{{libro.id}}" style="cursor: pointer;">
+                                    <div class="img-thumbnail border-0">
+
+                                        <img class="img-thumbnail" style="  width:  200px;
                                       height: 300px;" src='{{libro.portada}}' alt="{{libro.id}}" />
 
-                            </div>
-                            <figcaption class="title-caption text-center" style="width: 200px;
+                                    </div>
+                                    <figcaption class="title-caption text-center" style="width: 200px;
                                        overflow: hidden;
                                        white-space: nowrap;
-                                       text-overflow: ellipsis;">{{libro.titulo}}</figcaption>
-                            <figcaption class="title-caption text-center">{{libro.precio}}</figcaption>
-                        </figure>
-                        <div class="row form-inline justify-content-center align-self-center">
-                            <button type="button" class="btn btn-primary"
-                                routerLink="/libros/{{libro.id}}/edit">Editar</button>
-                            <button type="button" class="btn btn-danger"
-                                routerLink="/libros/{{libro.id}}/delete">Eliminar</button>
-                        </div>
+                                       text-overflow: ellipsis;">Titulo: {{libro.titulo}}</figcaption>
+                                </figure>
+                                <div class="row form-inline justify-content-center align-self-center">
+                                    <button type="button" class="btn btn-primary"
+                                        routerLink="/libros/{{libro.id}}/edit">Editar</button>
+                                    <button type="button" class="btn btn-danger"
+                                        routerLink="/libros/{{libro.id}}/delete">Eliminar</button>
+                                </div>
 
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <br>
-        <div class="row border margin">
-
-
-            <p class="h3 p-3">Canjes realizados: </p>
-
-            <div *ngFor="let canje of canjes">
-
-
-
-                <div *ngIf="canje.usuarioQueOfrece!=null&&canje.usuarioQueOfrece.id==usuario.id ">
-
-
-                    <div class="col-md-4">
-
-                        <figure class="figure" routerLink="/canjes/{{canje.id}}" style="cursor: pointer;">
-                            <div class="img-thumbnail border-0">
-
-                                <figcaption class="title-caption text-center">ID: {{canje.id}}</figcaption>
-                            </div>
-                            
-
-                            <figcaption class="title-caption text-center">Estado: {{canje.estado}}</figcaption>
-                            
-                            <figcaption class="title-caption text-center">Fecha de creacion: {{canje.fechaDeCreacion}}</figcaption>
-                            <br>
-                            <figure class="figure" routerLink="/libros/{{canje.libroOfrecido.id}}"
-                                style="cursor: pointer;">
-
-                                <figcaption class="title-caption text-center">Libro ofrecido:
-                                    {{canje.libroOfrecido.titulo}}</figcaption>
-                            </figure>
-                            <figure class="figure" routerLink="/libros/{{canje.libroPedido.id}}"
-                                style="cursor: pointer;">
-
-                                <figcaption class="title-caption text-center">Libro pedido:
-                                    {{canje.libroPedido.titulo}}</figcaption>
-
-                            </figure>
-
-
-                        </figure>
-                        <div *ngIf="canje.estado == er">
-                            <div class="row form-inline justify-content-center align-self-center">
-                                <button type="button" class="btn btn-primary"
-                                    routerLink="/canjes/{{canje.id}}/edit">Aceptar</button>
-                                <button type="button" class="btn btn-danger"
-                                    routerLink="/canjes/{{canje.id}}/edit">Denegar</button>
                             </div>
                         </div>
                     </div>
+
                 </div>
-            </div>
-
-        </div>
-        <br>
-        <div class="row border margin">
-
-
-            <p class="h3 p-3">Canjes recibidos: </p>
-
-            <div *ngFor="let libro of canjes">
+                <!-- FIN LIBROS -->
+                <!-- CANJES REALIZADOS  -->
+                <br>
+                <div class="row border margin">
 
 
+                    <p class="h3 p-3" id="crealizados" style="color:orange">Canjes realizados: </p>
 
-                <div *ngIf="libro.usuarioQueRecibe!=null&&libro.usuarioQueRecibe.id==usuario.id">
-
-
-                    <div class="col-md-2">
-
-                        <figure class="figure" routerLink="/canjes/{{libro.id}}" style="cursor: pointer;">
-                            <div class="img-thumbnail border-0">
+                    <div *ngFor="let canje of canjes">
 
 
+
+                        <div *ngIf="canje.usuarioQueOfrece!=null&&canje.usuarioQueOfrece.id==usuario.id ">
+
+
+                            <div class="col-md-4">
+
+                                <figure class="figure" routerLink="/canjes/{{canje.id}}" style="cursor: pointer;">
+                                    <div class="img-thumbnail border-0">
+
+                                        <figcaption class="title-caption text-center">ID: {{canje.id}}</figcaption>
+                                    </div>
+
+
+                                    <figcaption class="title-caption text-center">Estado: {{canje.estado}}</figcaption>
+
+                                    <figcaption class="title-caption text-center">Fecha de creacion:
+                                        {{canje.fechaDeCreacion}}</figcaption>
+                                    <br>
+                                    <figure class="figure" routerLink="/libros/{{canje.libroOfrecido.id}}"
+                                        style="cursor: pointer;">
+
+                                        <figcaption class="title-caption text-center">Libro ofrecido:
+                                            {{canje.libroOfrecido.titulo}}</figcaption>
+                                    </figure>
+                                    <figure class="figure" routerLink="/libros/{{canje.libroPedido.id}}"
+                                        style="cursor: pointer;">
+
+                                        <figcaption class="title-caption text-center">Libro pedido:
+                                            {{canje.libroPedido.titulo}}</figcaption>
+
+                                    </figure>
+
+
+                                </figure>
+                                <div *ngIf="canje.estado == er">
+                                    <div class="row form-inline justify-content-center align-self-center">
+                                        <button type="button" class="btn btn-primary"
+                                            routerLink="/canjes/{{canje.id}}/edit">Aceptar</button>
+                                        <button type="button" class="btn btn-danger"
+                                            routerLink="/canjes/{{canje.id}}/edit">Denegar</button>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+                    </div>
 
-                            <figcaption class="title-caption text-center">{{libro.id}}</figcaption>
-                        </figure>
+                </div>
+                <!-- FIN CANJES REALIZADOS  -->
+                <!-- CANJES RECIBIDOS  -->
+
+                <br>
+                <div class="row border margin">
+
+
+                    <p class="h3 p-3" id="crecibidos" style="color:pink">Canjes recibidos: </p>
+
+                    <div *ngFor="let libro of canjes">
+
+
+
                         <div *ngIf="libro.usuarioQueRecibe!=null&&libro.usuarioQueRecibe.id==usuario.id">
-                            <div class="row form-inline justify-content-center align-self-center">
-                                <button type="button" class="btn btn-primary"
-                                    routerLink="/libros/{{libro.id}}/edit">Editar</button>
-                                <button type="button" class="btn btn-danger"
-                                    routerLink="/libros/{{libro.id}}/delete">Eliminar</button>
+
+
+                            <div class="col-md-2">
+
+                                <figure class="figure" routerLink="/canjes/{{libro.id}}" style="cursor: pointer;">
+                                    <div class="img-thumbnail border-0">
+
+
+                                    </div>
+
+                                    <figcaption class="title-caption text-center">{{libro.id}}</figcaption>
+                                </figure>
+                                <div *ngIf="libro.usuarioQueRecibe!=null&&libro.usuarioQueRecibe.id==usuario.id">
+                                    <div class="row form-inline justify-content-center align-self-center">
+                                        <button type="button" class="btn btn-primary"
+                                            routerLink="/libros/{{libro.id}}/edit">Editar</button>
+                                        <button type="button" class="btn btn-danger"
+                                            routerLink="/libros/{{libro.id}}/delete">Eliminar</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <!-- FIN  CANJES RECIBIDOS  -->
                 </div>
+
             </div>
+
         </div>
-
-    </div>
-
-</div>

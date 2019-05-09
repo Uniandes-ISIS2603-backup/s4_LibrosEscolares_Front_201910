@@ -57,9 +57,14 @@ export class UsuarioService {
        
     return this.http.get<UsuarioDetail>(API_URL + usuarios+'/mail/'+usuarioMail);
     }
+    deleteUsuario(usuarioId):  Observable<Usuario>{
+        return this.http.delete<Usuario>(API_URL + usuarios + '/' + usuarioId);
+    }
 
     getUsuarioUsuarioActual() 
     {
         return this.usuarioActual;
     }
+
+    
 }
