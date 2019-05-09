@@ -102,11 +102,12 @@
                                        white-space: nowrap;
                                        text-overflow: ellipsis;">Titulo: {{libro.titulo}}</figcaption>
                                 </figure>
-                                <div class="row form-inline justify-content-center align-self-center">
+                                <div class="row form-inline justify-content-center align-self-center text-center"></div>
                                     <button type="button" class="btn btn-primary"
                                         routerLink="/libros/{{libro.id}}/edit">Editar</button>
                                     <button type="button" class="btn btn-danger"
                                         routerLink="/libros/{{libro.id}}/delete">Eliminar</button>
+                                   
                                 </div>
 
                             </div>
@@ -129,7 +130,7 @@
                         <div *ngIf="canje.usuarioQueOfrece!=null&&canje.usuarioQueOfrece.id==usuario.id ">
 
 
-                            <div class="col-md-4">
+                            <div class="col-md-4 text-center">
 
                                 <figure class="figure" routerLink="/canjes/{{canje.id}}" style="cursor: pointer;">
                                     <div class="img-thumbnail border-0">
