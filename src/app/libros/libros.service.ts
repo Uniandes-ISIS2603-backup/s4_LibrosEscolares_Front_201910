@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 const API_URL = environment.apiURL;
 const Libros = '/libros';
+const Nombre = '/nombre';
 
 /**
 * The service provider for everything related to Libros
@@ -26,6 +27,7 @@ export class LibrosService {
     getLibros() : Observable<Libro[]> {
         return this.http.get<Libro[]>(API_URL + Libros);
     }
+
      /**
     * Returns the Observable object containing the list of editorials retrieved from the API
     * @returns The list of librosdetail in real time
@@ -64,6 +66,14 @@ export class LibrosService {
     */
      deleteLibro(libroId): Observable<Libro> {
         return this.http.delete<Libro>(API_URL + Libros + '/' + libroId);
+    }
+    
+     /**
+    * Returns the Observable object containing the list of editorials retrieved from the API
+    * @returns The list of libros in real time
+    */
+    getLibrosPorNombre(nombre) : Observable<Libro[]> {
+        return this.http.get<Libro[]>(API_URL + Libros+ Nombre +'/'+nombre);
     }
 
 

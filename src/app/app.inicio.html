@@ -9,19 +9,37 @@ and open the template in the editor.
     <br/>
 	<div class="row justify-content-center">
      <div class="col-12 col-md-10 col-lg-8">
-        <form class="card card-sm">
+        <form class="card card-sm" name="libro" (ngSubmit)="getLibros()">
          <div class="card-body row no-gutters align-items-center">
               <div class="col-auto">
              <i class="fas fa-search h4 text-body"></i>
           </div>
              <div class="col">
-      <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Busca un libro para canjear!">
+      <input name="libroTitulo"  class="form-control form-control-lg form-control-borderless" id="libroTitulo" type="text" placeholder="Busca un libro para canjear!">
                  </div>
         <div class="col-auto">
-      <button class="btn btn-lg btn-success" type="submit">Buscar</button>
+            <button class="btn btn-lg btn-success" type="sumbit"  >Buscar</button>
                          </div>
                         </div>
                  </form>
+       <div class="col-md-2" *ngFor = "let libro of Libros">
+            <figure class="figure" routerLink="/libros/{{libro.id}}" style="cursor: pointer;"> 
+                <div class="img-thumbnail border-0">    
+               
+                    <img class="img-thumbnail"
+                         style="  width:  200px;
+                                  height: 300px;"
+                         src='{{libro.portada}}' alt="{{libro.id}}" /> 
+                    
+                </div>
+                <figcaption class="title-caption text-center" 
+                            style="width: 200px;
+                                   overflow: hidden;
+                                   white-space: nowrap;
+                                   text-overflow: ellipsis;">{{libro.titulo}}</figcaption>
+                  <figcaption class="title-caption text-center">{{libro.precio}}</figcaption>                
+            </figure>
+        </div>
             </div>
      </div>
 </div>

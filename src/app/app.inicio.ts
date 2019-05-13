@@ -1,4 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Libro } from './libros/Libro';
+import { LibrosService } from './libros/libros.service';
 
 /**
  * The app component. This component is the base of s4_libros-Front
@@ -15,13 +17,26 @@ export class AppInicio implements OnInit {
      */
     title: String;
     select: boolean = false;
-
+    Libros: Libro[];
+    parametroBuscar: String;
     
 
        /**
      * @ignore
      */
-    constructor() { }
+    constructor(private LibrosService: LibrosService) { }
+
+/**
+* La salida que dice el componente padre
+* que el usuario ya no quiere crear un libro
+*/
+@Output() cancel = new EventEmitter();
+
+/**
+* La salida que dice el componente padre
+* el usuario creo el libro
+*/
+@Output() create = new EventEmitter();
 
     selected(): void
     {
@@ -42,6 +57,15 @@ export class AppInicio implements OnInit {
     }
      ngOnInit() {
        
+    }
+    getLibros(): void {
+        var nombre = document.getElementById("libroTitulo"); 
+        this.parametroBuscar=nombre.innerHTML;
+        console.log(this.parametroBuscar);
+        this.LibrosService.getLibrosPorNombre(this.parametroBuscar).subscribe(Libros => this.Libros = Libros,() => {
+            this.create.emit();
+        });
+       console.log(nombre);
     }
 
 }
