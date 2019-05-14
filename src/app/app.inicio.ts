@@ -15,6 +15,7 @@ import { LibrosService } from './libros/libros.service';
 
 export class AppInicio implements OnInit {
     @ViewChild('libroTitulo') libroTitulo;
+    @ViewChild('libroAutor') libroAutor;
     /**
      * The title that appears on the NavBar and the web browser
      */
@@ -61,17 +62,39 @@ export class AppInicio implements OnInit {
      ngOnInit() {
        
     }
+    /**
+* Revisa que barra de busqueda esta siendo utilizada y busca en ella
+*/
     getLibros(): void {
-       
-       this.parametroBuscar =this.libroTitulo.nativeElement.value;
-       this.buscar();
-    
+       let titulo=this.libroTitulo.nativeElement.value;
+       if(titulo!='')
+       {
+       this.parametroBuscar =titulo;
+       this.buscar(1);
+       }
+       else 
+        {
+            titulo=this.libroAutor.nativeElement.value;
+            this.parametroBuscar =titulo;
+            this.buscar(2);
+        }
     }
-    buscar(): void
+/**
+* Busca los libros acorde a la barra de busqueda, si la de titulo no esta vacia, usa esa, de lo contrario, usa la de autor
+*/ 
+    buscar(caso: number): void
     {
-        this.LibrosService.getLibrosPorNombre(this.parametroBuscar).subscribe(Libros => this.Libros = Libros,() => {
+        switch(caso){
+        case 1:this.LibrosService.getLibrosPorNombre(this.parametroBuscar).subscribe(Libros => this.Libros = Libros,() => {
             this.create.emit(); 
-        }); 
+             }); 
+             break;
+        case 2:this.LibrosService.getLibrosPorAutor(this.parametroBuscar).subscribe(Libros => this.Libros = Libros,() => {
+            this.create.emit(); 
+             }); 
+             break;
+        }
+      
     }
 
 }

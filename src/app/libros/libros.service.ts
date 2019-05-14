@@ -7,6 +7,7 @@ import { environment } from '../../environments/environment';
 const API_URL = environment.apiURL;
 const Libros = '/libros';
 const Nombre = '/nombre';
+const Autor = '/autor';
 
 /**
 * The service provider for everything related to Libros
@@ -75,6 +76,13 @@ export class LibrosService {
     getLibrosPorNombre(nombre) : Observable<Libro[]> {
         return this.http.get<Libro[]>(API_URL + Libros+ Nombre +'/'+nombre);
     }
-
+    
+         /**
+    * Returns the Observable object containing the list of editorials retrieved from the API
+    * @returns The list of libros in real time
+    */
+    getLibrosPorAutor(nombre) : Observable<Libro[]> {
+        return this.http.get<Libro[]>(API_URL + Libros+ Autor +'/'+nombre);
+    }
 
 }
