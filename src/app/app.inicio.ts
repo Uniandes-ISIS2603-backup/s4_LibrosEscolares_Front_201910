@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { Libro } from './libros/Libro';
 import { LibrosService } from './libros/libros.service';
 
@@ -10,8 +10,11 @@ import { LibrosService } from './libros/libros.service';
     templateUrl: './app.inicio.html',
     styleUrls: ['./app.inicio.css']
 })
-export class AppInicio implements OnInit {
 
+
+
+export class AppInicio implements OnInit {
+    @ViewChild('libroTitulo') libroTitulo;
     /**
      * The title that appears on the NavBar and the web browser
      */
@@ -59,13 +62,16 @@ export class AppInicio implements OnInit {
        
     }
     getLibros(): void {
-        var nombre = document.getElementById("libroTitulo"); 
-        this.parametroBuscar=nombre.innerHTML;
-        console.log(this.parametroBuscar);
+       
+       this.parametroBuscar =this.libroTitulo.nativeElement.value;
+       this.buscar();
+    
+    }
+    buscar(): void
+    {
         this.LibrosService.getLibrosPorNombre(this.parametroBuscar).subscribe(Libros => this.Libros = Libros,() => {
-            this.create.emit();
-        });
-       console.log(nombre);
+            this.create.emit(); 
+        }); 
     }
 
 }
