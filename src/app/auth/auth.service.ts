@@ -75,7 +75,7 @@ export class AuthService {
         }
          this.loggedIn.next(true);
          this.loggedOut.next(false);
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/home');
     }
 
     /**
