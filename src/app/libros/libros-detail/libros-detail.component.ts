@@ -29,6 +29,7 @@ import { ActivatedRoute } from '@angular/router';
      */
     getLibro(): void{
         this.librosService.getLibrosDetail(this.libro_id).subscribe(Libro => this.libro = Libro);
+
     }
 
     }
