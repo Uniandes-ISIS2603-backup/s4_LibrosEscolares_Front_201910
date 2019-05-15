@@ -27,11 +27,14 @@
                 </div>
                 <!-- FIN DESCRIPCION USUARIO -->
                 <!-- EDITAR Y BORRAR USUARIO -->
-                <div class="profile-userbuttons">
-                    <button type="button" routerLink="/usuarios/{{usuario.id}}/edit"
-                        class="btn btn-success btn-sm">Editar perfil</button>
-                    <button type="button" routerLink="/home" (click)="deleteUsuario()"
-                        class="btn btn-danger btn-sm">Eliminar perfil</button>
+                <div
+                    *ngIf="usuarioService.getUsuarioUsuarioActual()!=null && usuarioService.getUsuarioUsuarioActual().id == usuario.id ">
+                    <div class="profile-userbuttons">
+                        <button type="button" routerLink="/usuarios/{{usuario.id}}/edit"
+                            class="btn btn-success btn-sm">Editar perfil</button>
+                        <button type="button" routerLink="/home" (click)="deleteUsuario()"
+                            class="btn btn-danger btn-sm">Eliminar perfil</button>
+                    </div>
                 </div>
                 <!-- END EDITAR Y BORRAR USUARIO -->
                 <!--  MENU -->
@@ -70,13 +73,16 @@
                         <br>
 
                         <u class="nav">
-
-                            <li>
-                                <a routerLink="/libros/add">
-                                    <i class="glyphicon glyphicon-book"></i>
-                                    Agregar un libro </a>
-                            </li>
+                            <div
+                                *ngIf="usuarioService.getUsuarioUsuarioActual()!=null && usuarioService.getUsuarioUsuarioActual().id == usuario.id ">
+                                <li>
+                                    <a routerLink="/libros/add">
+                                        <i class="glyphicon glyphicon-book"></i>
+                                        Agregar un libro </a>
+                                </li>
+                            </div>
                         </u>
+
                     </p>
 
 
@@ -88,7 +94,8 @@
                         <div *ngIf="libro.duenio!=null&&libro.duenio.id==usuario.id ">
 
 
-                            <div class="col-md-2">
+                            <div class="col-md-20  offset-sm-1" style=" text-align:center; background-color: #F5F5F5;">
+
 
                                 <figure class="figure" routerLink="/libros/{{libro.id}}" style="cursor: pointer;">
                                     <div class="img-thumbnail border-0">
@@ -97,29 +104,38 @@
                                       height: 300px;" src='{{libro.portada}}' alt="{{libro.id}}" />
 
                                     </div>
-                                    <figcaption class="title-caption text-center" style="width: 200px;
+                                    <br><br>
+                                    <figcaption class="title-caption text-center" style="
                                        overflow: hidden;
                                        white-space: nowrap;
+                                       font-size:20px;
                                        text-overflow: ellipsis;">Titulo: {{libro.titulo}}</figcaption>
                                 </figure>
-                                <div class="row form-inline justify-content-center align-self-center text-center"></div>
-                                    <button type="button" class="btn btn-primary"
-                                        routerLink="/libros/{{libro.id}}/edit">Editar</button>
-                                    <button type="button" class="btn btn-danger"
-                                        routerLink="/libros/{{libro.id}}/delete">Eliminar</button>
-                                   
+                                <br><br>
+                                <div
+                                    *ngIf="usuarioService.getUsuarioUsuarioActual()!=null && usuarioService.getUsuarioUsuarioActual().id == usuario.id ">
+                                    <div class="row form-inline justify-content-center align-self-center">
+                                        <button type="button" class="btn btn-primary " style=" text-align:center;"
+                                            routerLink="/libros/{{libro.id}}/edit">Editar</button>
+                                        <button type="button" class="btn btn-danger"
+                                            routerLink="/libros/{{libro.id}}/delete">Eliminar</button>
+
+                                    </div>
+
                                 </div>
 
                             </div>
                         </div>
                     </div>
-
                 </div>
-                <!-- FIN LIBROS -->
-                <!-- CANJES REALIZADOS  -->
-                <br>
-                <div class="row border margin">
 
+            </div>
+            <!-- FIN LIBROS -->
+            <!-- CANJES REALIZADOS  -->
+            <br>
+            <div
+                *ngIf="usuarioService.getUsuarioUsuarioActual()!=null && usuarioService.getUsuarioUsuarioActual().id == usuario.id ">
+                <div class="row border margin">
 
                     <p class="h3 p-3" id="crealizados" style="color:orange">Canjes realizados: </p>
 
@@ -130,33 +146,50 @@
                         <div *ngIf="canje.usuarioQueOfrece!=null&&canje.usuarioQueOfrece.id==usuario.id ">
 
 
-                            <div class="col-md-4 text-center">
+                            <div class="col-md-20  offset-sm-1" style=" background-color: #F5F5F5; text-align:center;">
+
 
                                 <figure class="figure" routerLink="/canjes/{{canje.id}}" style="cursor: pointer;">
-                                    <div class="img-thumbnail border-0">
 
-                                        <figcaption class="title-caption text-center">ID: {{canje.id}}</figcaption>
-                                    </div>
-
-
-                                    <figcaption class="title-caption text-center">Estado: {{canje.estado}}</figcaption>
-
-                                    <figcaption class="title-caption text-center">Fecha de creacion:
-                                        {{canje.fechaDeCreacion}}</figcaption>
-                                    <br>
                                     <figure class="figure" routerLink="/libros/{{canje.libroOfrecido.id}}"
                                         style="cursor: pointer;">
 
+                                        <br>
+                                        <br>
+
                                         <figcaption class="title-caption text-center">Libro ofrecido:
-                                            {{canje.libroOfrecido.titulo}}</figcaption>
+                                            <a style="color:blue; text-decoration: underline;">
+                                                {{canje.libroOfrecido.titulo}}</a></figcaption>
+
                                     </figure>
+                                    <br>
+                                    <br>
                                     <figure class="figure" routerLink="/libros/{{canje.libroPedido.id}}"
                                         style="cursor: pointer;">
 
                                         <figcaption class="title-caption text-center">Libro pedido:
-                                            {{canje.libroPedido.titulo}}</figcaption>
+                                            <a style="color:blue; text-decoration: underline;">
+                                                {{canje.libroPedido.titulo}}</a></figcaption>
 
                                     </figure>
+
+                                    <br>
+                                    <br>
+
+
+
+                                    <i class="glyphicon glyphicon-tasks" style="color:orange"></i>
+                                    Estado: <a style="color:blue; text-decoration: underline;">{{canje.estado}}</a>
+
+
+
+
+                                    <br>
+                                    <br>
+                                    <figcaption class="title-caption text-center">Fecha de creacion:
+                                        {{canje.fechaDeCreacion.toString().split('T')[0]}}</figcaption>
+                                    <br>
+
 
 
                                 </figure>
@@ -169,6 +202,7 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
 
@@ -214,5 +248,5 @@
                 </div>
 
             </div>
-
         </div>
+    </div>

@@ -19,7 +19,7 @@ import { ToastrService } from 'ngx-toastr';
     export class UsuarioDetailComponent implements OnInit {
     
     constructor(
-        private UsuarioService: UsuarioService,
+        public usuarioService: UsuarioService,
         private route: ActivatedRoute,
         private LibrosService: LibrosService,
         private toastrService: ToastrService,
@@ -56,7 +56,7 @@ import { ToastrService } from 'ngx-toastr';
      * Le pide al servicio el usuario
      */
     getUsuario(): void{
-        this.UsuarioService.getUsuarioDetail(this.usuario_id).subscribe(Usuario => this.usuario = Usuario);
+        this.usuarioService.getUsuarioDetail(this.usuario_id).subscribe(Usuario => this.usuario = Usuario);
     }
 
     /**
@@ -72,11 +72,12 @@ import { ToastrService } from 'ngx-toastr';
      */
     getCanjes(): void{
         this.canjeService.getCanjes().subscribe(c =>{ this.canjes = c});
+       // this.canjes[0].fechaDeCreacion.toString
     }
     deleteUsuario(): void{
         try
         {
-            this.UsuarioService.deleteUsuario(this.usuario.id).subscribe(Usuario => this.usuario = Usuario);
+            this.usuarioService.deleteUsuario(this.usuario.id).subscribe(Usuario => this.usuario = Usuario);
             this.toastrService.success("El usuario ha sido eliminado");
         }
         catch(e)
