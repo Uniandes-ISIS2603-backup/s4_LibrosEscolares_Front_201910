@@ -45,17 +45,25 @@
                                 <i class="glyphicon glyphicon-book"></i>
                                 Libros </a>
                         </li>
-                        <li>
-                            <a href="usuarios/{{usuario.id}}#crealizados">
-                                <i class="glyphicon glyphicon-retweet" style="color:orange"></i>
-                                Canjes realizados </a>
-                        </li>
-                        <li>
-                            <a href="usuarios/{{usuario.id}}#crecibidos">
-                                <i class="glyphicon glyphicon-retweet" style="color:pink"></i>
-                                Canjes recibidos </a>
-                        </li>
-
+                        <br>
+                       
+                            <li>
+                                  
+                                <a href="usuarios/{{usuario.id}}#crealizados">
+                                    <div
+                                    *ngIf="usuarioService.getUsuarioUsuarioActual()!=null && usuarioService.getUsuarioUsuarioActual().id == usuario.id ">
+                                    <i class="glyphicon glyphicon-retweet" style="color:orange"></i>
+                                    Canjes realizados </div></a>
+                            </li>
+                            <br>
+                            <li>
+                                    
+                                <a href="usuarios/{{usuario.id}}#crecibidos">
+                                    <div
+                                    *ngIf="usuarioService.getUsuarioUsuarioActual()!=null && usuarioService.getUsuarioUsuarioActual().id == usuario.id ">
+                                    <i class="glyphicon glyphicon-retweet" style="color:pink"></i>
+                                    Canjes recibidos </div> </a>
+                        
                     </ul>
                 </div>
                 <!-- FIN MENU -->
@@ -139,6 +147,7 @@
 
                     <p class="h3 p-3" id="crealizados" style="color:orange">Canjes realizados: </p>
 
+
                     <div *ngFor="let canje of canjes">
 
 
@@ -146,7 +155,7 @@
                         <div *ngIf="canje.usuarioQueOfrece!=null&&canje.usuarioQueOfrece.id==usuario.id ">
 
 
-                            <div class="col-md-20  offset-sm-1" style=" background-color: #F5F5F5; text-align:center;">
+                            <div class="col-md-10  offset-sm-1" style=" background-color: #F5F5F5; text-align:center;">
 
 
                                 <figure class="figure" routerLink="/canjes/{{canje.id}}" style="cursor: pointer;">
@@ -202,8 +211,8 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
+
                     </div>
 
                 </div>
@@ -216,37 +225,71 @@
 
                     <p class="h3 p-3" id="crecibidos" style="color:pink">Canjes recibidos: </p>
 
-                    <div *ngFor="let libro of canjes">
+                    <div *ngFor="let canje of canjes">
 
 
 
-                        <div *ngIf="libro.usuarioQueRecibe!=null&&libro.usuarioQueRecibe.id==usuario.id">
+                        <div *ngIf="canje.usuarioQueRecibe!=null&&canje.usuarioQueRecibe.id==usuario.id">
 
 
-                            <div class="col-md-2">
-
-                                <figure class="figure" routerLink="/canjes/{{libro.id}}" style="cursor: pointer;">
-                                    <div class="img-thumbnail border-0">
+                            <div class="col-md-20  offset-sm-1" style=" background-color: #F5F5F5; text-align:center;">
 
 
-                                    </div>
+                                <figure class="figure" routerLink="/canjes/{{canje.id}}" style="cursor: pointer;">
 
-                                    <figcaption class="title-caption text-center">{{libro.id}}</figcaption>
+                                    <figure class="figure" routerLink="/libros/{{canje.libroOfrecido.id}}"
+                                        style="cursor: pointer;">
+
+                                        <br>
+                                        <br>
+
+                                        <figcaption class="title-caption text-center">Libro ofrecido:
+                                            <a style="color:blue; text-decoration: underline;">
+                                                {{canje.libroOfrecido.titulo}}</a></figcaption>
+
+                                    </figure>
+                                    <br>
+                                    <br>
+                                    <figure class="figure" routerLink="/libros/{{canje.libroPedido.id}}"
+                                        style="cursor: pointer;">
+
+                                        <figcaption class="title-caption text-center">Libro pedido:
+                                            <a style="color:blue; text-decoration: underline;">
+                                                {{canje.libroPedido.titulo}}</a></figcaption>
+
+                                    </figure>
+
+                                    <br>
+                                    <br>
+
+
+
+                                    <i class="glyphicon glyphicon-tasks" style="color:orange"></i>
+                                    Estado: <a style="color:blue; text-decoration: underline;">{{canje.estado}}</a>
+
+
+
+
+                                    <br>
+                                    <br>
+                                    <figcaption class="title-caption text-center">Fecha de creacion:
+                                        {{canje.fechaDeCreacion.toString().split('T')[0]}}</figcaption>
+                                    <br>
+
+
+
                                 </figure>
-                                <div *ngIf="libro.usuarioQueRecibe!=null&&libro.usuarioQueRecibe.id==usuario.id">
-                                    <div class="row form-inline justify-content-center align-self-center">
-                                        <button type="button" class="btn btn-primary"
-                                            routerLink="/libros/{{libro.id}}/edit">Editar</button>
-                                        <button type="button" class="btn btn-danger"
-                                            routerLink="/libros/{{libro.id}}/delete">Eliminar</button>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- FIN  CANJES RECIBIDOS  -->
-                </div>
 
+
+                </div>
+                <!-- FIN  CANJES RECIBIDOS  -->
             </div>
+
+
+
         </div>
     </div>
+</div>
