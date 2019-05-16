@@ -1,4 +1,4 @@
-<body style="background: url(src/assets/intento1.jpeg); background-size: 100%">
+<body>
 <div class="container-fluid" >
         <mat-toolbar><img src="../assets/notebook.svg" width="50" height="50" routerLink="/home" (click)="diselected()" style="cursor: pointer;">  
             <a routerLink="/home" style="cursor: pointer;" (click)="diselected()">Booklet</a>
@@ -45,7 +45,6 @@
         <router-outlet></router-outlet> 
         <button mat-flat-button color="primary" routerLink="" *ngIf="getSelect()" (click)="diselected()" >regresar</button>
     </div>
-    <div><p><br/> </p> </div> 
 <div >
     <img  class = "Banner" src="../assets/Banner libros.png"> 
     <p><br/> </p>

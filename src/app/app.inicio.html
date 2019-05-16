@@ -24,7 +24,9 @@ and open the template in the editor.
                          </div>
                         </div>
                  </form>
-       <div class="col-md-2" *ngFor = "let libro of Libros">
+
+    <div class="row">
+        <div class="row-md-2" *ngFor = "let libro of Libros">
             <figure class="figure" routerLink="/libros/{{libro.id}}" style="cursor: pointer;"> 
                 <div class="img-thumbnail border-0">    
                
@@ -41,7 +43,10 @@ and open the template in the editor.
                                    text-overflow: ellipsis;">{{libro.titulo}}</figcaption>
                   <figcaption class="title-caption text-center">{{libro.precio}}</figcaption>                
             </figure>
+            
         </div>
+    </div>
+
             </div>
      </div>
 </div>
