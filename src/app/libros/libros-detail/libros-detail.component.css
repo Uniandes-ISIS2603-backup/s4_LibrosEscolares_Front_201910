@@ -1,0 +1,27 @@
+
+
+.checked {
+  color: orange;
+}
+
+.text-body{
+    font-family: "Garamond";
+     font-size: 28px;
+      text-indent: 15px
+}
+
+.text-center{
+    font-family: "Helvetica";
+     font-size: 30px;
+}
+
+.text-left{
+    font-family: "Helvetica";
+     font-size: 29px;
+      text-indent: 15px
+}
+
+.stars{
+      text-indent: 15px
+}
+

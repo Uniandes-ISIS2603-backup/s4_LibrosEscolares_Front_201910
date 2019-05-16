@@ -12,34 +12,78 @@
             <br>
             <h2 class="text-center">Detalles del libro</h2>
             <br>
-        <p class="h3 p-3">Libro: {{libro.titulo}}</p>
-        <br>
-        <p class="h3 p-3">Id: {{libro.id}} </p>
-        <br>
-        <p class="h3 p-3">Autor: {{libro.autor}} </p>
-        <br>
-        <p class="h3 p-3">ISBN: {{libro.ISBN}} </p>
-        <br>
-        <br>
-        <p class="h3 p-3">edicion: {{libro.edicion}} </p>
-        <br>
-        <br>
-        <p class="h3 p-3">estado: {{libro.estado}} </p>
-        <br>
-        <br>
-        <p class="h3 p-3">precio: {{libro.precio}} </p>
-        <br>      
+        <p class="text-left">Libro </p>
+        <p class="text-body">{{libro.titulo}}</p>
+        
+        <p class="text-left">Autor</p>
+        <p class="text-body">{{libro.autor}}</p>
+ 
+        <p class="text-left">edicion</p>
+        <p class="text-body">{{libro.edicion}}</p>
+  
+        <p class="text-left">estado</p>
+        <p class="text-body">{{libro.estado}}</p>
+     
+        <p class="text-left">precio</p>
+        <p class="text-body">{{libro.precio}}</p>
+           
     </div>
    
 </div>
  <div class="col-4">
             <br>
-            <h2 class="text-center">¿Deseas canjear este libro?, ¡propon un canje al usuario!</h2>
+            <h2 class="text-center">¿Deseas canjear este libro?, ¡Añadelo al carro de compras!</h2>
             <br>
-             <p class="h3 p-3">Usuario: {{libro.duenio.nombre}}</p>
-             <br>
-             <p class="h3 p-3">Calificacion: {{libro.duenio.calificacion}}</p>
-            <br>
+        
+             <p class="text-left">Usuario</p>
+             <p class="text-body">{{libro.duenio.nombreUsuario}}</p>
+       
+             <p class="text-left">Calificacion </p>
+             <div class="stars" *ngIf="libro.duenio.calificacion==5">
+                 <span class="fa fa-star checked" ></span>
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star checked"></span>
+             </div>
+             <div class="stars" *ngIf="libro.duenio.calificacion==4">
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star"></span>
+             </div>
+             <div class="stars" *ngIf="libro.duenio.calificacion==3">
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star"></span>
+                 <span class="fa fa-star"></span>
+             </div>
+             <div class="stars" *ngIf="libro.duenio.calificacion==2">
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star"></span>
+                 <span class="fa fa-star"></span>
+                 <span class="fa fa-star"></span>
+             </div>
+             <div class="stars" *ngIf="libro.duenio.calificacion==1">
+                 <span class="fa fa-star checked"></span>
+                 <span class="fa fa-star"></span>
+                 <span class="fa fa-star"></span>
+                 <span class="fa fa-star"></span>
+                 <span class="fa fa-star"></span>
+             </div>
+             <div class="stars" *ngIf="libro.duenio.calificacion==0">
+                 <span class="fa fa-star"></span>
+                 <span class="fa fa-star"></span>
+                 <span class="fa fa-star"></span>
+                 <span class="fa fa-star"></span>
+                 <span class="fa fa-star"></span>
+             </div>
+
+
+
              
     </div>
     </div>
