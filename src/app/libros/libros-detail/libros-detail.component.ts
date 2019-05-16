@@ -3,6 +3,8 @@ import { LibrosDetail } from '../libros-detail';
 import { LibrosService } from './../libros.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { AuthService } from '../../auth/auth.service';
 
     @Component({
   selector: 'app-libros-detail',
@@ -13,15 +15,20 @@ import { ActivatedRoute } from '@angular/router';
     
     constructor(
         private librosService: LibrosService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private authService: AuthService
     )
     {
     }
     libro_id: number;
     libro: Libro;
+    isLoggedIn$: Observable<boolean>;
+    isLoggedOut$: Observable<boolean>;
     ngOnInit(){
         this.libro_id = + this.route.snapshot.paramMap.get('id');
         this.getLibro();
+        this.isLoggedIn$ = this.authService.isLoggedIn;
+        this.isLoggedOut$ = this.authService.isLoggedOut;
     
     }   
     /**
