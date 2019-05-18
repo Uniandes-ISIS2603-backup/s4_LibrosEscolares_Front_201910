@@ -7,6 +7,7 @@ import { LibrosDetail } from '../libros/libros-detail';
 
 const API_URL = environment.apiURL;
 const carros = '/carrosCompras';
+const USUARIO = '/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,11 @@ export class CarroService {
   getCarro(carroId: number): Observable<CarroDetail>
   {
     return this.http.get<CarroDetail>(API_URL+carros+'/'+carroId);
+  }
+  
+  getCarroUsuario(usuarioId: number): Observable<CarroDetail>
+  {
+    return this.http.get<CarroDetail>(API_URL+carros+'/'+USUARIO+'/'+usuarioId);
   }
 
   createCarro(carro: CarroDetail): Observable<CarroDetail>

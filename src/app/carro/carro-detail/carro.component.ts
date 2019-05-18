@@ -6,6 +6,7 @@ import { CarroDetail } from '../carro-detail';
 import { Usuario } from '../../usuario/usuario';
 import { Carro } from '../carro';
 import { CanjeService } from '../../../app/canje/canje.service';
+import { LibrosService } from './../../libros/libros.service';
 @Component({
   selector: 'app-carro',
   templateUrl: './carro.component.html',
@@ -19,18 +20,19 @@ export class CarroComponent implements OnInit {
   carro: CarroDetail;
   libros: Libro[];
   comprador: string;
+  libroSolo: Libro;
 
   displayedColumns: string[] = ['ISBN','titulo', 'autor', 'editorial', 'estado', 'precio', 'Crear'];
   mouseOverIndex = -1;
 
-  constructor(public carroService: CarroService, public route: ActivatedRoute, canjeService: CanjeService) { 
+  constructor(public carroService: CarroService, public route: ActivatedRoute, canjeService: CanjeService, private LibrosService: LibrosService) { 
     this.libros = [];
     this.comprador = "";
   }
 
-  addLibro(): void{
-    
-
+  addLibro(libroId: number): void{
+    this.LibrosService.getLibrosDetail(libroId).subscribe(libroSolo => this.libroSolo = libroSolo);
+    this.carroService.addLibro(this.id, this.libroSolo);
   }
 
   deleteLibro(index: number)

@@ -6,6 +6,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { AuthService } from '../../auth/auth.service';
 
+import { CarroService } from './../../carro/carro.service';
+import { Carro } from './../../carro/carro';
+import { UsuarioService } from '../../usuario/Usuario.service';
+
     @Component({
   selector: 'app-libros-detail',
   templateUrl: './libros-detail.component.html',
@@ -16,7 +20,9 @@ import { AuthService } from '../../auth/auth.service';
     constructor(
         private librosService: LibrosService,
         private route: ActivatedRoute,
-        private authService: AuthService
+        private authService: AuthService,
+        public usuarioService: UsuarioService,
+        public carroService: CarroService
     )
     {
     }
@@ -38,5 +44,6 @@ import { AuthService } from '../../auth/auth.service';
         this.librosService.getLibrosDetail(this.libro_id).subscribe(Libro => this.libro = Libro);
 
     }
-
+    
+    
     }

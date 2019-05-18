@@ -2,6 +2,8 @@ import { CanjeService } from './../../canje/canje.service';
 import { Canje } from './../../canje/canje';
 import { LibrosService } from './../../libros/libros.service';
 import { Libro } from './../../libros/Libro';
+import { CarroService } from './../../carro/carro.service';
+import { Carro } from './../../carro/carro';
 
 
 
@@ -23,13 +25,14 @@ import { ToastrService } from 'ngx-toastr';
         private route: ActivatedRoute,
         private LibrosService: LibrosService,
         private toastrService: ToastrService,
-        private canjeService: CanjeService
+        private canjeService: CanjeService,
+        private carroService: CarroService
     )
     {
     }
     usuario_id: number;
     usuario: UsuarioDetail;
-
+    carroCompras: Carro;
     er: String;
 
     /**
@@ -48,6 +51,8 @@ import { ToastrService } from 'ngx-toastr';
         this.getLibros();
 
         this.getCanjes();
+        
+        this.getCarro();
 
         this.er = "EN_REVISION";
  
@@ -73,6 +78,10 @@ import { ToastrService } from 'ngx-toastr';
     getCanjes(): void{
         this.canjeService.getCanjes().subscribe(c =>{ this.canjes = c});
        // this.canjes[0].fechaDeCreacion.toString
+    }
+    
+        getCarro(): void{
+        this.carroService.getCarroUsuario(this.usuario_id).subscribe(car =>{ this.carroCompras= car});
     }
     deleteUsuario(): void{
         try
