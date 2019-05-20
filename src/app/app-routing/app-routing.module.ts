@@ -34,7 +34,7 @@ const routes: Routes = [
  
     {
         path: 'home',
-        component: AppInicio
+        redirectTo: ''
     },
     {
         path: 'auth',

@@ -1,53 +1,120 @@
 <body>
-<div class="container-fluid" >
-        <mat-toolbar><img src="../assets/notebook.svg" width="50" height="50" routerLink="/home" (click)="diselected()" style="cursor: pointer;">  
-            <a routerLink="/home" style="cursor: pointer;" (click)="diselected()">Booklet</a>
-             <span class="example-fill-remaining-space"></span>           
-            <img src="../assets/shopping-cart.png" width="25" height="25" routerLink="/carro/2" (click)="diselected()" *ngIf="isLoggedIn$ | async" style="cursor: pointer;"> 
-            <button mat-button routerLink="/auth/login" style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold 18px TimesNewRoman;"(click)="diselected()"*ngIf="isLoggedOut$ | async">Login</button>              
-          
-            <button mat-button routerLink="/auth/sign-up" style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold 18px TimesNewRoman;"(click)="diselected()"*ngIf="isLoggedOut$ | async">Sign-Up</button>
+  <div class="container-fluid">
+    <mat-toolbar><img src="../assets/notebook.svg" width="50" height="50" routerLink="/home" (click)="diselected()"
+        style="cursor: pointer;">
+      <a routerLink="/home" style="cursor: pointer;" (click)="diselected()">Booklet</a>
+      <span class="example-fill-remaining-space"></span>
+      <img src="../assets/shopping-cart.png" width="25" height="25" routerLink="/carro/2" (click)="diselected()"
+        *ngIf="isLoggedIn$ | async" style="cursor: pointer;">
+      <button mat-button routerLink="/auth/login"
+        style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold 18px TimesNewRoman;"
+        (click)="diselected()" *ngIf="isLoggedOut$ | async">Login</button>
 
-             <button mat-button routerLink="/home" style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold 18px TimesNewRoman;"(click)="logout()" *ngIf="isLoggedIn$ | async">Logout</button>
+      <button mat-button routerLink="/auth/sign-up"
+        style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold 18px TimesNewRoman;"
+        (click)="diselected()" *ngIf="isLoggedOut$ | async">Sign-Up</button>
 
-             <button mat-button routerLink="/usuarios/{{us.getUsuarioUsuarioActual().id}}" style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold 18px TimesNewRoman;" *ngIf="isLoggedIn$ | async">Mi perfil</button></mat-toolbar>
+      <button mat-button routerLink="/home"
+        style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold 18px TimesNewRoman;"
+        (click)="logout()" *ngIf="isLoggedIn$ | async">Logout</button>
+
+      <button mat-button routerLink="/usuarios/{{us.getUsuarioUsuarioActual().id}}"
+        style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold 18px TimesNewRoman;"
+        *ngIf="isLoggedIn$ | async">Mi perfil</button></mat-toolbar>
+
+
+    <mat-toolbar color="primary">
+      <span class="example-fill-remaining-space"></span>
+      <button mat-button [matMenuTriggerFor]="menu">Demo listar</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="[ '/carro/list']" (click)="selected()">Listar carros de compra</button>
+        <button mat-menu-item [routerLink]="[ '/usuarios/list']" (click)="selected()">Listar Usuarios</button>
+        <button mat-menu-item [routerLink]="[ '/libros/list']" (click)="selected()">Listar Libros</button>
+        <button mat-menu-item [routerLink]="[ '/respuesta/list']" (click)="selected()">Listar Respuestas</button>
+        <button mat-menu-item [routerLink]="[ '/canje/list']" (click)="selected()">Listar Respuestas</button>
+
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="menu2">Demo crear</button>
+      <mat-menu #menu2="matMenu">
+        <button mat-menu-item [routerLink]="[ '/carro/create']" (click)="selected()">Crear carro de compra</button>
+        <button mat-menu-item [routerLink]="[ '/usuarios/add']" (click)="selected()">Crear usuario</button>
+        <button mat-menu-item [routerLink]="[ '/libros/add']" (click)="selected()">Crear libro</button>
+        <button mat-menu-item [routerLink]="[ '/respuesta/create']" (click)="selected()">Crear respuesta</button>
+        <button mat-menu-item [routerLink]="[ '/canje/add']" (click)="selected()">Crear canje</button>
+
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="menu3">Demo Actualizar</button>
+      <mat-menu #menu3="matMenu">
+        <button mat-menu-item [routerLink]="[ '/carro/update']" (click)="selected()">Actualizar carro de compra</button>
+        <button mat-menu-item [routerLink]="[ '/usuarios/10/edit']" (click)="selected()">Actualizar usuario</button>
+        <button mat-menu-item [routerLink]="[ '/respuesta/update']" (click)="selected()">Actualizar respuesta</button>
+
+      </mat-menu>
+    </mat-toolbar>
+  
+   <div class="container" >
+    <br/>
+	<div class="row justify-content-center">
+     <div class="col-12 col-md-10 col-lg-8">
+        <form class="card card-sm" name="libro" (ngSubmit)="getLibros()">
+         <div class="card-body row no-gutters align-items-center">
+              <div class="col-auto">
+             <i class="fas fa-search h4 text-body"></i>
+          </div>
+             <div class="col">
+      <input #libroTitulo name="libroTitulo" class="form-control form-control-lg form-control-borderless" id="libroTitulo" type="text" placeholder="Usa el titulo para buscar un libro para canjear!">
+       <input #libroAutor name="libroAutor" class="form-control form-control-lg form-control-borderless" id="libroAutor" type="text" placeholder="Usa el autor para buscar un libro para canjear!">
+   
+             </div>
+        <div class="col-auto">
+            <button class="btn btn-lg btn-success" type="sumbit" (click)="selected()">Buscar</button>
+                         </div>
+                        </div>
+                 </form>
+
+    <div class="row">
+        <div class="row-md-2" *ngFor = "let libro of Libros">
+            <figure class="figure" routerLink="/libros/{{libro.id}}" style="cursor: pointer;"> 
+                <div class="img-thumbnail border-0">   
+                    <div> 
+                        <p><br/> </p>
+                        <hr >
+                        <p><br/> </p> 
+                    </div> 
+               
+                    <img class="img-thumbnail"
+                         style="  width:  200px;
+                                  height: 300px;"
+                         src='{{libro.portada}}' alt="{{libro.id}}" /> 
+                    
+                </div>
+                <figcaption class="title-caption text-center" 
+                            style="width: 200px;
+                                   overflow: hidden;
+                                   white-space: nowrap;
+                                   text-overflow: ellipsis;">{{libro.titulo}}</figcaption>
+                  <figcaption class="title-caption text-center">{{libro.precio}}</figcaption>                
+            </figure>
             
-        
-            <mat-toolbar color="primary" >
-                <span class="example-fill-remaining-space"></span>
-                <button mat-button [matMenuTriggerFor]="menu">Demo listar</button>
-                <mat-menu #menu="matMenu">
-                  <button mat-menu-item [routerLink]="[ '/carro/list']" (click)="selected()">Listar carros de compra</button>
-                  <button mat-menu-item [routerLink]="[ '/usuarios/list']" (click)="selected()">Listar Usuarios</button>
-                  <button mat-menu-item [routerLink]="[ '/libros/list']" (click)="selected()">Listar Libros</button>
-                  <button mat-menu-item [routerLink]="[ '/respuesta/list']" (click)="selected()">Listar Respuestas</button>
-                  <button mat-menu-item [routerLink]="[ '/canje/list']" (click)="selected()">Listar Respuestas</button>
-                  
-                </mat-menu>
-                <button mat-button [matMenuTriggerFor]="menu2">Demo crear</button>
-                <mat-menu #menu2="matMenu">
-                  <button mat-menu-item [routerLink]="[ '/carro/create']" (click)="selected()">Crear carro de compra</button>
-                  <button mat-menu-item [routerLink]="[ '/usuarios/add']" (click)="selected()">Crear usuario</button>
-                  <button mat-menu-item [routerLink]="[ '/libros/add']" (click)="selected()">Crear libro</button>
-                  <button mat-menu-item [routerLink]="[ '/respuesta/create']" (click)="selected()">Crear respuesta</button>
-                  <button mat-menu-item [routerLink]="[ '/canje/add']" (click)="selected()">Crear canje</button>
-                  
-                </mat-menu>
-                <button mat-button [matMenuTriggerFor]="menu3">Demo Actualizar</button>
-                <mat-menu #menu3="matMenu">
-                  <button mat-menu-item [routerLink]="[ '/carro/update']" (click)="selected()">Actualizar carro de compra</button>
-                  <button mat-menu-item [routerLink]="[ '/usuarios/10/edit']" (click)="selected()">Actualizar usuario</button>
-                  <button mat-menu-item [routerLink]="[ '/respuesta/update']" (click)="selected()">Actualizar respuesta</button>
-                  
-                </mat-menu>
-        </mat-toolbar>
-    
-        <router-outlet></router-outlet> 
-        <button mat-flat-button color="primary" routerLink="home" *ngIf="getSelect()" (click)="diselected()" >regresar</button>
+        </div>
     </div>
-<div >
-    <img  class = "Banner" src="../assets/Banner libros.png"> 
-    <p><br/> </p>
-  <img  class = "Banner" src="../assets/Banner.png"> 
+            </div>
+     </div>
 </div>
-    </body>
+<div> 
+    <p><br/> </p>
+    <hr > 
+</div>
+
+
+
+    <router-outlet></router-outlet>
+    <button mat-flat-button color="primary" routerLink="home" *ngIf="getSelect()"
+      (click)="diselected()">regresar</button>
+  </div>
+  <div>
+    <img class="Banner" src="../assets/Banner libros.png" *ngIf="!getSelect()">
+    <p><br /> </p>
+    <img class="Banner" src="../assets/Banner.png" *ngIf="!getSelect()">
+  </div>
+</body>
