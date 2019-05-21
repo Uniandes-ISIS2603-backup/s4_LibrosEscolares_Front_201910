@@ -61,7 +61,7 @@ export class UsuarioService {
         return this.http.delete<Usuario>(API_URL + usuarios + '/' + usuarioId);
     }
 
-    getUsuarioUsuarioActual() 
+    getUsuarioUsuarioActual(): UsuarioDetail
     {
         return this.usuarioActual;
     }

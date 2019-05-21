@@ -44,6 +44,11 @@ import { UsuarioService } from '../../usuario/Usuario.service';
         this.librosService.getLibrosDetail(this.libro_id).subscribe(Libro => this.libro = Libro);
 
     }
+    add(): void{
+        let id = this.usuarioService.getUsuarioUsuarioActual().id;
+        this.carroService.addLibro(id, this.libro);
+
+    }
     
     
     }

@@ -3,7 +3,7 @@ import {  HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CarroDetail } from './carro-detail';
 import { environment } from '../../environments/environment';
-import { LibrosDetail } from '../libros/libros-detail';
+import { Libro} from '../libros/Libro';
 
 const API_URL = environment.apiURL;
 const carros = '/carrosCompras';
@@ -43,10 +43,10 @@ export class CarroService {
     return this.http.put<CarroDetail>(API_URL+carros+'/'+idCarro, carro);
   }
 
-  public addLibro(id: number, libro: LibrosDetail): void
+  public addLibro(id: number, libro: Libro): void
   {
     let carro = new CarroDetail();
-    let libros: LibrosDetail[] = [];
+    let libros: Libro[] = [];
     carro.id = id;
     this.getCarro(id).subscribe(Carro => {
       carro = Carro;
