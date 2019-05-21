@@ -23,6 +23,8 @@ export class AppComponent implements OnInit {
     select: boolean = false;
     isLoggedIn$: Observable<boolean>;
     isLoggedOut$: Observable<boolean>;
+    backGroundURL: String = 'https://st2.depositphotos.com/4072575/9681/i/950/depositphotos_96810474-stock-photo-pink-paper-texture-background.jpg';
+    buscando: boolean = false;
 
     @ViewChild('libroTitulo') libroTitulo;
     @ViewChild('libroAutor') libroAutor;
@@ -56,6 +58,7 @@ export class AppComponent implements OnInit {
     }
 
     diselected(): void {
+        this.backGroundURL = 'https://st2.depositphotos.com/4072575/9681/i/950/depositphotos_96810474-stock-photo-pink-paper-texture-background.jpg';
         this.select = false;
         this.Libros.length = 0;
     }

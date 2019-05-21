@@ -54,7 +54,7 @@
   </mat-toolbar>
 
   <div class="container-fluid"
-    style="background-image: url('https://st2.depositphotos.com/4072575/9681/i/950/depositphotos_96810474-stock-photo-pink-paper-texture-background.jpg')">
+    style="background-image: url('{{backGroundUrl}}')">
     <br />
     <div class="row justify-content-center">
       <div class="col-12 col-md-10 col-lg-8">
@@ -64,14 +64,16 @@
               <i class="fas fa-search h4 text-body"></i>
             </div>
             <div class="col">
-              <input #libroTitulo name="libroTitulo" class="form-control form-control-lg form-control-borderless"
-                id="libroTitulo" type="text" placeholder="Usa el titulo para buscar un libro para canjear!">
+              <input  #libroTitulo name="libroTitulo" class="form-control form-control-lg form-control-borderless" 
+                id="libroTitulo" type="text" placeholder="Usa el titulo para buscar un libro para canjear!" >
               <input #libroAutor name="libroAutor" class="form-control form-control-lg form-control-borderless"
-                id="libroAutor" type="text" placeholder="Usa el autor para buscar un libro para canjear!">
+                id="libroAutor" type="text" placeholder="Usa el autor para buscar un libro para canjear!" >
 
             </div>
             <div class="col-auto">
-              <button class="btn btn-lg btn-success" type="sumbit" (click)="selected()">Buscar</button>
+              <button mat-button>
+                  <mat-icon (click)="selected()" style="cursor: pointer; font-size: 27pt" aria-hidden="false" >search</mat-icon>
+              </button>
             </div>
           </div>
         </form>
