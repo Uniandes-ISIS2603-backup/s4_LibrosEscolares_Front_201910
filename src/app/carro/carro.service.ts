@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CarroDetail } from './carro-detail';
 import { environment } from '../../environments/environment';
-import { Libro } from '../libros/Libro';
+import { LibrosDetail } from '../libros/libros-detail';
+import { Usuario } from '../usuario/usuario';
+import { Libro } from '../libros/libro';
 
 const API_URL = environment.apiURL;
 const carros = '/carrosCompras';
