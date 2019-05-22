@@ -45,8 +45,9 @@ import { UsuarioService } from '../../usuario/Usuario.service';
 
     }
     add(): void{
-        let id = this.usuarioService.getUsuarioUsuarioActual().id;
-        this.carroService.addLibro(id, this.libro);
+        console.log('Añadete fuck u');
+        
+        this.carroService.addLibro(1, this.libro).subscribe();
 
     }
     

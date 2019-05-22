@@ -14,42 +14,57 @@ export class RespuestaDetailComponent implements OnInit {
 
   respuesta: Respuesta;
 
-  canje: Canje;
+  canjes: Canje[];
 
   route: ActivatedRoute;
 
-  @Input() 
+  @Input()
   id: number;
 
   constructor(public respuestaService: RespuestaService) {
     this.respuesta = new Respuesta();
-   }
+  }
 
-   actualizar(){
-     console.log("Entró actualizar");
-     this.respuestaService.getRespuesta(this.id).subscribe(Respuesta=>
-      {
-        this.respuesta = Respuesta;
-        console.log(this.respuesta);
-      });
-      /*       this.respuestaService.getCanje(this.id).subscribe(Canje=>
-        {
-          this.canje=Canje;
-          console.log(this.canje);
-        })*/
-   }
+  actualizar() {
+    console.log("Entró actualizar");
+    this.respuestaService.getRespuesta(this.id).subscribe(Respuesta => {
+      this.respuesta = Respuesta;
+      console.log(this.respuesta);
+    }); 
+  }
+  actualizarCanjes(){
+    console.log('Kelly pero que monda')
+    this.respuestaService.getCanjes().subscribe(Canje => {
+      this.canjes = Canje;
+      console.log('Canje: '+this.canjes);
+    });
+    console.log('Kelly pero que monda 2')
+  }
 
-   ngOnInit() {
+  ngOnInit() {
     console.log("heeelp");
-    if(this.id == undefined){
+    if (this.id == undefined) {
       this.id = + this.route.snapshot.paramMap.get('id');
-      console.log("Es indefinido, ruta: "+this.id);
+      console.log("Es indefinido, ruta: " + this.id);
     }
-    else{
+    else {
       console.log("No es indefinido " + this.id);
     }
-    this.actualizar();
+   // this.actualizar();
+    this.actualizarCanjes();
+    console.log(this.canjes)
     console.log("heeelp2");
+    console.log(this.canjes)
+
+  }
+
+  getCanje(): Canje {
+    console.log('Geteando canje')
+    for (var i = 0; i < this.canjes.length; i++) {
+      if (this.canjes[i].id == this.respuesta.id) {
+        return this.canjes[i];
+      }
+    }
   }
 
 }

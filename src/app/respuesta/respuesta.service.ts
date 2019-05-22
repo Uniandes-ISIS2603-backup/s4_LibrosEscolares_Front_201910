@@ -50,5 +50,10 @@ export class RespuestaService {
     {
       return this.http.get<Canje[]>(API_URL+'canjes/recibidos/'+id);
     }
+
+    getCanjes(): Observable<Canje[]>
+    {
+      return this.http.get<Canje[]>(API_URL+'/canjes');
+    }
   
 }

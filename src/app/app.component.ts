@@ -5,6 +5,9 @@ import { UsuarioService } from './usuario/Usuario.service';
 import { Libro } from './libros/Libro';
 import { LibrosService } from './libros/libros.service';
 import { forEach } from '@angular/router/src/utils/collection';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
+
+
 
 /**
  * The app component. This component is the base of s4_libros-Front
@@ -23,8 +26,7 @@ export class AppComponent implements OnInit {
     select: boolean = false;
     isLoggedIn$: Observable<boolean>;
     isLoggedOut$: Observable<boolean>;
-    backGroundURL: String = 'https://st2.depositphotos.com/4072575/9681/i/950/depositphotos_96810474-stock-photo-pink-paper-texture-background.jpg';
-    buscando: boolean = false;
+
 
     @ViewChild('libroTitulo') libroTitulo;
     @ViewChild('libroAutor') libroAutor;
@@ -39,7 +41,7 @@ export class AppComponent implements OnInit {
     /**
   * @ignore
   */
-    constructor(private authService: AuthService, public us: UsuarioService, private LibrosService: LibrosService) { }
+    constructor(private authService: AuthService, public us: UsuarioService, private LibrosService: LibrosService, private _sanitizer: DomSanitizer) { }
 
     /**
 * La salida que dice el componente padre
@@ -58,7 +60,6 @@ export class AppComponent implements OnInit {
     }
 
     diselected(): void {
-        this.backGroundURL = 'https://st2.depositphotos.com/4072575/9681/i/950/depositphotos_96810474-stock-photo-pink-paper-texture-background.jpg';
         this.select = false;
         this.Libros.length = 0;
     }
@@ -100,6 +101,7 @@ export class AppComponent implements OnInit {
         }
 
     }
+
 
 
 
