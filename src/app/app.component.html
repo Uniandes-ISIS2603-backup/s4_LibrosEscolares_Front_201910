@@ -17,7 +17,7 @@
     style="cursor: pointer; background-color: #fc1a96; color:white ;font: bold; font-size: 15pt"
       (click)="diselected()" *ngIf="isLoggedOut$ | async" (click)="selected()">Sign Up</button>
 
-    <button mat-button routerLink="/home"
+    <button mat-button routerLink="/home" class="mat-typography"
       style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold 18px TimesNewRoman;"
       (click)="logout()" *ngIf="isLoggedIn$ | async">Logout</button>
 
