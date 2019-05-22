@@ -6,6 +6,7 @@ import { environment } from '../../environments/environment';
 import { LibrosDetail } from '../libros/libros-detail';
 import { Usuario } from '../usuario/usuario';
 import { Libro } from '../libros/libro';
+
 const API_URL = environment.apiURL;
 const carros = '/carrosCompras';
 const USUARIO = '/usuario';
@@ -44,7 +45,7 @@ export class CarroService {
     return this.http.put<CarroDetail>(API_URL+carros+'/'+idCarro, carro);
   }
 
-  public addLibro(id: number, libro: LibrosDetail): void
+  public addLibro(id: number, libro: Libro): void
   {
     var carroNuevo = new CarroDetail();
     var  lista: Array<Libro>= carroNuevo.libros;
@@ -59,5 +60,7 @@ export class CarroService {
     }
     this.updateCarro(id, carroNuevo); 
           
+//
+
   }
 }
