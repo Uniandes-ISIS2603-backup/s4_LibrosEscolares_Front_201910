@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Respuesta } from '../respuesta';
 import { RespuestaService } from '../respuesta.service';
 import { ActivatedRoute } from '@angular/router';
+import { Libro } from '../../../app/libros/Libro';
 
 
 @Component({
@@ -14,9 +15,14 @@ export class RespuestaDetailComponent implements OnInit {
 
   respuesta: Respuesta;
 
-  canjes: Canje[];
+  canjes: Array<Canje> = [];
 
   route: ActivatedRoute;
+
+  libroOfrecido: Libro;
+
+  libroPedido: Libro;
+;
 
   @Input()
   id: number;
@@ -30,15 +36,19 @@ export class RespuestaDetailComponent implements OnInit {
     this.respuestaService.getRespuesta(this.id).subscribe(Respuesta => {
       this.respuesta = Respuesta;
       console.log(this.respuesta);
-    }); 
-  }
-  actualizarCanjes(){
-    console.log('Kelly pero que monda')
-    this.respuestaService.getCanjes().subscribe(Canje => {
-      this.canjes = Canje;
-      console.log('Canje: '+this.canjes);
+      console.log('Kelly pero que monda')
+      this.respuestaService.getCanjes().subscribe(Canje => {
+        this.canjes = Canje;
+        console.log(Canje);
+        console.log(this.canjes);
+        let canjeActual: Canje = this.getCanje();
+        this.libroOfrecido = canjeActual.libroOfrecido;
+        this.libroPedido = canjeActual.libroPedido;
+        console.log(this.libroOfrecido.portada);
+        console.log('Kelly pero que monda 2')
+      });
     });
-    console.log('Kelly pero que monda 2')
+    console.log("Salio actualizar");
   }
 
   ngOnInit() {
@@ -50,8 +60,7 @@ export class RespuestaDetailComponent implements OnInit {
     else {
       console.log("No es indefinido " + this.id);
     }
-   // this.actualizar();
-    this.actualizarCanjes();
+    this.actualizar();
     console.log(this.canjes)
     console.log("heeelp2");
     console.log(this.canjes)
@@ -60,9 +69,16 @@ export class RespuestaDetailComponent implements OnInit {
 
   getCanje(): Canje {
     console.log('Geteando canje')
+    console.log(this.respuesta.id);
+
     for (var i = 0; i < this.canjes.length; i++) {
       if (this.canjes[i].id == this.respuesta.id) {
+        console.log('Bingo');
+        console.log(this.canjes[i]);
         return this.canjes[i];
+      }
+      else {
+        console.log('Not Bingo');
       }
     }
   }

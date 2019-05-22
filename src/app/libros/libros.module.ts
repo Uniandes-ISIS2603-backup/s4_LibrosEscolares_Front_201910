@@ -10,6 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { LibrosCreateComponent } from './../libros/libros-create/libros-create.component';
 import { LibrosEditComponent } from './../libros/libros-edit/libros-edit.component';
 import { LibrosDeleteComponent } from './../libros/libros-delete/libros-delete.component';
+import { DemoMaterialModule } from '../../material-module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { LibrosDeleteComponent } from './../libros/libros-delete/libros-delete.c
      FormsModule,
      BrowserModule,
      AppRoutingModule,
-     HttpClientModule
+     HttpClientModule,
+     DemoMaterialModule
   ],
   declarations: [LibrosListComponent, LibrosDetailComponent,LibrosCreateComponent,LibrosEditComponent,LibrosDeleteComponent],
   providers: [LibrosService,LibrosCreateComponent, {provide: LocationStrategy, useClass: PathLocationStrategy },LibrosEditComponent,LibrosDeleteComponent],

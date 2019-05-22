@@ -3,10 +3,10 @@
 <mat-card class="right">
     <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{this.canje.libroOfrecido.titulo}}</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        <mat-card-title>{{libroOfrecido.titulo}}</mat-card-title>
+        <mat-card-subtitle>{{libroOfrecido.autor}}</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-lg-image src="{{getCanje().libroOfrecido.portada}}" class = "center" >
+      <img mat-card-lg-image src='{{libroOfrecido.portada}}' class = "center" >
       <mat-card-content>
           <span style="display: block; height:0.5cm" ></span>
           <p>
@@ -33,7 +33,7 @@
         <mat-card-title>Shiba Inu</mat-card-title>
         <mat-card-subtitle>Dog Breed</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-lg-image src="../../../assets/Portadas/portada4.jpg" class = "center">
+      <img mat-card-lg-image src='{{libroPedido.portada}}' class = "center">
       <mat-card-content>
           <span style="display: block; height:0.5cm" ></span>
           <p>

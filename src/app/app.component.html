@@ -1,20 +1,21 @@
 <div class="container-fluid">
-  <mat-toolbar ><img src="../assets/notebook.svg" width="50" height="50" routerLink="/home" (click)="diselected()"
+  <mat-toolbar><img src="../assets/notebook.svg" width="50" height="50" routerLink="/home" (click)="diselected()"
       style="cursor: pointer;">
-    <a routerLink="/home"class="mat-typography"
-    style="cursor: pointer; background-color: 'primary'; color: #3366ff ; font-size: 25pt; font-weight: bold" (click)="diselected()">Book</a>
-    <a routerLink="/home"class="mat-typography"
-    style="cursor: pointer; background-color: 'primary'; color: #fc1a96; font-size: 25pt; font-weight: bold" (click)="diselected()">Let</a>
+    <a routerLink="/home" class="mat-typography"
+      style="cursor: pointer; background-color: 'primary'; color: #3366ff ; font-size: 25pt; font-weight: bold"
+      (click)="diselected()">Book</a>
+    <a routerLink="/home" class="mat-typography"
+      style="cursor: pointer; background-color: 'primary'; color: #fc1a96; font-size: 25pt; font-weight: bold"
+      (click)="diselected()">Let</a>
     <span class="example-fill-remaining-space"></span>
     <img src="../assets/shopping-cart.png" width="25" height="25" *ngIf="isLoggedIn$ | async"
-      routerLink="/carro/{{us.getUsuarioUsuarioActual().id}}" (click)="selected()"
-      style="cursor: pointer;">
-    <button mat-stroked-button routerLink="/auth/login"  class="mat-typography"
+      routerLink="/carro/{{us.getUsuarioUsuarioActual().id}}" (click)="selected()" style="cursor: pointer;">
+    <button mat-stroked-button routerLink="/auth/login" class="mat-typography"
       style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold; font-size: 15pt"
       (click)="diselected()" *ngIf="isLoggedOut$ | async" (click)="selected()">Log In</button>
 
     <button mat-raised-button routerLink="/auth/sign-up" class="mat-typography"
-    style="cursor: pointer; background-color: #fc1a96; color:white ;font: bold; font-size: 15pt"
+      style="cursor: pointer; background-color: #fc1a96; color:white ;font: bold; font-size: 15pt"
       (click)="diselected()" *ngIf="isLoggedOut$ | async" (click)="selected()">Sign Up</button>
 
     <button mat-button routerLink="/home" class="mat-typography"
@@ -22,7 +23,7 @@
       (click)="logout()" *ngIf="isLoggedIn$ | async">Logout</button>
 
     <button mat-button routerLink="/usuarios/{{us.getUsuarioUsuarioActual().id}}" class="mat-typography"
-    style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold; font-size: 15pt"
+      style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold; font-size: 15pt"
       *ngIf="isLoggedIn$ | async" (click)="selected()">Mi perfil</button></mat-toolbar>
 
 
@@ -62,17 +63,18 @@
         <form class="card card-sm" name="libro" (ngSubmit)="getLibros()">
           <div class="card-body row no-gutters align-items-center">
             <div class="col-auto">
-            </div>  
+            </div>
             <div class="col">
-              <input  #libroTitulo name="libroTitulo" class="form-control form-control-lg form-control-borderless" 
-                id="libroTitulo" type="text" placeholder="Usa el titulo para buscar un libro para canjear!" >
+              <input #libroTitulo name="libroTitulo" class="form-control form-control-lg form-control-borderless"
+                id="libroTitulo" type="text" placeholder="Usa el titulo para buscar un libro para canjear!">
               <input #libroAutor name="libroAutor" class="form-control form-control-lg form-control-borderless"
-                id="libroAutor" type="text" placeholder="Usa el autor para buscar un libro para canjear!" >
+                id="libroAutor" type="text" placeholder="Usa el autor para buscar un libro para canjear!">
 
             </div>
             <div class="col-auto">
               <button mat-button>
-                  <mat-icon (click)="selected()" style="cursor: pointer; font-size: 27pt" aria-hidden="false" >search</mat-icon>
+                <mat-icon (click)="selected()" style="cursor: pointer; font-size: 27pt" aria-hidden="false">search
+                </mat-icon>
               </button>
             </div>
           </div>
@@ -83,11 +85,15 @@
             <figure class="figure" routerLink="/libros/{{libro.id}}" style="cursor: pointer;" (click)="selected()">
               <div class="img-thumbnail border-0">
                 <div>
-                  <p><br /> </p>
+                  <p *ngIf="isLoggedIn$ | async"><br /> </p>
                   <hr>
-                  <p><br /> </p>
+                  <p *ngIf="isLoggedIn$ | async"><br /> </p>
                 </div>
-
+                <div class="row">
+                  <button mat-button *ngIf="isLoggedIn$ | async">
+                    <mat-icon style="color: #3366ff">shopping_cart</mat-icon>
+                  </button>
+                </div>
                 <img class="img-thumbnail" style="  width:  200px;
                                   height: 300px;" src='{{libro.portada}}' alt="{{libro.id}}" />
 
@@ -98,7 +104,6 @@
                                    text-overflow: ellipsis;">{{libro.titulo}}</figcaption>
               <figcaption class="title-caption text-center">{{libro.precio}}</figcaption>
             </figure>
-
           </div>
         </div>
       </div>

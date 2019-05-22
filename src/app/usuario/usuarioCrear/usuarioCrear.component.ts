@@ -44,7 +44,6 @@ usuario: Usuario;
 */
 createUsuario(): void {
     this.usuario.calificacion = 3;
-    this.usuario.id = 10;
     console.log(this.usuario.id);
     this.usuarioService.createUsuario(this.usuario)
         .subscribe(() => {

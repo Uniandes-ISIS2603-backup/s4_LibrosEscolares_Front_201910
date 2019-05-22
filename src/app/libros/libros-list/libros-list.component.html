@@ -17,7 +17,9 @@
                                    text-overflow: ellipsis;">{{libro.titulo}}</figcaption>
                   <figcaption class="title-caption text-center">{{libro.precio}}</figcaption>                
             </figure>
-            
+            <button mat-button *ngIf="isLoggedIn$ | async">
+                    <mat-icon style="color:blue">shopping_cart</mat-icon>
+            </button>
         </div>
     </div>
 </div>
