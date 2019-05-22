@@ -18,7 +18,7 @@
       (click)="diselected()" *ngIf="isLoggedOut$ | async" (click)="selected()">Sign Up</button>
 
     <button mat-button routerLink="/home" class="mat-typography"
-      style="cursor: pointer; background-color: 'primary'; color: #3366ff ;font: bold 18px TimesNewRoman;"
+      style="cursor: pointer; background-color: 'primary'; color: #3366ff ; font: bold; font-size: 15pt"
       (click)="logout()" *ngIf="isLoggedIn$ | async">Logout</button>
 
     <button mat-button routerLink="/usuarios/{{us.getUsuarioUsuarioActual().id}}" class="mat-typography"
