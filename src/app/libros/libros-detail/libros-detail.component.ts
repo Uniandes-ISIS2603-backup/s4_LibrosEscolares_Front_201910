@@ -1,7 +1,7 @@
 import { Libro } from '../Libro';
 import { LibrosDetail } from '../libros-detail';
 import { LibrosService } from './../libros.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { AuthService } from '../../auth/auth.service';
@@ -45,5 +45,16 @@ import { UsuarioService } from '../../usuario/Usuario.service';
 
     }
     
+     /**
+     * Añade el libro al carro de compras del usuario
+     */
+    addLibroACarro(): void{
+        
+        this.carroService.addLibro(this.usuarioService.getUsuarioUsuarioActual().id,this.libro);
+           
+
+//        this.carroService.addLibro(1,this.libro);
+
+    }
     
     }

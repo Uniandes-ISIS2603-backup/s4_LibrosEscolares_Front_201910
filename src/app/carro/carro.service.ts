@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 import { CarroDetail } from './carro-detail';
 import { environment } from '../../environments/environment';
 import { LibrosDetail } from '../libros/libros-detail';
-
+import { Usuario } from '../usuario/usuario';
+import { Libro } from '../libros/libro';
 const API_URL = environment.apiURL;
 const carros = '/carrosCompras';
 const USUARIO = '/usuario';
@@ -45,15 +46,18 @@ export class CarroService {
 
   public addLibro(id: number, libro: LibrosDetail): void
   {
-    let carro = new CarroDetail();
-    let libros: LibrosDetail[] = [];
-    carro.id = id;
-    this.getCarro(id).subscribe(Carro => {
-      carro = Carro;
-      libros = Carro.libros;
-    });
-    libros.push(libro);
-    carro.libros = libros;
-    this.updateCarro(id, carro);
+    var carroNuevo = new CarroDetail();
+    var  lista: Array<Libro>= carroNuevo.libros;
+    var  nueva: Array<Libro>= new Array<Libro>();
+    let anadir :Libro = new Libro(); 
+    
+    
+    this.getCarroUsuario(id).subscribe(Carro => carroNuevo = Carro);
+   for(let libro of lista)
+    {
+        nueva.push(libro);
+    }
+    this.updateCarro(id, carroNuevo); 
+          
   }
 }
