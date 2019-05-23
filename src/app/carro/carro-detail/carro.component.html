@@ -91,7 +91,7 @@
                                                 style="margin-left: 0.25cm" (click)="cancelarSeleccion()">
                                                 Cancelar</button>
                                 </mat-card-content>
-                                <br>
+                                <hr *ngIf="!haySeleccion || i != indiceSeleccionado">
                         </mat-card>
                 </div>
 
