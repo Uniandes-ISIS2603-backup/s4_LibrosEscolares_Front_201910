@@ -120,11 +120,16 @@
   <router-outlet></router-outlet>
 </div>
 <div >
-  <br>
-  <button mat-flat-button color="primary" routerLink="home" *ngIf="getSelect()" (click)="diselected()">regresar</button>
+    <p *ngIf="getSelect()"><br /> </p>
+    <hr *ngIf="getSelect()">
+  <button mat-flat-button color="primary" routerLink="home" *ngIf="getSelect()" (click)="diselected()" style="margin-left: 1.5cm">regresar</button>
 </div>
 <div>
   <img class="Banner" src="../assets/Banner libros.png" *ngIf="!getSelect()">
   <p><br /> </p>
   <img class="Banner" src="../assets/Banner.png" *ngIf="!getSelect()">
+</div>
+<div>
+    <p><br /> </p>
+    
 </div>

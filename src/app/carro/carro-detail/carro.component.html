@@ -55,12 +55,15 @@
 <div *ngIf="usuarioService.getUsuarioUsuarioActual()!=null && creandoCanje">
 
         <br>
-        <mat-card style="background: linear-gradient(90deg, rgba(252,26,150,0.8295693277310925) 16%, rgba(252,26,179,0.8323704481792717) 40%, rgba(252,26,114,0.7819502801120448) 66%, rgba(252,26,26,0.7679446778711485) 92%)">
-                <mat-card-title style="color:white; background-color:#ffffff00 ">Selecciona uno de tus libros para ofertar
+        <mat-card
+                style="background: linear-gradient(90deg, rgba(252,26,150,0.8295693277310925) 16%, rgba(252,26,179,0.8323704481792717) 40%, rgba(252,26,114,0.7819502801120448) 66%, rgba(252,26,26,0.7679446778711485) 92%)">
+                <mat-card-title style="color:white; background-color:#ffffff00 ">Selecciona uno de tus libros para
+                        ofertar
+
                 </mat-card-title>
         </mat-card>
         <br>
-        <div *ngFor="let libro of allLibros;let i = index;" class="container-fluid">
+        <div *ngFor="let libro of allLibros;let i = index;" >
 
                 <div *ngIf="libro.duenio!=null && libro.duenio.id == usuarioService.getUsuarioUsuarioActual().id "
                         class="col">
@@ -72,20 +75,24 @@
                                 </mat-card-header>
                                 <img mat-card-lg-image src='{{libro.portada}}' class="center">
                                 <br>
-                                <mat-card-content style="margin-left: 1.5cm" > 
-                                        <button type="button" class="btn btn-outline-success" *ngIf="!haySeleccion " (click)="seleccionarLibro(i) ">
-                                        Seleccionar</button>
-                                        <button type="button" class="btn btn-info" *ngIf="haySeleccion && i == indiceSeleccionado" style="margin-left: 0.125cm"
-                                        (click)="crearCanje(libro)">
-                                        Confirmar</button>
-                                                <br>
-                                        <button type="button" class="btn btn-outline-danger" *ngIf="haySeleccion && i == indiceSeleccionado"  style="margin-left: 0.25cm"
-                                        (click)="cancelarSeleccion()">
+                                <mat-card-content style="margin-left: 1.5cm">
+                                        <button type="button" class="btn btn-outline-success" *ngIf="!haySeleccion "
+                                                (click)="seleccionarLibro(i) ">
+                                                Seleccionar</button>
+                                        <button type="button" class="btn btn-info"
+                                                *ngIf="haySeleccion && i == indiceSeleccionado"
+                                                style="margin-left: 0.125cm" (click)="crearCanje(libro)">
+                                                Confirmar</button>
+                                                <div style="margin-left: -1.5cm">
+                                                 <hr>
+                                                </div>
+                                        <button type="button" class="btn btn-outline-danger"
+                                                *ngIf="haySeleccion && i == indiceSeleccionado"
+                                                style="margin-left: 0.25cm" (click)="cancelarSeleccion()">
                                                 Cancelar</button>
                                 </mat-card-content>
                                 <br>
                         </mat-card>
-                        <div class="row"><br></div>
                 </div>
 
         </div>
