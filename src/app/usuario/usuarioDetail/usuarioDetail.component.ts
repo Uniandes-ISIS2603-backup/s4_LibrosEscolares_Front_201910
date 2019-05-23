@@ -90,7 +90,7 @@ import { ToastrService } from 'ngx-toastr';
         
         this.getCarro();
 
-        this.er = "EN_REVISION";
+        this.er = "Pendiente";
 
         this.aceptado = "ACEPTADO_POR_EL_VENDEDOR";
  
