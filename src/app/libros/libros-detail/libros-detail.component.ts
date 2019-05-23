@@ -18,7 +18,9 @@ import { UsuarioService } from '../../usuario/Usuario.service';
   styleUrls: ['./libros-detail.component.css']
 })
     export class LibrosDetailComponent implements OnInit {
-    
+    /**
+     * Metodo constructor
+     */
     constructor(
         private librosService: LibrosService,
         private route: ActivatedRoute,
@@ -26,24 +28,36 @@ import { UsuarioService } from '../../usuario/Usuario.service';
         public usuarioService: UsuarioService,
         public carroService: CarroService
     )
-    {
-    }
+   {
+        
+   }
+    /**
+     * Declaracion de atributos necesarios: el libro en detalle, el id del libro, los atributos para
+     * saber si esta logeado o no y la calificacion del usuario dueño del libro
+     */
     libro_id: number;
     libro: Libro;
     isLoggedIn$: Observable<boolean>;
     isLoggedOut$: Observable<boolean>;
+    calificacion: number;
+    
+    /**
+     * Al iniciar carga todos los datos necesarios
+     */
     ngOnInit(){
         this.libro_id = + this.route.snapshot.paramMap.get('id');
         this.getLibro();
+        this.getCalificacion();
         this.isLoggedIn$ = this.authService.isLoggedIn;
         this.isLoggedOut$ = this.authService.isLoggedOut;
+     
     
     }   
     /**
      * Le pide al servicio el libro
      */
     getLibro(): void{
-        this.librosService.getLibrosDetail(this.libro_id).subscribe(Libro => this.libro = Libro);
+        this.librosService.getLibrosDetail(this.libro_id).subscribe(Libro =>this.libro = Libro);
 
     }
      /**
@@ -56,6 +70,20 @@ import { UsuarioService } from '../../usuario/Usuario.service';
 
 //        this.carroService.addLibro(1,this.libro);
 
+    }
+    
+     /**
+     * Consigue la calificacion del usuario dueño del libro
+     */
+    getCalificacion()
+    {
+//        var u :Usuario;
+//        
+//        this.usuarioService.getUsuarioByMail(this.libro.duenio.correo).subscribe(Cal => {
+//        u=Cal;
+//        this.calificacion=u.calificacion;
+//        }
+//        )
     }
     
     

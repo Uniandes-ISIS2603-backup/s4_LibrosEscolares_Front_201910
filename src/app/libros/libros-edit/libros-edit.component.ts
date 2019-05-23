@@ -10,6 +10,9 @@ import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angu
   styleUrls: ['./libros-edit.component.css']
 })
 export class LibrosEditComponent implements OnInit, OnChanges {
+    /**
+     * Metodo constructor
+     */
 constructor(
     private libroService: LibrosService,
     private toastrService: ToastrService,

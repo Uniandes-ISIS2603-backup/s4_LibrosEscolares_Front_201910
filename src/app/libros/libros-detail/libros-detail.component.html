@@ -1,20 +1,22 @@
+    
 <div class="row">
-
-    <div class="col-3">
-        <img class="img-thumbnail" style="  width:  400px;
-                                  height: 600px;" src='{{libro.portada}}' alt="{{libro.id}}" />
-
-    </div>
-    <div class="col-4">
-        <div class="container-fluid">
-            <br>
+ <div class="col-3">
+<img class="img-thumbnail"
+                         style="  width:  400px;
+                                  height: 500px;"
+                         src='{{libro.portada}}' alt="{{libro.id}}" /> 
+                    
+                </div>
+        
+  <div class="col-4">
+    <div class="container-fluid">  
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th style="font-size: 20pt;">Detalles del libro</th>
                     </tr>
                 </thead>
-                <tbody>
+               
                     <tr>
                         <td style="font-weight: bold;">Libro</td>
                     </tr>
@@ -48,69 +50,45 @@
                             {{libro.precio}}
                         </td>
                     </tr>
-                </tbody>
+                
             </table>
-
-        </div>
-
+           
     </div>
+   
+</div>
     <div class="col-4">
-        <br>
-        <h2 class="text-center" *ngIf="isLoggedIn$ | async">¿Deseas canjear este libro?, ¡Añadelo al carro de compras!
-        </h2>
-        <h2 class="text-center" *ngIf="isLoggedOut$ | async">¿Deseas canjear este libro?, ¡Inicia sesion para continuar!
-        </h2>
+    <div class="container-fluid">  
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th style="font-size: 20pt;" *ngIf="isLoggedIn$ | async">¿Deseas canjear este libro?, ¡Añadelo al carro de compras!</th>
+                        <th style="font-size: 20pt;" *ngIf="isLoggedOut$ | async">¿Deseas canjear este libro?, ¡Inicia sesion para continuar!</th>
 
-        <br>
-
-        <p class="text-left">Usuario</p>
-        <p class="text-body">{{libro.duenio.nombreUsuario}}</p>
-
-        <p class="text-left">Calificacion </p>
-        <div class="stars" *ngIf="libro.duenio.calificacion==5">
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
+                    </tr>
+                </thead>
+                
+                    <tr>
+                        <td style="font-weight: bold;">Usuario</td>
+                    </tr>
+                     <tr>
+                        <td> {{libro.duenio.nombreUsuario}}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold;">Calificacion</td>
+                    </tr>
+                     <tr>
+                        <td> {{3}}</td>
+                    </tr>
+                    <tr>
+                        
+            <button type="submit" class="btn btn-primary" style="width: 150px;height: 70px;" *ngIf="isLoggedIn$ | async"
+                (click)="addLibroACarro()" >Añadir</button>
+               
+                    </tr>
+                
+                
+                </table>
+                </div>
+        
         </div>
-        <div class="stars" *ngIf="libro.duenio.calificacion==4">
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-        </div>
-        <div class="stars" *ngIf="libro.duenio.calificacion==3">
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-        </div>
-        <div class="stars" *ngIf="libro.duenio.calificacion==2">
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-        </div>
-        <div class="stars" *ngIf="libro.duenio.calificacion==1">
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-        </div>
-        <div class="stars" *ngIf="libro.duenio.calificacion==0">
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-        </div>
-        <br>
-        <div class="row form-inline justify-content-center align-self-center">
-            <button type="submit" class="btn btn-primary" style="width: 150px;height: 70px;"
-                (click)="addLibroACarro()" routerLink='/carro/{{this.usuarioService.getUsuarioUsuarioActual().id}}'>Añadir</button>
-
+   

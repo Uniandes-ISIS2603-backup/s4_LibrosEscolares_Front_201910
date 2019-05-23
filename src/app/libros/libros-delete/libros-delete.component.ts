@@ -12,7 +12,9 @@ import {ToastrService} from 'ngx-toastr';
   styleUrls: ['./libros-delete.component.css']
 })
 export class LibrosDeleteComponent implements OnInit {
-
+    /**
+     * Metodo constructor
+     */
  constructor(
         private librosService: LibrosService,
         private route: ActivatedRoute,
@@ -21,6 +23,9 @@ export class LibrosDeleteComponent implements OnInit {
     )
     {
     }
+    /**
+     * Se declaran los atributos necesarios : el libro a eliminar y su id
+     */
     libro_id: number;
     libro: Libro;
     ngOnInit(){
@@ -28,7 +33,9 @@ export class LibrosDeleteComponent implements OnInit {
         this.getLibro();
     
     }   
-    
+    /**
+     * Evento que avisa cuando se elimina el libro
+     */
     @Output() create = new EventEmitter();
     
    

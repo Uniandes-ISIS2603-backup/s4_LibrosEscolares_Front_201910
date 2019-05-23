@@ -70,7 +70,7 @@ export class LibrosService {
     }
     
      /**
-    * Returns the Observable object containing the list of editorials retrieved from the API
+    * Returns the Observable object containing the list of libros retrieved from the API
     * @returns The list of libros in real time
     */
     getLibrosPorNombre(nombre) : Observable<Libro[]> {
@@ -78,7 +78,7 @@ export class LibrosService {
     }
     
          /**
-    * Returns the Observable object containing the list of editorials retrieved from the API
+    * Returns the Observable object containing the list of libros retrieved from the API
     * @returns The list of libros in real time
     */
     getLibrosPorAutor(nombre) : Observable<Libro[]> {

@@ -14,7 +14,9 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./libros-create.component.css']
 })
 export class LibrosCreateComponent implements OnInit {
-
+/**
+     * Metodo constructor
+     */
   constructor(
         private librosService: LibrosService,
         private toastrService: ToastrService,
