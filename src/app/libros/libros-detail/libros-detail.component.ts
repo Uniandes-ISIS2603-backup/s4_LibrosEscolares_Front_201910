@@ -32,18 +32,22 @@ import { UsuarioService } from '../../usuario/Usuario.service';
     libro: Libro;
     isLoggedIn$: Observable<boolean>;
     isLoggedOut$: Observable<boolean>;
+    calificacion: number;
+    
     ngOnInit(){
         this.libro_id = + this.route.snapshot.paramMap.get('id');
         this.getLibro();
+        this.getCalificacion();
         this.isLoggedIn$ = this.authService.isLoggedIn;
         this.isLoggedOut$ = this.authService.isLoggedOut;
+     
     
     }   
     /**
      * Le pide al servicio el libro
      */
     getLibro(): void{
-        this.librosService.getLibrosDetail(this.libro_id).subscribe(Libro => this.libro = Libro);
+        this.librosService.getLibrosDetail(this.libro_id).subscribe(Libro =>this.libro = Libro);
 
     }
      /**
@@ -56,6 +60,17 @@ import { UsuarioService } from '../../usuario/Usuario.service';
 
 //        this.carroService.addLibro(1,this.libro);
 
+    }
+    
+    getCalificacion()
+    {
+//        var u :Usuario;
+//        
+//        this.usuarioService.getUsuarioByMail(this.libro.duenio.correo).subscribe(Cal => {
+//        u=Cal;
+//        this.calificacion=u.calificacion;
+//        }
+//        )
     }
     
     
