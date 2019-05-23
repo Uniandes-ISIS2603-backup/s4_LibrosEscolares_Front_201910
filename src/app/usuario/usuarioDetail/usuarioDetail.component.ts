@@ -20,6 +20,15 @@ import { ToastrService } from 'ngx-toastr';
     })
     export class UsuarioDetailComponent implements OnInit {
     
+        /**
+         * Constructor del component
+         * @param usuarioService 
+         * @param route 
+         * @param LibrosService 
+         * @param toastrService 
+         * @param canjeService 
+         * @param carroService 
+         */
     constructor(
         public usuarioService: UsuarioService,
         private route: ActivatedRoute,
@@ -30,10 +39,29 @@ import { ToastrService } from 'ngx-toastr';
     )
     {
     }
+    /**
+    Id de usuario actual
+     */
     usuario_id: number;
+
+    /**
+    Usuario actual
+    */
     usuario: UsuarioDetail;
+
+    /**
+    Carro de compras del usuario
+    */
     carroCompras: Carro;
+
+    /**
+    String para un canje en revision
+    */
     er: String;
+
+    /**
+    String para un canje aceptado por el vendedor
+    */
     aceptado: String;
 
     /**
@@ -41,8 +69,15 @@ import { ToastrService } from 'ngx-toastr';
      */
     Libros: Libro[];
 
+    /**
+    Lista de canjes del usuario
+    */
+
     canjes: Canje[];
 
+    /**
+     * Metodo inicial que pide el usuario, sus libtros, cajes y carro compars a sus respectivos servicios
+     */
     ngOnInit(){
         this.usuario_id = + this.route.snapshot.paramMap.get('id');
         //this.usuario = new Usuario();
@@ -83,9 +118,16 @@ import { ToastrService } from 'ngx-toastr';
        // this.canjes[0].fechaDeCreacion.toString
     }
     
+        /**
+         * Obtiene el carro compras del usuario
+         */
         getCarro(): void{
         this.carroService.getCarroUsuario(this.usuario_id).subscribe(car =>{ this.carroCompras= car});
     }
+
+    /**
+    Elimina el usuario actual
+    */
     deleteUsuario(): void{
         try
         {
@@ -97,6 +139,10 @@ import { ToastrService } from 'ngx-toastr';
             this.toastrService.success(e);
         }
     }
+
+    /**
+    Acepta el canje sobre el que se la da click alterando su estado
+    */
     aceptarCanje(canjeId)
     {
         this.canjes.forEach(element =>
@@ -111,6 +157,11 @@ import { ToastrService } from 'ngx-toastr';
             
         });
     }
+
+    /**
+    Deniega el canje sobre el que se la da click alterando su estado
+    */
+
     denegarCanje(canjeId)
     {
         this.canjes.forEach(element =>

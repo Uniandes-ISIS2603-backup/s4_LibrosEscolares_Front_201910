@@ -53,14 +53,26 @@ export class UsuarioService {
     return this.http.post<UsuarioDetail>(API_URL + usuarios, usuario);
 }
 
+/**
+ * Obtiene el usuario por su email, esto es usado para el login
+ * @param usuarioMail 
+ */
     getUsuarioByMail(usuarioMail):  Observable<UsuarioDetail> {
        
     return this.http.get<UsuarioDetail>(API_URL + usuarios+'/mail/'+usuarioMail);
     }
+
+/**
+ * Elimina el usuario con el id dado por parametro
+ * @param usuarioId 
+ */
     deleteUsuario(usuarioId):  Observable<Usuario>{
         return this.http.delete<Usuario>(API_URL + usuarios + '/' + usuarioId);
     }
 
+    /**
+     * Devuelve el usuario que inicio sesion o en su defecto null si ninguno lo ha hecho
+     */
     getUsuarioUsuarioActual(): UsuarioDetail
     {
         return this.usuarioActual;
