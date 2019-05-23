@@ -18,7 +18,19 @@ export class CanjeGetComponent implements OnInit {
      * Le pide al servicio el canjes
      */
     getCanje(): void{
-        this.canjeService.getCanjeDetail(this.canjeId).subscribe(c => this.canje = c);
+      let canjes: CanjeDetail[] = [];
+      this.canjeService.getCanjes().subscribe(c => 
+        {
+          canjes = c;
+          for (var i = 0; i < canjes.length; i++) {
+            if (canjes[i].id == this.canjeId) {
+              console.log('Bingo');
+              console.log(canjes[i]);
+              this.canje = canjes[i];
+            }
+          }
+        }
+        );
     }
 
     ngOnInit(){

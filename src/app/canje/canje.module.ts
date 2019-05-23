@@ -8,9 +8,11 @@ import { CanjeGetComponent } from './canje-get/canje-get.component';
 import { CanjeGetListComponent } from './canje-get-list/canje-get-list.component';
 import { CanjeUpdateComponent } from './canje-update/canje-update.component';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
+import{DemoMaterialModule} from '../../../src/material-module'
 
 
 import { CanjeService } from './canje.service';
+import { from } from 'rxjs';
 
 @NgModule({
   imports: [
@@ -18,7 +20,8 @@ import { CanjeService } from './canje.service';
     HttpClientModule,
     CommonModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    DemoMaterialModule
   ],
   declarations: [CanjeCreateComponent, CanjeGetComponent, CanjeGetListComponent, CanjeUpdateComponent],
   exports: [CanjeCreateComponent, CanjeGetComponent, CanjeGetListComponent, CanjeUpdateComponent],

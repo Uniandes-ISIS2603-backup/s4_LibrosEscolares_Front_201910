@@ -11,6 +11,7 @@ import { UsuarioService } from '../../usuario/Usuario.service';
 import { Respuesta } from '../../respuesta/respuesta';
 import { RespuestaService } from '../../respuesta/respuesta.service';
 import { Canje } from '../../canje/canje';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-carro',
   templateUrl: './carro.component.html',
@@ -52,7 +53,8 @@ export class CarroComponent implements OnInit {
     public canjeService: CanjeService,
     private LibrosService: LibrosService,
     public usuarioService: UsuarioService,
-    public respuestaService: RespuestaService) {
+    public respuestaService: RespuestaService,
+    private router: Router,) {
     this.libros = [];
     this.comprador = "";
   }
@@ -152,6 +154,7 @@ export class CarroComponent implements OnInit {
               canje = CanjeFinal;
               console.log("Canje final");
               console.log(canje);
+              this.router.navigate(['/canjes/'+canje.id]);
             })
           })
         })

@@ -1,22 +1,51 @@
 <div class="col-md-12">
-  <div class="container-fluid">   
-      <p class="h3 p-3">ID: {{canje.id}}</p>
-      <br>
-      <p class="h3 p-3">Fecha de Creación: {{canje.fechaDeCreacion}} </p>
-      <br>
-      <p class="h3 p-3">Libro Pedido: {{canje.libroPedido.titulo}}} </p>
-      <br>
-      <p class="h3 p-3">Dueño: {{canje.usuarioQueRecibe.nombreUsuario}}} </p>
-      <br>
-      <p class="h3 p-3">Libro Ofrecido: {{canje.libroOfrecido.titulo}}} </p>
-      <br>
-      <p class="h3 p-3">Dueño: {{canje.usuarioQueOfrece.nombreUsuario}}} </p>
-      <br>
-      <p class="h3 p-3">Estado: {{canje.estado}}} </p>
-      <br>
-      <div class="row border margin">
-          
-          <p class="h3 p-3">Libros disponibles: </p>
+  <div class="container-fluid">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th style="font-size: 20pt;">Detalles del Canje</th>
+        </tr>
+      </thead>
+      <tr>
+        <td>
+          <p class="h3 p-3">ID: {{canje.id}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="h3 p-3">Fecha de Creación: {{canje.fechaDeCreacion}} </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="h3 p-3">Libro Pedido: {{canje.libroPedido.titulo}} </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="h3 p-3">Dueño: {{canje.libroPedido.duenio.nombreUsuario}} </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="h3 p-3">Libro Ofrecido: {{canje.libroOfrecido.titulo}} </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="h3 p-3">Dueño: {{canje.libroOfrecido.duenio.nombreUsuario}} </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="h3 p-3">Estado: {{canje.estado}} </p>
+        </td>
+      </tr>
+      <div >
+          <p><br /> </p>
+          <hr >
+        <button mat-flat-button color="primary" routerLink="" style="margin-left: 1.5cm">regresar</button>
       </div>
+    </table>
   </div>
 </div>
