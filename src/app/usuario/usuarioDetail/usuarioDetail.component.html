@@ -205,7 +205,7 @@
                                 <div *ngIf="canje.estado == er">
                                     <div class="row form-inline justify-content-center align-self-center">
                                         <button type="button" class="btn btn-primary"
-                                            routerLink="/canjes/{{canje.id}}/edit">Aceptar</button>
+                                            (click)="aceptarCanje(canje.id)">Aceptar</button>
                                         <button type="button" class="btn btn-danger"
                                             routerLink="/canjes/{{canje.id}}/edit">Denegar</button>
                                     </div>
