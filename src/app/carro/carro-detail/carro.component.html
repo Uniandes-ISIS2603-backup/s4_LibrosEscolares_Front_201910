@@ -1,50 +1,84 @@
-<div class="mat-elevation-z8">   
-       <table mat-table #table [dataSource]="libros">
+<div class="mat-elevation-z8">
+        <table mat-table #table [dataSource]="libros">
 
-            <ng-container matColumnDef="ISBN">
-                    <th mat-header-cell *matHeaderCellDef> ISBN </th>
-                    <td mat-cell *matCellDef="let libro"> {{libro.ISBN}} </td>
-            </ng-container>
+                <ng-container matColumnDef="ISBN">
+                        <th mat-header-cell *matHeaderCellDef> ISBN </th>
+                        <td mat-cell *matCellDef="let libro"> {{libro.ISBN}} </td>
+                </ng-container>
 
-            <ng-container matColumnDef="titulo">
-                    <th mat-header-cell *matHeaderCellDef> Título </th>
-                    <td mat-cell *matCellDef="let libro"> {{libro.titulo}} </td>
-            </ng-container>
+                <ng-container matColumnDef="titulo">
+                        <th mat-header-cell *matHeaderCellDef> Título </th>
+                        <td mat-cell *matCellDef="let libro"> {{libro.titulo}} </td>
+                </ng-container>
 
-            <ng-container matColumnDef="autor">
-                    <th mat-header-cell *matHeaderCellDef> Autor </th>
-                    <td mat-cell *matCellDef="let libro"> {{libro.autor}} </td>
-            </ng-container>
+                <ng-container matColumnDef="autor">
+                        <th mat-header-cell *matHeaderCellDef> Autor </th>
+                        <td mat-cell *matCellDef="let libro"> {{libro.autor}} </td>
+                </ng-container>
 
-            <ng-container matColumnDef="editorial">
-                    <th mat-header-cell *matHeaderCellDef> Editorial </th>
-                    <td mat-cell *matCellDef="let libro"> {{libro.editorial}} </td>
-            </ng-container>
+                <ng-container matColumnDef="editorial">
+                        <th mat-header-cell *matHeaderCellDef> Editorial </th>
+                        <td mat-cell *matCellDef="let libro"> {{libro.editorial}} </td>
+                </ng-container>
 
-            <ng-container matColumnDef="estado">
-                    <th mat-header-cell *matHeaderCellDef> Estado </th>
-                    <td mat-cell *matCellDef="let libro"> {{libro.estado}} </td>
-            </ng-container>
+                <ng-container matColumnDef="estado">
+                        <th mat-header-cell *matHeaderCellDef> Estado </th>
+                        <td mat-cell *matCellDef="let libro"> {{libro.estado}} </td>
+                </ng-container>
 
-            <ng-container matColumnDef="precio">
-                    <th mat-header-cell *matHeaderCellDef> Precio </th>
-                    <td mat-cell *matCellDef="let libro"> {{libro.precio}} </td>
-            </ng-container>
+                <ng-container matColumnDef="precio">
+                        <th mat-header-cell *matHeaderCellDef> Precio </th>
+                        <td mat-cell *matCellDef="let libro"> {{libro.precio}} </td>
+                </ng-container>
 
-            <ng-container matColumnDef="Crear">
-                    <th mat-header-cell *matHeaderCellDef> </th>
-                    <td mat-cell *matCellDef="let element, let i = index"> 
-                        <button mat-button color="primary" *ngIf="i == mouseOverIndex" (click)="crearCanje()">Crear canje</button> 
-                        <button mat-button color="warn" *ngIf="i == mouseOverIndex" (click)="eliminarLibro()">Eliminar libro</button>
-                    </td>
-            </ng-container>
-           
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row class="remove-background" style="cursor: pointer;" (click)="onMouseOver(e)" *matRowDef="let row let e = index; columns: displayedColumns;" 
-            [ngClass] = "{'mat-elevation-z8' : e == mouseOverIndex}" (dblclick)="doubleClick()"></tr>
+                <ng-container matColumnDef="Crear">
+                        <th mat-header-cell *matHeaderCellDef> </th>
+                        <td mat-cell *matCellDef="let element, let i = index">
+                                <button mat-button color="primary" *ngIf="i == mouseOverIndex"
+                                        (click)="crearCanje()">Crear canje</button>
+                                <button mat-button color="warn" *ngIf="i == mouseOverIndex"
+                                        (click)="eliminarLibro()">Eliminar libro</button>
+                        </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row class="remove-background" style="cursor: pointer;" (click)="onMouseOver(e)"
+                        *matRowDef="let row let e = index; columns: displayedColumns;"
+                        [ngClass]="{'mat-elevation-z8' : e == mouseOverIndex}" (dblclick)="doubleClick()"></tr>
         </table>
         <table class="table table-hover">
 
         </table>
-        <button mat-flat-button color="accent" (click)="doubleClick()" *ngIf="!deselect()" >Deseleccionar</button>
-    </div>  
+        <button mat-flat-button color="accent" (click)="doubleClick()" *ngIf="!deselect()">Deseleccionar</button>
+</div>
+
+<div *ngIf="usuarioService.getUsuarioUsuarioActual()!=null && creandoCanje">
+
+        <br>
+        <mat-card style="background-color:#fc1a96 ">
+                <mat-card-title style="color:white; background-color:#fc1a96 ">Selecciona uno de tus libros para ofertar
+                </mat-card-title>
+        </mat-card>
+        <br>
+        <div *ngFor="let libro of allLibros" class="container-fluid">
+
+                <div *ngIf="libro.duenio!=null && libro.duenio.id == usuarioService.getUsuarioUsuarioActual().id "
+                        class="col">
+                        <mat-card class="left">
+                                <mat-card-header>
+                                        <div mat-card-avatar class="example-header-image"></div>
+                                        <mat-card-title>{{libro.titulo}}</mat-card-title>
+                                        <mat-card-subtitle>{{libro.autor}}</mat-card-subtitle>
+                                </mat-card-header>
+                                <img mat-card-lg-image src='{{libro.portada}}' class="center">
+                                <br>
+                                <mat-card-content style="margin-left: 1.5cm"> 
+                                        <button type="button" class="btn btn-outline-success">Seleccionar</button>
+                                </mat-card-content>
+                                <br>
+                        </mat-card>
+                </div>
+
+        </div>
+
+</div>

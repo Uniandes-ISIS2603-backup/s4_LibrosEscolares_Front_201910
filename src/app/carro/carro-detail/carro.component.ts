@@ -7,6 +7,7 @@ import { Usuario } from '../../usuario/usuario';
 import { Carro } from '../carro';
 import { CanjeService } from '../../../app/canje/canje.service';
 import { LibrosService } from './../../libros/libros.service';
+import { UsuarioService } from '../../usuario/Usuario.service';
 @Component({
   selector: 'app-carro',
   templateUrl: './carro.component.html',
@@ -22,11 +23,12 @@ export class CarroComponent implements OnInit {
   allLibros: Libro[] = [];
   comprador: String;
   libroSolo: Libro;
+  creandoCanje: Boolean = false;
 
   displayedColumns: string[] = ['ISBN', 'titulo', 'autor', 'editorial', 'estado', 'precio', 'Crear'];
   mouseOverIndex = -1;
 
-  constructor(public carroService: CarroService, public route: ActivatedRoute, canjeService: CanjeService, private LibrosService: LibrosService) {
+  constructor(public carroService: CarroService, public route: ActivatedRoute, public canjeService: CanjeService, private LibrosService: LibrosService,public  usuarioService: UsuarioService) {
     this.libros = [];
     this.comprador = "";
   }
@@ -73,6 +75,7 @@ export class CarroComponent implements OnInit {
   }
 
   public crearCanje() {
+    this.creandoCanje = true;
 
   }
 
@@ -105,6 +108,7 @@ export class CarroComponent implements OnInit {
     }
     this.carro = new CarroDetail();
     this.actualizar();
+    this.getLibros();
 
   }
 

@@ -11,12 +11,22 @@ styleUrls: ['./usuarioEditar.component.css']
 })
 export class UsuarioeditarComponent implements OnInit, OnChanges {
 
+    /**
+     * Contructor del componente editar de usuario 
+     * @param authorService 
+     * @param toastrService 
+     * @param router 
+     * @param route 
+     */
 constructor(private authorService: UsuarioService,
     private toastrService: ToastrService,
     private router: Router,
     private route: ActivatedRoute) {
 }
 
+/**
+    id del usuario actual
+    */
 id:number;
 
 /**
