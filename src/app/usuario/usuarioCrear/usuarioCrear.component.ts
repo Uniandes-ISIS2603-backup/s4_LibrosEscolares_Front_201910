@@ -53,15 +53,17 @@ createUsuario(): void {
             this.usuario = Usuario;
             let carro: CarroDetail = new CarroDetail();
             carro.id = this.usuario.id;
-            carro.dueno = this.usuario;
             carro.nombreU = this.usuario.nombreUsuario;
             console.log(carro);
             this.carroService.createCarro(carro).subscribe( Carro=>{
                 carro = Carro;
                 console.log(carro);
-                this.create.emit();
-            this.toastrService.success("El usuario fue creado, por favor, inicie sesion", "Creacion usuario");
-            this.router.navigate(['/auth/login']);
+                this.carroService.addDueno(carro.id, this.usuario.id).subscribe(Carro=> {
+                    carro = Carro;
+                    this.create.emit();
+                    this.toastrService.success("El usuario fue creado, por favor, inicie sesion", "Creacion usuario");
+                    this.router.navigate(['/auth/login']);
+                })
             }
                 
             );

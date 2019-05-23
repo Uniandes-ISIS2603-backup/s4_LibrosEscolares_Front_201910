@@ -83,4 +83,9 @@ export class CarroService {
     console.log('Sentencia a ejecutar: '+API_URL + carros + "/" + idCarro + "/libros/" + idLibro);
    return  this.http.delete(API_URL + carros + "/" + idCarro + "/libros/" + idLibro);
   }
+
+  public addDueno(idCarro: number, idUser: number): Observable<CarroDetail>{
+    let carro: CarroDetail = new CarroDetail();
+    return this.http.put<CarroDetail>(API_URL+carros+'/'+idCarro+'/dueno/'+idUser, carro);
+  }
 }

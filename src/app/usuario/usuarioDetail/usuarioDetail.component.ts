@@ -122,7 +122,7 @@ import { ToastrService } from 'ngx-toastr';
          * Obtiene el carro compras del usuario
          */
         getCarro(): void{
-        this.carroService.getCarroUsuario(this.usuario_id).subscribe(car =>{ this.carroCompras= car});
+        this.carroService.getCarro(this.usuario_id).subscribe(car =>{ this.carroCompras= car});
     }
 
     /**
