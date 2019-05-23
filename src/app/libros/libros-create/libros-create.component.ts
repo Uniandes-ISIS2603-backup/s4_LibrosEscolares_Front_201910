@@ -1,7 +1,7 @@
 import { Usuario } from './../../usuario/usuario';
 import { UsuarioService } from './../../usuario/Usuario.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Libro } from '../libro';
+import { Libro } from '../Libro';
 
 import {Router, RouterModule, Routes} from '@angular/router';
 import {HttpClient} from '@angular/common/http';

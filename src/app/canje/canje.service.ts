@@ -45,4 +45,19 @@ export class CanjeService {
     return this.http.put<CanjeDetail>(API_URL + canjes + '/' + canje.id, canje);
 }
 
+addLibroPedido(idCanje: number, idLibro: number): Observable<CanjeDetail>{
+    let canje: CanjeDetail;
+    return this.http.put<CanjeDetail>(API_URL+canjes+'/'+idCanje+'/libroPedido/'+idLibro, canje);
+}
+
+addLibroOfrecido(idCanje: number, idLibro: number): Observable<CanjeDetail>{
+    let canje: CanjeDetail;
+    return this.http.put<CanjeDetail>(API_URL+canjes+'/'+idCanje+'/libroOfrecido/'+idLibro, canje);
+}
+
+addRespuesta(idCanje: number, respuestaId: number): Observable<CanjeDetail>{
+    let canje: CanjeDetail;
+    return this.http.put<CanjeDetail>(API_URL+canjes+'/'+idCanje+'/respuesta/'+respuestaId, canje);
+}
+
 }
