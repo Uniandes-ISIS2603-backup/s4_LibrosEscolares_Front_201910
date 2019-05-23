@@ -23,15 +23,34 @@ export class AppComponent implements OnInit {
      * The title that appears on the NavBar and the web browser
      */
     title: String;
+    /**
+     * Variable usada para saber si se muestra o no los banners inferiores de la página princial
+     */
     select: boolean = false;
+    /**
+     * Observable para saber si hay alguien logueado
+     */
     isLoggedIn$: Observable<boolean>;
+    /**
+     * Observable para saber si no hay alguien logueado
+     */
     isLoggedOut$: Observable<boolean>;
 
 
     @ViewChild('libroTitulo') libroTitulo;
     @ViewChild('libroAutor') libroAutor;
+    /**
+     * Libros buscados
+     */
     Libros: Libro[];
+    /**
+     * Parametro de buscar
+     */
     parametroBuscar: String;
+
+    /**
+     * Main del componente
+     */
     ngOnInit(): void {
         this.title = "s4_libros-Front";
         this.authService.start();
@@ -55,24 +74,39 @@ export class AppComponent implements OnInit {
     */
     @Output() create = new EventEmitter();
 
+    /**
+     * Indica que hay algun componente seleccionado (Como buscar libro, listar libros, logIn, sign up)
+     */
     selected(): void {
         this.select = true;
     }
 
+     /**
+     * Indica que no hay algun componente seleccionado (Como buscar libro, listar libros, logIn, sign up)
+     */
     diselected(): void {
         this.select = false;
         this.Libros.length = 0;
     }
 
+    /**
+     * Retorna si hay algun seleccionado
+     */
     getSelect(): boolean {
         return this.select;
     }
 
+    /**
+     * Se hace LogOut
+     */
     logout(): void {
         this.us.usuarioActual = null;
         this.authService.logout()
     }
 
+    /**
+     * 
+     */
     getLibros(): void {
         let titulo = this.libroTitulo.nativeElement.value;
         if (titulo != '') {

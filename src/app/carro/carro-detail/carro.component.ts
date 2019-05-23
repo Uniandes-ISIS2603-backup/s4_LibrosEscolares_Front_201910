@@ -19,13 +19,31 @@ import { Router } from '@angular/router';
 })
 export class CarroComponent implements OnInit {
 
+  /**
+   * Id del carro actual
+   */
   @Input()
   id: number;
 
+  /**
+   * Info de este carro
+   */
   carro: CarroDetail;
+  /**
+   * Libros en el carro
+   */
   libros: Libro[];
+  /**
+   * Todos los libros
+   */
   allLibros: Libro[] = [];
+  /**
+   * Nombre del usuario dueño del carro
+   */
   comprador: String;
+  /**
+   * Auxiliar para el libro escogido entre la lista de libros
+   */
   libroSolo: Libro;
   /**
    * Libro Escogido para canjear
@@ -59,17 +77,28 @@ export class CarroComponent implements OnInit {
     this.comprador = "";
   }
 
+  /**
+   * Añade un libro al carro de compras
+   * @param libroId. Id del libro seleccionado
+   */
   addLibro(libroId: number): void {
     this.LibrosService.getLibrosDetail(libroId).subscribe(libroSolo => this.libroSolo = libroSolo);
     this.carroService.addLibro(this.id, this.libroSolo);
   }
 
+  /**
+   * Elimina un libro del carro de compras
+   * @param index. Index en la lista de libros del libro a eliminar.
+   */
   deleteLibro(index: number) {
     this.libros.splice(index);
     this.carro.libros = this.libros;
     this.carroService.updateCarro(this.id, this.carro);
   }
 
+  /**
+   * Actualiza la información de carro actual.
+   */
   actualizar() {
     console.log(this.id);
     this.carroService.getCarro(this.id).subscribe(Carro => {
@@ -82,6 +111,10 @@ export class CarroComponent implements OnInit {
 
   }
 
+  /**
+   * Indica la accion de seleccionar un libro o deseleccionarlo en caso de ya estar seleccionado
+   * @param index. Indice del libro a seleccionar o deseleccionar
+   */
   public onMouseOver(index) {
     // console.log(index)
     if (this.mouseOverIndex != index) {
@@ -92,14 +125,24 @@ export class CarroComponent implements OnInit {
     }
   }
 
+  /**
+   * Deselecciona un libro seleccionado al hacer doble click
+   */
   public doubleClick() {
     this.mouseOverIndex = -1;
   }
 
+  /**
+   * Informa si hay o no algún libro seleccionado
+   */
   public deselect(): boolean {
     return this.mouseOverIndex == -1;
   }
 
+  /**
+   * Informa que se ha empezado la acción de crear un canje
+   * @param i 
+   */
   public empezarCanje(i: number) {
     this.creandoCanje = true;
     console.log("Indice escogido: " + i)
@@ -188,16 +231,26 @@ export class CarroComponent implements OnInit {
 
   }
 
+  /**
+   * Selecciona uno de los libros del dueño del carro para ofertar como canje
+   * @param index 
+   */
   seleccionarLibro(index: number): void {
     this.haySeleccion = true;
     this.indiceSeleccionado = index;
   }
 
+  /**
+   * Cancela la seleccion hecha en el método seleccionarLibro()
+   */
   cancelarSeleccion(): void {
     this.haySeleccion = false;
     this.indiceSeleccionado = -1;
   }
 
+  /**
+   * Main de la clase. Define el id del libro actual, sea por input o por ruta, actualiza la información el carro y de los libros del dueño del carro
+   */
   ngOnInit() {
     console.log("entro al carro")
     console.log(this.id);
