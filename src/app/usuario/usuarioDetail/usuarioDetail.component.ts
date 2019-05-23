@@ -34,6 +34,7 @@ import { ToastrService } from 'ngx-toastr';
     usuario: UsuarioDetail;
     carroCompras: Carro;
     er: String;
+    aceptado: String;
 
     /**
      * The list of Libros which belong to this usuario
@@ -55,6 +56,8 @@ import { ToastrService } from 'ngx-toastr';
         this.getCarro();
 
         this.er = "EN_REVISION";
+
+        this.aceptado = "ACEPTADO_POR_EL_VENDEDOR";
  
     }   
     /**
@@ -101,6 +104,20 @@ import { ToastrService } from 'ngx-toastr';
              if(element.id==canjeId)
              {
                  element.estado = "ACEPTADO_POR_EL_VENDEDOR";
+
+                 this.canjeService.updateCanje(element);
+                 return;
+             }
+            
+        });
+    }
+    denegarCanje(canjeId)
+    {
+        this.canjes.forEach(element =>
+         {
+             if(element.id==canjeId)
+             {
+                 element.estado = "NO_ACEPTADO";
 
                  this.canjeService.updateCanje(element);
                  return;
