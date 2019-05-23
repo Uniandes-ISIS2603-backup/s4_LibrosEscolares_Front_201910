@@ -19,6 +19,7 @@ export class CarroComponent implements OnInit {
 
   carro: CarroDetail;
   libros: Libro[];
+  allLibros: Libro[] = [];
   comprador: String;
   libroSolo: Libro;
 
@@ -86,6 +87,14 @@ export class CarroComponent implements OnInit {
     this.actualizar();
     console.log('Después');
     console.log(this.libros);
+  }
+
+      /**
+     * Actualiza lista de todos los libros
+     */
+    getLibros(): void {
+      this.LibrosService.getLibros().subscribe(Libros => this.allLibros = Libros);
+     
   }
 
   ngOnInit() {
