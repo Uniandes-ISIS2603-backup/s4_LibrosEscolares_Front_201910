@@ -3,7 +3,7 @@
  <div class="col-3">
 <img class="img-thumbnail"
                          style="  width:  400px;
-                                  height: 500px;"
+                                  height: 600px;"
                          src='{{libro.portada}}' alt="{{libro.id}}" /> 
                     
                 </div>
@@ -82,7 +82,7 @@
                     <tr>
                         
             <button type="submit" class="btn btn-primary" style="width: 150px;height: 70px;" *ngIf="isLoggedIn$ | async"
-                (click)="addLibroACarro()" >Añadir</button>
+                (click)="addLibroACarro()"  >Añadir</button>
                
                     </tr>
                 

@@ -174,6 +174,7 @@ export class CarroComponent implements OnInit {
     console.log(this.libros);
     console.log(' Id de libro a eliminar fue: ' + this.libros[this.mouseOverIndex].id);
     this.carroService.removeLibro(this.id, this.libros[this.mouseOverIndex].id).subscribe();
+    this.libros.splice(this.mouseOverIndex, 1);
     this.actualizar();
     console.log('Después');
     console.log(this.libros);

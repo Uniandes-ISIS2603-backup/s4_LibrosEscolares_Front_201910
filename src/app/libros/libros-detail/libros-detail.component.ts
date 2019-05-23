@@ -11,6 +11,7 @@ import { CarroService } from './../../carro/carro.service';
 import { Carro } from './../../carro/carro';
 
 import { UsuarioService } from '../../usuario/Usuario.service';
+import { Router } from '@angular/router';
 
     @Component({
   selector: 'app-libros-detail',
@@ -26,7 +27,8 @@ import { UsuarioService } from '../../usuario/Usuario.service';
         private route: ActivatedRoute,
         private authService: AuthService,
         public usuarioService: UsuarioService,
-        public carroService: CarroService
+        public carroService: CarroService,
+        private router: Router,
     )
    {
         
@@ -65,7 +67,9 @@ import { UsuarioService } from '../../usuario/Usuario.service';
      */
     addLibroACarro(): void{
         
-        this.carroService.addLibro(this.usuarioService.getUsuarioUsuarioActual().id,this.libro).subscribe();
+        this.carroService.addLibro(this.usuarioService.getUsuarioUsuarioActual().id,this.libro).subscribe(R=>{
+            this.router.navigate(['/carro/'+this.usuarioService.getUsuarioUsuarioActual().id]);
+        });
            
 
 //        this.carroService.addLibro(1,this.libro);
