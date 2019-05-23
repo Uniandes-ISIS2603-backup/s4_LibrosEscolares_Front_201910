@@ -15,7 +15,7 @@ export class RespuestaCreateComponent implements OnInit {
 
   crear()
   {
-    this.respuestaService.createRespuesta(this.respuesta)
+    
   }
 
   ngOnInit() {
