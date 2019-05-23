@@ -18,7 +18,9 @@ import { UsuarioService } from '../../usuario/Usuario.service';
   styleUrls: ['./libros-detail.component.css']
 })
     export class LibrosDetailComponent implements OnInit {
-    
+    /**
+     * Metodo constructor
+     */
     constructor(
         private librosService: LibrosService,
         private route: ActivatedRoute,
@@ -26,14 +28,22 @@ import { UsuarioService } from '../../usuario/Usuario.service';
         public usuarioService: UsuarioService,
         public carroService: CarroService
     )
-    {
-    }
+   {
+        
+   }
+    /**
+     * Declaracion de atributos necesarios: el libro en detalle, el id del libro, los atributos para
+     * saber si esta logeado o no y la calificacion del usuario dueño del libro
+     */
     libro_id: number;
     libro: Libro;
     isLoggedIn$: Observable<boolean>;
     isLoggedOut$: Observable<boolean>;
     calificacion: number;
     
+    /**
+     * Al iniciar carga todos los datos necesarios
+     */
     ngOnInit(){
         this.libro_id = + this.route.snapshot.paramMap.get('id');
         this.getLibro();
@@ -62,6 +72,9 @@ import { UsuarioService } from '../../usuario/Usuario.service';
 
     }
     
+     /**
+     * Consigue la calificacion del usuario dueño del libro
+     */
     getCalificacion()
     {
 //        var u :Usuario;
