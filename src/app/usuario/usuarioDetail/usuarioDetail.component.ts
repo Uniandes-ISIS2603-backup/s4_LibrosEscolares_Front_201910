@@ -94,6 +94,20 @@ import { ToastrService } from 'ngx-toastr';
             this.toastrService.success(e);
         }
     }
+    aceptarCanje(canjeId)
+    {
+        this.canjes.forEach(element =>
+         {
+             if(element.id==canjeId)
+             {
+                 element.estado = "ACEPTADO_POR_EL_VENDEDOR";
+
+                 this.canjeService.updateCanje(element);
+                 return;
+             }
+            
+        });
+    }
     
     }
 
