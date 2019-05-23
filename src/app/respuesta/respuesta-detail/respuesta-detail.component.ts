@@ -22,6 +22,7 @@ export class RespuestaDetailComponent implements OnInit {
   libroOfrecido: Libro;
 
   libroPedido: Libro;
+  
 ;
 
   @Input()

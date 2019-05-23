@@ -20,7 +20,10 @@
 <img src="../../../assets/exchange.svg" class = "center" height="130" width="130" >
 <span style="display: block; height:1cm" ></span>
 <mat-chip-list >
-    <mat-chip color="warn" selected class ="center-height">Rechazado</mat-chip>
+    <mat-chip color="warn" selected class ="center-height" *ngIf="canjes[respuesta.id].estado == 'Aceptado' || canjes[respuesta.id].estado == 'Rechazado' ">
+      Aceptado</mat-chip>
+    <mat-chip color="yellow" selected class ="center-height" *ngIf="canjes[respuesta.id].estado != 'Aceptado' && canjes[respuesta.id].estado != 'Rechazado'">
+      Pendiente</mat-chip>
   </mat-chip-list>
   <span style="display: block; height:1.5cm" ></span>
   <button mat-raised-button color="primary"  style="font-size: 25px" class = "aceptar">Aceptar</button>

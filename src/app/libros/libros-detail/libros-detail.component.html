@@ -112,5 +112,5 @@
         <br>
         <div class="row form-inline justify-content-center align-self-center">
             <button type="submit" class="btn btn-primary" style="width: 150px;height: 70px;"
-                (click)="addLibroACarro()">Añadir</button>
+                (click)="addLibroACarro()" routerLink='/carro/{{this.usuarioService.getUsuarioUsuarioActual().id}}'>Añadir</button>
 

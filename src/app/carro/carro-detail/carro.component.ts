@@ -19,7 +19,7 @@ export class CarroComponent implements OnInit {
 
   carro: CarroDetail;
   libros: Libro[];
-  comprador: string;
+  comprador: String;
   libroSolo: Libro;
 
   displayedColumns: string[] = ['ISBN', 'titulo', 'autor', 'editorial', 'estado', 'precio', 'Crear'];

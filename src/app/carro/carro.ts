@@ -11,6 +11,6 @@ export class Carro {
 
     dueno: Usuario;
 
-    nombreU: string;
+    nombreU: String;
 
 }
