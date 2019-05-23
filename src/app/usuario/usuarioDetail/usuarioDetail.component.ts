@@ -105,7 +105,7 @@ import { ToastrService } from 'ngx-toastr';
              {
                  element.estado = "ACEPTADO_POR_EL_VENDEDOR";
 
-                 this.canjeService.updateCanje(element);
+                 this.canjeService.updateCanje(element).subscribe(can =>{ element = can});
                  return;
              }
             
@@ -119,7 +119,7 @@ import { ToastrService } from 'ngx-toastr';
              {
                  element.estado = "NO_ACEPTADO";
 
-                 this.canjeService.updateCanje(element);
+                 this.canjeService.updateCanje(element).subscribe(can =>{ element = can});;
                  return;
              }
             
